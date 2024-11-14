@@ -17,6 +17,13 @@ if [[ "$EUID" -ne 0 ]]; then
         exit 1
 fi
 
+# Menampilkan banner
+echo ""
+echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗   ${m}╦╔═╗╔╗╔╔═╗${r}"
+echo -e "${p}║║║║╚═╗ ║ ╠═╣║  ║  ║╣ ╠╦╝   ${m}║║ ║║║║║ ║${r}"
+echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝╩═╝╚═╝╩╚═  ${m}╚╝╚═╝╝╚╝╚═╝${r}"
+echo ""
+echo "Selamat datang di menu installer Jono"
 # Cek koneksi internet
 echo "[*] Mengecek koneksi internet..."
 sleep 3
