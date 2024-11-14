@@ -31,6 +31,7 @@ while true; do
         echo "[-] Masukkan tidak valid. Harap masukkan 'Y/n'."
         continue
     fi
+    break
 done
 
 if [[ "${nanya}" == "n" || "${nanya}" == "N" ]]; then
