@@ -66,7 +66,7 @@ echo -e "${h}[+] ${p}Berhasil memperbarui repositori Linux.${r}"
 echo -e "${b}[*] ${p}Menginstal dependensi yang diperlukan John The Ripper...${r}"
 sleep 3
 for dependensi in "${daftar_dependensi[@]}"; do
-      echo -e "${b}[*] Menginstal '${dependensi}'...${r}"
+      echo -e "${b}[*] ${p}Menginstal '${dependensi}'...${r}"
       sleep 3
       apt-get install "${dependensi}" -y >> /dev/null 2>&1
       if [[ $? -ne 0 ]]; then
