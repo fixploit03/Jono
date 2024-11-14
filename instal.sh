@@ -17,6 +17,9 @@ if [[ "$EUID" -ne 0 ]]; then
         exit 1
 fi
 
+# Membersihkan layar Terminal 
+clear
+
 # Menampilkan banner
 echo ""
 echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗  ${m}╦╔═╗╔╗╔╔═╗${r}"
