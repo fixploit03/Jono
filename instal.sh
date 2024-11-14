@@ -23,15 +23,16 @@ echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗
 echo -e "${p}║║║║╚═╗ ║ ╠═╣║  ║  ║╣ ╠╦╝  ${m}║║ ║║║║║ ║${r}"
 echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝╩═╝╚═╝╩╚═ ${m}╚╝╚═╝╝╚╝╚═╝${r}"
 echo -e "${p}Selamat datang di menu installer Jono${r}"
+
 # Cek koneksi internet
-echo "[*] Mengecek koneksi internet..."
+echo -e "${b}[*] ${p}Mengecek koneksi internet...${r}"
 sleep 3
 if ! ping -c 1 8.8.8.8 >> /dev/null 2>&1; then
-        echo "[-] Anda tidak memiliki koneksi internet."
+        echo -e "${m}[-] ${p}Anda tidak memiliki koneksi internet.${r}"
         exit 1
 fi
 
-echo "[+] Anda memiliki koneksi internet."
+echo -e "${h}[+] ${p}Anda memiliki koneksi internet.${r}"
 
 # Daftar dependensi yang diperlukan untuk menginstal John the Ripper
 daftar_dependensi=(
@@ -51,80 +52,80 @@ daftar_dependensi=(
 )
 
 # Memperbarui repositori Linux
-echo "[*] Memperbarui repositori Linux..."
+echo -e "${b}[*] ${p}Memperbarui repositori Linux...${r}"
 sleep 3
 apt-get update -y >> /dev/null 2>&1
 if [[ $? -ne 0 ]]; then
-        echo "[-] Gagal memperbarui repositori Linux."
+        echo -e "${m}[-] ${p}Gagal memperbarui repositori Linux.${r}"
         exit 1
 fi
 
-echo "[+] Berhasil memperbarui repositori Linux."
+echo -e "${h}[+] ${p}Berhasil memperbarui repositori Linux.${r}"
 
 # Menginstal dependensi yang diperlukan John The Ripper
-echo "[*] Menginstal dependensi yang diperlukan John The Ripper..."
+echo -e "${b}[*] ${p}Menginstal dependensi yang diperlukan John The Ripper...${r}"
 sleep 3
 for dependensi in "${daftar_dependensi[@]}"; do
-      echo "[*] Menginstal ${dependensi}..."
+      echo -e "${b}[*] Menginstal '${dependensi}'...${r}"
       sleep 3
       apt-get install "${dependensi}" -y >> /dev/null 2>&1
       if [[ $? -ne 0 ]]; then
-              echo "[-] Gagal menginstal ${dependensi}."
+              echo -e "${m}[-] ${p}Gagal menginstal '${dependensi}'.${r}"
               exit 1
       fi
 
-      echo "[+] Berhasil menginstal ${dependensi}."
+      echo -e "${h}[+] ${p}Berhasil menginstal '${dependensi}'.${r}"
 done
 
 # Mengkloning John The Ripper dari Github
-echo "[*] Mengkloning John The Ripper dari Github..."
+echo -e "${b}[*] ${p}Mengkloning John The Ripper dari Github...${r}"
 sleep 3
 cd "${lokasi_instalasi_john}"
 git clone https://github.com/openwall/john >> /dev/null 2>&1
 if [[ $? -ne 0 ]]; then
-        echo "[-] Gagal mengkloning John The Ripper dari Github."
+        echo -e "${m}[-] ${p}Gagal mengkloning John The Ripper dari Github.${r}"
         exit 1
 
 fi
 
-echo "[+] Berhasil mengkloning John The Ripper dari Github."
+echo -e "${h}[+] ${p}Berhasil mengkloning John The Ripper dari Github.${r}"
 
 # Folder saat ini '/usr/share'
 # Masuk ke folder 'src' dari John the ripper
 cd john/src
 
 # Membuat Makefile untuk menginstal John The Ripper...
-echo "[*] Membuat Makefile..."
+echo -e "${b}[*] ${p}Membuat Makefile...${r}"
 sleep 3
 ./configure
 if [[ $? -ne 0 ]]; then
-        echo "[-] Gagal membuat Makefile."
+        echo -e "${m}[-] ${p}Gagal membuat Makefile.${r}"
         exit 1
 fi
 
-echo "[+] Berhasil membuat Makefile."
+echo -e "${h}[+] ${p}Berhasil membuat Makefile.${r}"
 
 # Membangun ulang John The Ripper
-echo "[*] Membangun ulang John The Ripper..."
+echo -e "${b}[*] ${p}Membangun ulang John The Ripper...${r}"
 sleep 3
 make -s clean && make -sj8
 if [[ $? -ne 0 ]]; then
-        echo "[-] Gagal membangun ulang John The Ripper."
+        echo -e "${m}[-] ${p}Gagal membangun ulang John The Ripper.${r}"
         exit 1
 fi
 
-echo "[+] Berhasil membangun ulang John The Ripper."
+echo -e "${h}[+] ${p}Berhasil membangun ulang John The Ripper.${r}"
 
 # Menginstal John The Ripper
-echo "[*] Menginstal John The Ripper..."
+echo -e "${b}[*] ${p}Menginstal John The Ripper...${r}"
 sleep 3
 make install
 if [[ $? -ne 0 ]]; then
-        echo "[-] Gagal menginstal John The Ripper."
+        echo -e "${m}[-] ${p}Gagal menginstal John The Ripper.${r}"
         exit 1
 fi
 
-echo "[+] Berhasil menginstal John the ripper."
+echo -e "${h}[+] ${p}Berhasil menginstal John the ripper.${r}"
 # John The Ripper 
 alias john="/usr/share/john/run/john"
 echo "export PATH=$PATH:/usr/share/john/run" >> ~/.bashrc
