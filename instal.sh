@@ -13,14 +13,14 @@ b="\e[1;34m" # Biru
 p="\e[1;37m" # Putih 
 r="\e[0m"    # Reset 
 
-# Lokasi folder untuk menyimpan John The Ripper
-lokasi_instalasi_john="/usr/share"
-
 # Cek root
 if [[ "$EUID" -ne 0 ]]; then
         echo -e "${m}[-] ${p}Script ini harus dijalankan sebagai root.${r}"
         exit 1
 fi
+
+# Lokasi folder untuk menyimpan John The Ripper
+lokasi_instalasi_john="/usr/share"
 
 # Membersihkan layar Terminal 
 clear
