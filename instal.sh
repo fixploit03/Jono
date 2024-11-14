@@ -1,5 +1,10 @@
 #!/bin/bash
-# Jangan diutak-atik. GW CAPE!!!
+#-------------------------------------------
+# [instal.sh]
+# File ini merupakan bagian dari proyek Jono
+# Dibuat oleh: fixploit03 
+#-------------------------------------------
+# Mau ngapain sih Broh ^_^
 
 # Variabel warna
 m="\e[1;31m" # Merah
