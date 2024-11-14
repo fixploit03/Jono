@@ -23,6 +23,7 @@ echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗
 echo -e "${p}║║║║╚═╗ ║ ╠═╣║  ║  ║╣ ╠╦╝  ${m}║║ ║║║║║ ║${r}"
 echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝╩═╝╚═╝╩╚═ ${m}╚╝╚═╝╝╚╝╚═╝${r}"
 echo -e "${p}Selamat datang di menu installer Jono${r}"
+echo ""
 
 while true; do
     read -p $'\e[1;33m[?] \e[1;37mApakah Anda ingin menginstal Jono [Y/n]: \e[1;33m' nanya
@@ -31,6 +32,11 @@ while true; do
         continue
     fi
 done
+
+if [[ "${nanya}" != "n" || "${nanya}" != "N" ]]; then
+    echo "[+] Semoga harimu menyenangkan :)"
+    exit 0
+fi
 
 # Cek koneksi internet
 echo -e "${b}[*] ${p}Mengecek koneksi internet...${r}"
