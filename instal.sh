@@ -43,7 +43,7 @@ while true; do
 done
 
 if [[ "${nanya}" == "n" || "${nanya}" == "N" ]]; then
-    echo -e "${h}[+] ${p}Semoga harimu menyenangkan :)${r}"
+    echo -e "${h}[+] ${p}Semoga harimu menyenangkan ^_^${r}"
     exit 0
 fi
 
