@@ -33,7 +33,7 @@ while true; do
     fi
 done
 
-if [[ "${nanya}" != "n" || "${nanya}" != "N" ]]; then
+if [[ "${nanya}" == "n" || "${nanya}" == "N" ]]; then
     echo "[+] Semoga harimu menyenangkan :)"
     exit 0
 fi
