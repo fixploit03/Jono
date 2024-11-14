@@ -19,11 +19,10 @@ fi
 
 # Menampilkan banner
 echo ""
-echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗   ${m}╦╔═╗╔╗╔╔═╗${r}"
-echo -e "${p}║║║║╚═╗ ║ ╠═╣║  ║  ║╣ ╠╦╝   ${m}║║ ║║║║║ ║${r}"
-echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝╩═╝╚═╝╩╚═  ${m}╚╝╚═╝╝╚╝╚═╝${r}"
-echo ""
-echo "Selamat datang di menu installer Jono"
+echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗  ${m}╦╔═╗╔╗╔╔═╗${r}"
+echo -e "${p}║║║║╚═╗ ║ ╠═╣║  ║  ║╣ ╠╦╝  ${m}║║ ║║║║║ ║${r}"
+echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝╩═╝╚═╝╩╚═ ${m}╚╝╚═╝╝╚╝╚═╝${r}"
+echo -e "${p}Selamat datang di menu installer Jono${r}"
 # Cek koneksi internet
 echo "[*] Mengecek koneksi internet..."
 sleep 3
