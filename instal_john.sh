@@ -150,4 +150,17 @@ echo "export PATH=$PATH:/usr/share/john/run" >> ~/.bashrc
 
 # Memuat ulang (reload) file konfigurasi shell '~/.bashrc'
 source ~/.bashrc
+
+# Instal Jono
+echo -e "${b}[*] ${p}Menginstal Jono...${r}"
+sleep 3
+mv jono.sh jono
+chmod +x jono
+cp jono /usr/bin
+if [[ $? -ne 0 ]]; then
+        echo -e "${m}[-] ${p}Gagal menginstal Jono.${r}"
+        exit 1
+fi
+echo -e "${h}[+] ${p}Berhasil menginstal John the ripper.${r}"
+echo -e "${h}[+] ${p}Ketikkan perintah 'jono' untuk menjalankannya.${r}"
 exit 0
