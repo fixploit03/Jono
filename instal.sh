@@ -112,4 +112,10 @@ if [[ $? -ne 0 ]]; then
 fi
 
 echo "[+] Berhasil menginstal John the ripper."
+# John The Ripper 
+alias john="/usr/share/john/run/john"
+echo "export PATH=$PATH:/usr/share/john/run" >> ~/.bashrc
+
+# Memuat ulang (reload) file konfigurasi shell '~/.bashrc'
+source ~/.bashrc
 exit 0
