@@ -28,14 +28,14 @@ echo ""
 while true; do
     read -p $'\e[1;33m[?] \e[1;37mApakah Anda ingin menginstal Jono [Y/n]: \e[1;33m' nanya
     if [[ "${nanya}" != "y" && "${nanya}" != "Y" && "${nanya}" != "n" && "${nanya}" != "N" ]]; then
-        echo "[-] Masukkan tidak valid. Harap masukkan 'Y/n'."
+        echo -e "${m}[-] ${p}Masukkan tidak valid. Harap masukkan 'Y/n'.${r}"
         continue
     fi
     break
 done
 
 if [[ "${nanya}" == "n" || "${nanya}" == "N" ]]; then
-    echo "[+] Semoga harimu menyenangkan :)"
+    echo -e "${h}[+] ${p}Semoga harimu menyenangkan :)${r}"
     exit 0
 fi
 
