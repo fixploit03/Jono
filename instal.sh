@@ -1,12 +1,19 @@
 #!/bin/bash
 # Jangan diutak-atik. GW CAPE!!!
 
+# Variabel warna
+m="\e[1;31m" # Merah
+h="\e[1;32m" # Hijau 
+b="\e[1;34m" # Biru 
+p="\e[1;37m" # Putih 
+r="\e[0m"    # Reset 
+
 # Lokasi folder untuk menyimpan John The Ripper
 lokasi_instalasi_john="/usr/share"
 
 # Cek root
 if [[ "$EUID" -ne 0 ]]; then
-        echo "[-] Script ini harus dijalankan sebagai root."
+        echo -e "${m}[-] ${p}Script ini harus dijalankan sebagai root.${r}"
         exit 1
 fi
 
