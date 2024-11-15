@@ -30,7 +30,9 @@ echo -e ""
 echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦    ${m}╦╔═╗╦ ╦╔╗╔ ╔╦╗╦ ╦╔═╗ ╦═╗╦╔═╗╔═╗╔═╗╦═╗${r}"
 echo -e "${p}║║║║╚═╗ ║ ╠═╣║    ${m}║║ ║╠═╣║║║  ║ ╠═╣║╣  ╠╦╝║╠═╝╠═╝║╣ ╠╦╝${r}"
 echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝ ${m}╚╝╚═╝╩ ╩╝╚╝  ╩ ╩ ╩╚═╝ ╩╚═╩╩  ╩  ╚═╝╩╚═${r}"
-echo -e "${p}Selamat datang di menu instalasi John The Ripper${r}"
+echo -e "${b}[*] ${p}Selamat datang di menu instalasi John The Ripper${r}"
+echo -e "${b}[*] ${p}Pembuat: fixploit03${r}"
+echo -e "${b}[*] ${p}Github: https://github.com/fixploit03/jono/${r}
 echo ""
 
 while true; do
