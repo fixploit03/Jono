@@ -36,6 +36,7 @@ echo -e "${b}[*] ${p}Pembuat: fixploit03${r}"
 echo -e "${b}[*] ${p}Github: https://github.com/fixploit03/Jono/${r}"
 echo ""
 
+# Nanya 
 while true; do
     read -p $'\e[1;33m[?] \e[1;37mApakah Anda ingin menginstal John The Ripper [Y/n]: \e[1;33m' nanya
     if [[ "${nanya}" != "y" && "${nanya}" != "Y" && "${nanya}" != "n" && "${nanya}" != "N" ]]; then
