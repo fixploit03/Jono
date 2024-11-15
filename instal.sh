@@ -6,6 +6,12 @@
 #-------------------------------------------
 # Mau ngapain sih Broh ^_^
 
+john="/usr/share/john"
+
+if [[ ! -d "${jihn}" ]]; then
+    bash instal_john.sh
+fi
+
 chmod +x jono.sh
 cp jono.sh /usr/local/bin/jono
 
