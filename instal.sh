@@ -9,6 +9,7 @@
 # Variabel warna
 m="\e[1;31m" # Merah
 h="\e[1;32m" # Hijau 
+k="\e[1;33m" # Kuning 
 b="\e[1;34m" # Biru 
 p="\e[1;37m" # Putih 
 r="\e[0m"    # Reset 
