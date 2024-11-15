@@ -1,6 +1,6 @@
 #!/bin/bash
 #-------------------------------------------
-# [instal.sh]
+# [instal_john.sh]
 # File ini merupakan bagian dari proyek Jono
 # Dibuat oleh: fixploit03 
 #-------------------------------------------
@@ -27,14 +27,14 @@ clear
 
 # Menampilkan banner
 echo ""
-echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗  ${m}╦╔═╗╔╗╔╔═╗${r}"
-echo -e "${p}║║║║╚═╗ ║ ╠═╣║  ║  ║╣ ╠╦╝  ${m}║║ ║║║║║ ║${r}"
-echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝╩═╝╚═╝╩╚═ ${m}╚╝╚═╝╝╚╝╚═╝${r}"
-echo -e "${p}Selamat datang di menu installer Jono${r}"
+echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦     ${m}╦╔═╗╦ ╦╔╗╔${r}"
+echo -e "${p}║║║║╚═╗ ║ ╠═╣║     ${m}║║ ║╠═╣║║║${r}"
+echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝  ${m}╚╝╚═╝╩ ╩╝╚╝${r}"
+echo -e "${p}Selamat datang di menu instalasi John The Ripper${r}"
 echo ""
 
 while true; do
-    read -p $'\e[1;33m[?] \e[1;37mApakah Anda ingin menginstal Jono [Y/n]: \e[1;33m' nanya
+    read -p $'\e[1;33m[?] \e[1;37mApakah Anda ingin menginstal John The Ripper [Y/n]: \e[1;33m' nanya
     if [[ "${nanya}" != "y" && "${nanya}" != "Y" && "${nanya}" != "n" && "${nanya}" != "N" ]]; then
         echo -e "${m}[-] ${p}Masukkan tidak valid. Harap masukkan 'Y/n'.${r}"
         continue
