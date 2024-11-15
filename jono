@@ -2,7 +2,7 @@
 
 daftar_file=(
         "cek_root.sh"
-        "buat_folder_file_hash"
+        "buat_folder_file_hash.sh"
         "peringatan.sh"
         "cek_os.sh"
 )
