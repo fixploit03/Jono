@@ -26,10 +26,10 @@ lokasi_instalasi_john="/usr/share"
 clear
 
 # Menampilkan banner
-echo ""
-echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦     ${m}╦╔═╗╦ ╦╔╗╔${r}"
-echo -e "${p}║║║║╚═╗ ║ ╠═╣║     ${m}║║ ║╠═╣║║║${r}"
-echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝  ${m}╚╝╚═╝╩ ╩╝╚╝${r}"
+echo -e ""
+echo -e "${p}╦╔╗╔╔═╗╔╦╗╔═╗╦    ${m}╦╔═╗╦ ╦╔╗╔ ╔╦╗╦ ╦╔═╗ ╦═╗╦╔═╗╔═╗╔═╗╦═╗${r}"
+echo -e "${p}║║║║╚═╗ ║ ╠═╣║    ${m}║║ ║╠═╣║║║  ║ ╠═╣║╣  ╠╦╝║╠═╝╠═╝║╣ ╠╦╝${r}"
+echo -e "${p}╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝ ${m}╚╝╚═╝╩ ╩╝╚╝  ╩ ╩ ╩╚═╝ ╩╚═╩╩  ╩  ╚═╝╩╚═${r}"
 echo -e "${p}Selamat datang di menu instalasi John The Ripper${r}"
 echo ""
 
