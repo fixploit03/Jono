@@ -72,6 +72,7 @@ daftar_dependensi=(
         "libpcap-dev"
         "pkg-config"
         "libbz2-dev"
+        "libcompress-raw-lzma-perl"
 )
 
 # Memperbarui repositori Linux
@@ -152,6 +153,26 @@ echo -e "${h}[+] ${p}Berhasil menginstal John the ripper.${r}"
 # John The Ripper 
 alias john="/usr/share/john/run/john"
 echo "export PATH=$PATH:/usr/share/john/run" >> ~/.bashrc
+
+# Lokasi alat John The Ripper
+lokasi_alat_john="/usr/share/john/run"
+
+# Membuat Symlink
+daftar_alat_john=(
+        "7z2john.pl"
+        "pdf2john.pl"
+        "office2john.py"
+)
+
+for alat_john in "${daftar_alat_john[@]}"; do
+    if [[ "${alat_john}" == "7z2john.pl" ]]; then
+            ln -s "${lokasi_alat_john}/${alat_john}" "/usr/local/bin/7z2john"
+    elif [[ "${alat_john}" == "pdf2john.pl" ]]; then
+            ln -s "${lokasi_alat_john}/${alat_john}" "/usr/local/bin/pdf2john"
+    elif [[ "${alat_john}" == "office2john.py" ]]; then
+            ln -s "${lokasi_alat_john}/${alat_john}" "/usr/local/bin/office2john"
+    fi
+done
 
 # Memuat ulang (reload) file konfigurasi shell '~/.bashrc'
 source ~/.bashrc
