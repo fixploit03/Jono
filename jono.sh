@@ -32,7 +32,6 @@ fi
 clear
 
 # Menampilkan kata-kata peringatan
-echo ""
 echo -e "${b}Selamat datang di program Jono${r}"
 echo -e ""
 echo -e "${p}Jono adalah program Bash sederhana yang dirancang untuk melakukan cracking${r}"
@@ -50,3 +49,27 @@ echo -e "${p}untuk selalu mematuhi peraturan dan etika yang berlaku di wilayah A
 echo -e ""
 
 sleep 3
+
+# Mengecek sistem operasi
+echo -e "${b}[*] ${p}Mengecek sistem operasi...${r}"
+sleep 3
+sistem_operasi=$(uname -s)
+if [[ "${sistem_operasi}" != "Linux" ]]; then
+        echo -e "${m}[-] ${p}Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
+        exit 1
+fi
+
+# Mengecek ID Linux
+file_id_linux="/etc/os-release"
+if [[ ! -f "${file_id_linux}" ]]; then
+        echo -e "${m}[-] ${p}File '${file_id_linux}' tidak ditemukan. Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
+        exit 1
+fi
+. "${file_id_linux}"
+id_linux=$ID
+if [[ "${id_linux}" != "debian" && "${id_linux}" != "ubuntu" && "${id_linux}" != "kali" ]]; then
+        echo -e "${m}[-] ${p}Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
+        exit 1
+fi
+
+echo -e "${h}[+] ${p}Sistem operasi Anda: ${sistem_operasi} (${id_linux})."
