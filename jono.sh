@@ -73,3 +73,22 @@ if [[ "${id_linux}" != "debian" && "${id_linux}" != "ubuntu" && "${id_linux}" !=
 fi
 
 echo -e "${h}[+] ${p}Sistem operasi Anda: ${sistem_operasi} (${id_linux})."
+
+# Mengecek alat
+daftar_alat=(
+        "john"
+        "zip2john"
+        "rar2john"
+        "7z2john"
+        "pdf2john"
+        "office2john"
+)
+
+for alat in "${daftar_alat[@]}"; do
+        echo "[*] Mengecek '${alat}'"
+        sleep 3
+        command -v "${alat}" >> /dev/null 2>&1
+        if [[ $? -ne 0 ]]; then
+                echo "[-] '${alat}' belum diinstal. Instal dengan mengetikkan perintah 'bash instal.sh'."
+        fi
+done
