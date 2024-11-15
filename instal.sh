@@ -14,5 +14,5 @@ fi
 
 chmod +x jono.sh
 cp jono.sh /usr/local/bin/jono
-
-echo "[+] Selesai."
+echo -e "${h}[+] ${p}Berhasil menginstal Jono. Ketikkan perintah 'Jono' untuk menjalankannya.${r}"
+exit 0
