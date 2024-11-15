@@ -38,17 +38,21 @@ echo ""
 
 # Nanya 
 while true; do
-    read -p $'\e[1;33m[?] \e[1;37mApakah Anda ingin menginstal John The Ripper [Y/n]: \e[1;33m' nanya
-    if [[ "${nanya}" != "y" && "${nanya}" != "Y" && "${nanya}" != "n" && "${nanya}" != "N" ]]; then
-        echo -e "${m}[-] ${p}Masukkan tidak valid. Harap masukkan 'Y/n'.${r}"
-        continue
-    fi
-    break
+        read -p $'\e[1;33m[?] \e[1;37mApakah Anda ingin menginstal John The Ripper [Y/n]: \e[1;33m' nanya
+        if [[ -z "${nanya}" ]]; then
+                echo -e "${m}[-] ${p}Masukkan tidak boleh kosong.${r}"
+                continue
+        fi
+        if [[ "${nanya}" != "y" && "${nanya}" != "Y" && "${nanya}" != "n" && "${nanya}" != "N" ]]; then
+                echo -e "${m}[-] ${p}Masukkan tidak valid. Harap masukkan 'Y/n'.${r}"
+                continue
+        fi
+        break
 done
 
 if [[ "${nanya}" == "n" || "${nanya}" == "N" ]]; then
-    echo -e "${h}[+] ${p}Semoga harimu menyenangkan ^_^${r}"
-    exit 0
+        echo -e "${h}[+] ${p}Semoga harimu menyenangkan ^_^${r}"
+        exit 0
 fi
 
 # Cek koneksi internet
