@@ -56,7 +56,7 @@ if [[ "${nanya}" == "n" || "${nanya}" == "N" ]]; then
         exit 0
 fi
 
-if [[ ! -d "${jihn}" ]]; then
+if [[ ! -d "${john}" ]]; then
     bash instal_john.sh
 fi
 
