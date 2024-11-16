@@ -97,4 +97,6 @@ for alat in "${daftar_alat[@]}"; do
 done
 
 echo ""
-read -p "Tekan [Enter] untuk melanjutkan..." lanjutkan
+read -p $'\e[1;37mTekan [Enter] untuk melanjutkan...\e[0m' lanjutkan
+
+clear
