@@ -85,10 +85,13 @@ daftar_alat=(
 )
 
 for alat in "${daftar_alat[@]}"; do
-        echo "[*] Mengecek '${alat}'"
+        echo "[*] Mengecek '${alat}'..."
         sleep 3
         command -v "${alat}" >> /dev/null 2>&1
         if [[ $? -ne 0 ]]; then
-                echo "[-] '${alat}' belum diinstal. Instal dengan mengetikkan perintah 'bash instal.sh'."
+                echo -e "${m}[-] ${p}'${alat}' belum terinstal.${r}"
+                echo -e "${m}[-] ${p}Instal dengan mengetikkan perintah 'bash instal.sh'.${r}"
+                exit 0
         fi
+        echo -e "${h}[+] ${p}'${alat}' sudah terinstal.${r}"
 done
