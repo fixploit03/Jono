@@ -85,7 +85,7 @@ daftar_alat=(
 )
 
 for alat in "${daftar_alat[@]}"; do
-        echo "[*] Mengecek '${alat}'..."
+        echo -e "${b}[*] ${p}Mengecek '${alat}'...${r}"
         sleep 3
         command -v "${alat}" >> /dev/null 2>&1
         if [[ $? -ne 0 ]]; then
