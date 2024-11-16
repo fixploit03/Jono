@@ -95,3 +95,6 @@ for alat in "${daftar_alat[@]}"; do
         fi
         echo -e "${h}[+] ${p}'${alat}' sudah terinstal.${r}"
 done
+
+echo ""
+read -p "Tekan [Enter] untuk melanjutkan..." lanjutkan
