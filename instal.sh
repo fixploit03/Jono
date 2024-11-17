@@ -60,6 +60,7 @@ if [[ ! -d "${john}" ]]; then
     bash instal_john.sh
 fi
 
+echo -e "${b}[*] ${p}Mengingat Jono...${r}"
 chmod +x jono.sh
 cp jono.sh /usr/local/bin/jono
 echo -e "${h}[+] ${p}Berhasil menginstal Jono. Ketikkan perintah 'Jono' untuk menjalankannya.${r}"
