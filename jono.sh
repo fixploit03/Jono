@@ -362,6 +362,187 @@ while true; do
 
                         done
                         break
+		elif [[ "${pilih_menu}" == "6" ]]; then
+			target_hash_file_zip="${nama_file_hash_file_zip}"
+			if [[ -f "${target_hash_file_zip}" ]]; then
+				echo "[+] Pada sesi ini Anda sudah memiliki file hash file zip '${file_zip}': ${target_hash_file_zip}"
+				while true; do
+					read -p "[#] Apakah Anda ingin menggunakannya [Y/n]: " nanya_zip
+					if [[ "${nanya_zip}" == "Y" || "${nanya_zip}" == "y" ]]; then
+						while true; do
+							read -p "[#] Masukkan nama file Wordlist: " file_wordlist
+							echo "[*] Mengecek file Wordlist '${file_wordlist}'..."
+							sleep 3
+							if [[ -z "${file_wordlist}" ]]; then
+								echo "[-] File Wordlist tidak boleh kosong."
+								continue
+							else
+								if [[ ! -f "${file_wordlist}" ]]; then
+									echo "[-] File Wordlist '${file_wordlist}' tidak ditemukan."
+									continue
+								else
+									echo "[+] File Wordlist '${file_wordlist}' ditemukan."
+									pot="pot.txt"
+									while true; do
+										read -p "[#] Apakah Anda ingin menggunakan mode verbose [Y/n]: " nanya_verbose
+										if [[ "${nanya_verbose}" == "Y" || "${nanya_verbose}" == "y" ]]; then
+											echo ""
+											read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi...\e[0m'
+											echo "[*] Memulihkan kata sandi file ZIP '${file_zip}'..."
+											john --wordlist="${file_wordlist}" --pot="${pot}" --verbosity=6 --progress-every=1 "${target_hash_file_zip}"
+											if [[ -f "${pot}" ]]; then
+												if [[ $(cat "${pot}" | grep -o ":") ]]; then
+													kata_sandi_zip=$(cat "${pot}" | cut -d ":" -f 2)
+													echo "[+] Kata sandi berhasil dipulihkan."
+													echo "[+] Kata sandi: ${kata_sandi_zip}"
+													rm "${pot}"
+												else
+													echo "[-] Kata sandi gagal dipulihkan."
+													echo "[-] Cobalah menggunakan file Wordlist yang lain."
+												fi
+												break
+											else
+												echo "[-] Kata sandi gagal dipulihkan."
+												echo "[-] File pot John The Ripper tidak ditemukan."
+											fi
+											break
+										elif [[ "${nanya_verbose}" == "N" || "${nanya_verbose}" == "n"  ]]; then
+											echo ""
+											read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi...\e[0m'
+											echo "[*] Memulihkan kata sandi file ZIP '${file_zip}'..."
+											john --wordlist="${file_wordlist}" --pot="${pot}" "${target_hash_file_zip}" >> /dev/null 2>&1
+											if [[ -f "${pot}" ]]; then
+												if [[ $(cat "${pot}" | grep -o ":") ]]; then
+													kata_sandi_zip=$(cat "${pot}" | cut -d ":" -f 2)
+													echo "[+] Kata sandi berhasil dipulihkan."
+													echo "[+] Kata sandi: ${kata_sandi_zip}"
+													rm "${pot}"
+												else
+													echo "[-] Kata sandi gagal dipulihkan."
+													echo "[-] Cobalah menggunakan file Wordlist yang lain."
+												fi
+												break
+											else
+												echo "[-] Kata sandi gagal dipulihkan."
+												echo "[-] File pot John The Ripper tidak ditemukan."
+											fi
+											break
+										else
+											echo "[-] Masukkan tidak valid. Harap masukkan 'Y' atau 'N' (huruf besar atau kecil)."
+											continue
+
+										fi
+									done
+								fi
+								break
+							fi
+							break
+						done
+						break
+					elif [[ "${nanya_zip}" == "N" || "${nanya_zip}" == "n" ]]; then
+						while true; do
+							read -p "[#] Masukkan nama file hash file ZIP: " hash_zip
+							if [[ -z "${hash_zip}" ]]; then
+								echo "[-] File hash tidak boleh kosong."
+								continue
+							else
+								if [[ ! -f "${hash_zip}" ]]; then
+									echo "[-] File hash '${hash_zip}' tidak ditemukan."
+									continue
+								else
+									if [[ "${hash_zip##*.}" == "john" ]]; then
+										if [[ $(cat "${hash_zip}" | grep -o "zip" || cat "${hash_zip}" | grep -o "pkzip") ]]; then
+											echo "[+] File hash '${hash_zip}' ditemukan."
+											while true; do
+												read -p "[#] Masukkan nama file Wordlist: " file_wordlist
+												if [[ -z "${file_wordlist}" ]]; then
+													echo "[-] File Wordlist tidak boleh kosong."
+													continue
+												else
+													if [[ ! -f "${file_wordlist}" ]]; then
+														echo "[-] File Wordlist '${file_wordlist}' tidak ditemukan."
+														continue
+
+													else
+														echo "[+] File Wordlist '${file_wordlist}' ditemukan."
+					 									pot="pot.txt"
+														while true; do
+															read -p "[#] Apakah Anda ingin menggunakan mode verbose [Y/n]: " nanya_verbose
+															if [[ "${nanya_verbose}" == "Y" || "${nanya_verbose}" == "y" ]]; then
+																echo ""
+																read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi...\e[0m'
+																echo "[*] Memulihkan kata sandi file ZIP '${file_zip}'..."
+																john --wordlist="${file_wordlist}" --pot="${pot}" --verbosity=6 --progress-every=1 "${target_hash_file_zip}"
+																if [[ -f "${pot}" ]]; then
+																	if [[ $(cat "${pot}" | grep -o ":") ]]; then
+																		kata_sandi_zip=$(cat "${pot}" | cut -d ":" -f 2)
+																		echo "[+] Kata sandi berhasil dipulihkan."
+																		echo "[+] Kata sandi: ${kata_sandi_zip}"
+																		rm "${pot}"
+																	else
+																		echo "[-] Kata sandi gagal dipulihkan."
+																		echo "[-] Cobalah menggunakan file Wordlist yang lain."
+																	fi
+																	break
+																else
+																	echo "[-] Kata sandi gagal dipulihkan."
+																	echo "[-] File pot John The Ripper tidak ditemukan."
+																fi
+																break
+															elif [[ "${nanya_verbose}" == "N" || "${nanya_verbose}" == "n" ]]; then
+																echo ""
+																read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi...\e[0m'
+																echo "[*] Memulihkan kata sandi file ZIP '${file_zip}'..."
+																john --wordlist="${file_wordlist}" --pot="${pot}" "${target_hash_file_zip}" >> /dev/null 2>&1
+																if [[ -f "${pot}" ]]; then
+																	if [[ $(cat "${pot}" | grep -o ":") ]]; then
+																		kata_sandi_zip=$(cat "${pot}" | cut -d ":" -f 2)
+																		echo "[+] Kata sandi berhasil dipulihkan."
+																		echo "[+] Kata sandi: ${kata_sandi_zip}"
+																		rm "${pot}"
+																	else
+																		echo "[-] Kata sandi gagal dipulihkan."
+																		echo "[-] Cobalah menggunakan file Wordlist yang lain."
+																	fi
+																	break
+																else
+																	echo "[-] Kata sandi gagal dipulihkan."
+																	echo "[-] File pot John The Ripper tidak ditemukan."
+																fi
+																break
+															else
+																echo "[-] Masukkan tidak valid. Harap masukkan 'Y' atau 'N' (huruf besar atau kecil)."
+																continue
+	
+															fi
+														done
+
+													fi
+													break
+												fi
+												break
+											done
+										else
+											echo "[-] Format file hash '${hash_zip}' tidak valid."
+											continue
+										fi
+									else
+										echo "[-] File hash '${hash_zip}' bukan file hash."
+										continue
+									fi
+								fi
+							fi
+							break
+						done
+						break
+					else
+						echo "[-] Masukkan tidak valid. Harap masukkan 'Y' atau 'N' (huruf besar atau kecil)."
+						continue
+					fi
+				done
+			else
+				echo "bismillah"
+			fi
                 else
                         echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
                         continue
