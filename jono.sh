@@ -95,8 +95,9 @@ for alat in "${daftar_alat[@]}"; do
         if [[ $? -ne 0 ]]; then
                 echo -e "${p}[${m}-${p}] '${alat}' belum terinstal.${r}"
                 daftar_alat_belum_terinstal+=("${alat}")
+        else
+                echo -e "${p}[${h}+${p}] '${alat}' sudah terinstal.${r}"
         fi
-        echo -e "${p}[${h}+${p}] '${alat}' sudah terinstal.${r}"
 done
 
 if [[ "${#daftar_alat_belum_terinstal[@]}" -ne 0 ]]; then
