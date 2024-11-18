@@ -129,7 +129,7 @@ function mengecek_alat(){
 
 # Fungsi untuk keluar program
 function keluar(){
-	echo "[*] Semoga harimu menyenangkan ^_^" 
+	echo -e "${p}[${b}*${p}] Semoga harimu menyenangkan ^_^${r}" 
 	exit 1
 }
 
@@ -701,6 +701,13 @@ function menampilkan_menu(){
         waktu=$(date +"%d-%m-%Y %H:%M:%S")
 
         # Menu yang tersedia
+	echo ""
+	echo -e "     ${k}██${p}╗ ${k}██████${p}╗ ${k}███${p}╗   ${k}██${p}╗ ${k}██████${p}╗${r} "
+	echo -e "     ${k}██${p}║${k}██${p}╔═══${k}██${p}╗${k}████${p}╗  ${k}██${p}║${k}██${p}╔═══${k}██${p}╗${r}"
+	echo -e "     ${k}██${p}║${k}██${p}║   ${k}██${p}║${k}██${p}╔${k}██${p}╗ ${k}██${p}║${k}██${p}║   ${k}██${p}║${r}"
+	echo -e "${k}██   ██${p}║${k}██${p}║   ${k}██${p}║${k}██${p}║╚${k}██${p}╗${k}██${p}║${k}██${p}║   ${k}██${p}║${r}"
+	echo -e "${p}╚${k}█████${p}╔╝╚${k}██████${p}╔╝${k}██${p}║ ╚${k}████${p}║╚${k}██████${p}╔╝${r}"
+	echo -e " ${p}╚════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝  Ditenagai oleh: ${m}John The Ripper${r}"
         echo ""
         echo -e "${p}[${k}${program}${p}] [${h}${github}${p}] [${b}${waktu}${p}]${r}"
         echo ""
