@@ -14,132 +14,118 @@ b="\e[1;34m" # Biru
 p="\e[1;37m" # Putih
 r="\e[0m"    # Reset
 
-# Cek root
-if [[ "$EUID" -ne 0 ]]; then
-        echo -e "${p}[${m}-${p}] ${p}Script ini harus dijalankan sebagai root.${r}"
-        exit 1
-fi
+# Fungsi untuk mengecek root
+function mengecek_root(){
+	if [[ "$EUID" -ne 0 ]]; then
+        	echo -e "${p}[${m}-${p}] ${p}Script ini harus dijalankan sebagai root.${r}"
+	        exit 1
+	fi
+}
 
-# Lokasi folder untuk menyimpan file hash
-lokasi_file_hash="file_hash"
+# Fungsi untuk membuat folder 'file_hash'
+function membuat_folder_file_hash(){
+	# Lokasi folder untuk menyimpan file hash
+	lokasi_file_hash="file_hash"
 
-# Membuat folder untuk menyimpan file hash
-if [[ ! -d "${lokasi_file_hash}" ]]; then
-        mkdir -p "${lokasi_file_hash}"
-fi
+	# Membuat folder untuk menyimpan file hash
+	if [[ ! -d "${lokasi_file_hash}" ]]; then
+	        mkdir -p "${lokasi_file_hash}"
+	fi
+}
 
-# Membersihkan layar Terminal
-clear
+# Fungsi untuk membersihkan layar terminal
+function membersihkan_layar_terminal(){
+	clear
+}
 
-# Menampilkan kata-kata peringatan
-echo ""
-echo -e "${b}Selamat datang di Jono${r}"
-echo -e "${p}-------------------${r}"
-echo ""
-echo -e "${p}Jono adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi${r}"
-echo -e "${p}file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan${r}"
-echo -e "${p}John The Ripper.${r}"
-echo ""
+# Fungsi untuk menampilkan kata kata peringatan
+function menampilkan_kata_kata_peringatan(){
+        membersihkan_layar_terminal
+	echo ""
+	echo -e "${b}Selamat datang di Jono${r}"
+	echo -e "${p}-------------------${r}"
+	echo ""
+	echo -e "${p}Jono adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi${r}"
+	echo -e "${p}file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan${r}"
+	echo -e "${p}John The Ripper.${r}"
+	echo ""
+}
 
-sleep 3
+# Fugsi untuk tunggu selama 3 detik
+function tunggu(){
+	sleep 3
+}
 
-# Mengecek sistem operasi
-echo -e "${p}[${b}*${p}] Mengecek sistem operasi...${r}"
-#sleep 3
-#sistem_operasi=$(uname -s)
-#if [[ "${sistem_operasi}" != "Linux" ]]; then
-#        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
-#        exit 1
-#fi
-#
-# Mengecek ID Linux
-#file_id_linux="/etc/os-release"
-#if [[ ! -f "${file_id_linux}" ]]; then
-#        echo -e "${p}[${m}-${p}] File '${file_id_linux}' tidak ditemukan. Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
-#        exit 1
-#fi
-#. "${file_id_linux}"
-#id_linux=$ID
-#if [[ "${id_linux}" != "debian" && "${id_linux}" != "ubuntu" && "${id_linux}" != "kali" ]]; then
-#        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
-#        exit 1
-#fi
-#
-echo -e "${p}[${h}+${p}] Sistem operasi Anda: ${sistem_operasi} (${id_linux}).${r}"
+# Fungsi untuk mengecek sistem operasi
+function mengecek_sistem_operasi(){}
+	echo -e "${p}[${b}*${p}] Mengecek sistem operasi...${r}"
+	tunggu
+	sistem_operasi=$(uname -s)
+	if [[ "${sistem_operasi}" != "Linux" ]]; then
+	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
+	        exit 1
+	fi
 
-# Mengecek alat
-#daftar_alat=(
-#        "john"
-#        "zip2john"
-#        "rar2john"
-#        "7z2john"
-#        "pdf2john"
-#        "office2john"
-#)
+	# Mengecek ID Linux
+	file_id_linux="/etc/os-release"
+	if [[ ! -f "${file_id_linux}" ]]; then
+	        echo -e "${p}[${m}-${p}] File '${file_id_linux}' tidak ditemukan. Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
+	        exit 1
+	fi
+	. "${file_id_linux}"
+	id_linux=$ID
+	if [[ "${id_linux}" != "debian" && "${id_linux}" != "ubuntu" && "${id_linux}" != "kali" ]]; then
+	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
+	        exit 1
+	fi
 
-# Alat yang belum terinstal
-#daftar_alat_belum_terinstal=()
-#
-#echo -e "${p}[${b}*${p}] Mengecek alat-alat yang dibutuhkan oleh Jono...${r}"
-#sleep 3
-#
-#for alat in "${daftar_alat[@]}"; do
-#        echo -e "${p}[${b}*${p}] Mengecek '${alat}'...${r}"
-#        sleep 3
-#        command -v "${alat}" >> /dev/null 2>&1
-#        if [[ $? -ne 0 ]]; then
-#                echo -e "${p}[${m}-${p}] '${alat}' belum terinstal.${r}"
-#                daftar_alat_belum_terinstal+=("${alat}")
-#        else
-#                echo -e "${p}[${h}+${p}] '${alat}' sudah terinstal.${r}"
-#        fi
-#done
-#
-#if [[ "${#daftar_alat_belum_terinstal[@]}" -ne 0 ]]; then
-#        echo -e "${p}[${m}-${p}] Jono tidak dapat dijalankan karena ada beberapa alat yang belum terinstal..${r}"
-#        echo ""
-#        echo -e "${p}Alat yang belum terinstal:${r}"
-#        for alat_belum_terinstal in "${daftar_alat_belum_terinstal[@]}"; do
-#                echo -e "${p}- ${alat_belum_terinstal}${r}"
-#        done
-#        exit 1
-#
-#fi
-#
-#echo -e "${p}[${h}+${p}] Semua alat yang dibutuhkan oleh Jono sudah terinstal.${r}"
-#echo ""
-#read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk melanjutkan...\e[0m'
-#
-## Utama
-#while true; do
-#
-#                        exit 0
-#                elif [[ "${pilih_menu}" == "1" ]]; then
-#		# Ekstrak hash file RAR
-#                elif [[ "${pilih_menu}" == "2" ]]; then
-#		# Ekstrak hash file 7z
-#                elif [[ "${pilih_menu}" == "3" ]]; then
-#		# Ekstrak hash file PDF
-#                elif [[ "${pilih_menu}" == "4" ]]; then
-#		# Ekstrak hash file Office
-#                elif [[ "${pilih_menu}" == "5" ]]; then
+	echo -e "${p}[${h}+${p}] Sistem operasi Anda: ${sistem_operasi} (${id_linux}).${r}"
+}
 
-#                else
-#                        echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
-#                        continue
-#                fi
-#        done
-#done
+# Fungsi untuk mengecek alat
+function mengecek_alat(){
+	daftar_alat=(
+	        "john"
+	        "zip2john"
+	        "rar2john"
+	        "7z2john"
+        	"pdf2john"
+	        "office2john"
+	)
 
+	# Alat yang belum terinstal
+	daftar_alat_belum_terinstal=()
 
+	echo -e "${p}[${b}*${p}] Mengecek alat-alat yang dibutuhkan oleh Jono...${r}"
+	tunggu
 
-				# 7Z
+	for alat in "${daftar_alat[@]}"; do
+	        echo -e "${p}[${b}*${p}] Mengecek '${alat}'...${r}"
+        	tunggu
+	        command -v "${alat}" >> /dev/null 2>&1
+        	if [[ $? -ne 0 ]]; then
+	                echo -e "${p}[${m}-${p}] '${alat}' belum terinstal.${r}"
+        	        daftar_alat_belum_terinstal+=("${alat}")
+	        else
+        	        echo -e "${p}[${h}+${p}] '${alat}' sudah terinstal.${r}"
+	        fi
+	done
 
+	if [[ "${#daftar_alat_belum_terinstal[@]}" -ne 0 ]]; then
+        	echo -e "${p}[${m}-${p}] Jono tidak dapat dijalankan karena ada beberapa alat yang belum terinstal..${r}"
+	        echo ""
+	        echo -e "${p}Alat yang belum terinstal:${r}"
+        	for alat_belum_terinstal in "${daftar_alat_belum_terinstal[@]}"; do
+                	echo -e "${p}- ${alat_belum_terinstal}${r}"
+	        done
+	        exit 1
 
+	fi
 
-			# pdf 
-
-		# Office
+	echo -e "${p}[${h}+${p}] Semua alat yang dibutuhkan oleh Jono sudah terinstal.${r}"
+	echo ""
+	read -p l$'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk melanjutkan...\e[0m'
+}
 
 # Fungsi untuk keluar program
 function keluar(){
@@ -152,7 +138,7 @@ function memasukkan_file_zip(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file ZIP: ' file_zip
                 echo -e "${p}[${b}*${p}] Mengecek file ZIP '${file_zip}'...${r}"
-                sleep 3
+                tunggu
                	if [[ -z "${file_zip}" ]]; then
                 	echo -e "${p}[${m}-${p}] File ZIP tidak boleh kosong.${r}"
                         continue
@@ -175,7 +161,7 @@ function memasukkan_file_rar(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file RAR: ' file_rar
                 echo -e "${p}[${b}*${p}] Mengecek file RAR '${file_rar}'...${r}"
-                sleep 3
+                tunggu
                 if [[ -z "${file_rar}" ]]; then
                 	echo -e "${p}[${m}-${p}] File RAR tidak boleh kosong.${r}"
                         continue
@@ -198,7 +184,7 @@ function memasukkan_file_7z(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file 7z: ' file_7z
                 echo -e "${p}[${b}*${p}] Mengecek file 7z '${file_7z}'...${r}"
-                sleep 3
+                tunggu
                 if [[ -z "${file_7z}" ]]; then
                 	echo -e "${p}[${m}-${p}] File 7z tidak boleh kosong.${r}"
                         continue
@@ -222,7 +208,7 @@ function memasukkan_file_pdf(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file PDF: ' file_pdf
                 echo -e "${p}[${b}*${p}] Mengecek file PDF '${file_pdf}'...${r}"
-                sleep 3
+                tunggu
                 if [[ -z "${file_pdf}" ]]; then
                 	echo -e "${p}[${m}-${p}] File PDF tidak boleh kosong.${r}"
                         continue
@@ -245,7 +231,7 @@ function memasukkan_file_office(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file Office (.docx, .xlsx, .pptx): ' file_office
                 echo -e "${p}[${b}*${p}] Mengecek file Office '${file_office}'...${r}"
-                sleep 3
+                tunggu
                 if [[ -z "${file_office}" ]]; then
                 	echo -e "${p}[${m}-${p}] File Office tidak boleh kosong.${r}"
                         continue
@@ -267,7 +253,7 @@ function memasukkan_file_office(){
 # Fungsi untuk mengekstrak hash file ZIP
 function ekstrak_hash_file_zip(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file ZIP '${file_zip}'...${r}"
-        sleep 3
+        tunggu
         hash_file_zip=$(zip2john "${file_zip}" 2>/dev/null)
         nama_file_zip=$(basename "${file_zip}")
         nama_file_hash_file_zip="${lokasi_file_hash}/${nama_file_zip}.john"
@@ -290,7 +276,7 @@ function ekstrak_hash_file_zip(){
 # Fungsi untuk mengekstrak hash file RAR
 function ekstrak_hash_file_rar(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file RAR '${file_rar}'...${r}"
-        sleep 3
+        tunggu
         hash_file_rar=$(rar2john "${file_rar}" 2>/dev/null)
         nama_file_rar=$(basename "${file_rar}")
         nama_file_hash_file_rar="${lokasi_file_hash}/${nama_file_rar}.john"
@@ -313,7 +299,7 @@ function ekstrak_hash_file_rar(){
 # Fungsi untuk mengekstrak hash file 7z
 function ekstrak_hash_file_7z(){
         echo -e "${p}[${b}*${p}] Mengekstrak hash file 7z '${file_7z}'...${r}"
-        sleep 3
+        tunggu
         hash_file_7z=$(7z2john "${file_7z}" 2>/dev/null)
         nama_file_7z=$(basename "${file_7z}")
         nama_file_hash_file_7z="${lokasi_file_hash}/${nama_file_7z}.john"
@@ -336,7 +322,7 @@ function ekstrak_hash_file_7z(){
 # Fungsi untuk mengekstrak hash file PDF
 function ekstrak_hash_file_pdf(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file PDF '${file_pdf}'...${r}"
-        sleep 3
+        tunggu
         hash_file_pdf=$(pdf2john "${file_pdf}")
         nama_file_pdf=$(basename "${file_pdf}")
         nama_file_hash_file_pdf="${lokasi_file_hash}/${nama_file_pdf}.john"
@@ -359,7 +345,7 @@ function ekstrak_hash_file_pdf(){
 # Fungsi uentuk mengekstrak hash file Office
 function ekstrak_hash_file_office(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file Office '${file_office}'...${r}"
-        sleep 3
+        tunggu
         hash_file_office=$(office2john "${file_office}")
         nama_file_office=$(basename "${file_office}")
         nama_file_hash_file_office="${lokasi_file_hash}/${nama_file_office}.john"
@@ -384,7 +370,7 @@ function memasukkan_file_hash_file_zip(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file ZIP: ' file_hash_file_zip
                 echo -e "${p}[${b}*${p}] Mengecek file hash file ZIP '${file_hash_file_zip}'...${r}"
-                sleep 3
+                tunggu
                	if [[ -z "${file_hash_file_zip}" ]]; then
                 	echo -e "${p}[${m}-${p}] File hash file ZIP tidak boleh kosong.${r}"
                         continue
@@ -412,7 +398,7 @@ function memasukkan_file_hash_file_rar(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file RAR: ' file_hash_file_rar
                 echo -e "${p}[${b}*${p}] Mengecek file hash file RAR '${file_hash_file_rar}'...${r}"
-                sleep 3
+                tunggu
                	if [[ -z "${file_hash_file_rar}" ]]; then
                 	echo -e "${p}[${m}-${p}] File hash file RAR tidak boleh kosong.${r}"
                         continue
@@ -440,7 +426,7 @@ function memasukkan_file_hash_file_7z(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file 7z: ' file_hash_file_7z
                 echo -e "${p}[${b}*${p}] Mengecek file hash file 7z '${file_hash_file_7z}'...${r}"
-                sleep 3
+                tunggu
                	if [[ -z "${file_hash_file_7z}" ]]; then
                 	echo -e "${p}[${m}-${p}] File hash file 7z tidak boleh kosong.${r}"
                         continue
@@ -468,7 +454,7 @@ function memasukkan_file_hash_file_pdf(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file PDF: ' file_hash_file_pdf
                 echo -e "${p}[${b}*${p}] Mengecek file hash file PDF '${file_hash_file_pdf}'...${r}"
-                sleep 3
+                tunggu
                	if [[ -z "${file_hash_file_pdf}" ]]; then
                 	echo -e "${p}[${m}-${p}] File hash file PDF tidak boleh kosong.${r}"
                         continue
@@ -496,7 +482,7 @@ function memasukkan_file_hash_file_office(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file Office: ' file_hash_file_office
                 echo -e "${p}[${b}*${p}] Mengecek file hash file Office '${file_hash_file_office}'...${r}"
-                sleep 3
+                tunggu
                	if [[ -z "${file_hash_file_office}" ]]; then
                 	echo -e "${p}[${m}-${p}] File hash file Office tidak boleh kosong.${r}"
                         continue
@@ -525,7 +511,7 @@ function memasukkan_file_wordlist(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file Wordlist: ' file_wordlist
                 echo -e "${p}[${b}*${p}] Mengecek file Wordlist '${file_wordlist}'...${r}"
-                sleep 3
+                tunggu
                	if [[ -z "${file_wordlist}" ]]; then
                 	echo -e "${p}[${m}-${p}] File Wordlist tidak boleh kosong.${r}"
                         continue
@@ -546,7 +532,7 @@ function memulihkan_kata_sandi_file_zip(){
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
 	echo ""
 	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file ZIP '${file_zip}'...${r}"
-	sleep 3
+	tunggu
 	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
 		format_file_zip="PKZIP"
 	elif [[ $(cat "${file_hash_file_zip}" | grep -o "zip") ]]; then
@@ -582,7 +568,7 @@ function memulihkan_kata_sandi_file_rar(){
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
 	echo ""
 	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file RAR '${file_rar}'...${r}"
-	sleep 3
+	tunggu
 	format_file_rar="RAR5"
 	john --wordlist="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
 	if [[ -f "${pot_file_rar}" ]]; then
@@ -614,7 +600,7 @@ function memulihkan_kata_sandi_file_7z(){
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
 	echo ""
 	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file 7z '${file_7z}'...${r}"
-	sleep 3
+	tunggu
 	format_file_7z="7z"
 	john --wordlist="${file_wordlist}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
 	if [[ -f "${pot_file_7z}" ]]; then
@@ -646,7 +632,7 @@ function memulihkan_kata_sandi_file_pdf(){
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
 	echo ""
 	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file PDF '${file_pdf}'...${r}"
-	sleep 3
+	tunggu
 	format_file_pdf="PDF"
 	john --wordlist="${file_wordlist}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
 	if [[ -f "${pot_file_pdf}" ]]; then
@@ -678,7 +664,7 @@ function memulihkan_kata_sandi_file_office(){
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
 	echo ""
 	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file Office '${file_office}'...${r}"
-	sleep 3
+	tunggu
 	format_file_office="Office"
 	john --wordlist="${file_wordlist}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
 	if [[ -f "${pot_file_office}" ]]; then
@@ -709,8 +695,7 @@ function menampilkan_menu(){
 	program="Jono"
         github="https://github.com/fixploit03/Jono/"
 
-	# Membersihkan layar terminal
-     	clear
+	membersihkan_layar_terminal
 
         # waktu saat ini
         waktu=$(date +"%d-%m-%Y %H:%M:%S")
@@ -790,6 +775,11 @@ function pilih_menu(){
 
 # Fungsi utama
 function utama(){
+	mengecek_root
+	membuat_folder_file_hash
+	menampilkan_kata_kata_peringatan
+	mengecek_sistem_operasi
+	mengecek_alat
 	menampilkan_menu
 	pilih_menu
 }
