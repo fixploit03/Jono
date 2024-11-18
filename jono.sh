@@ -57,7 +57,7 @@ function tunggu(){
 }
 
 # Fungsi untuk mengecek sistem operasi
-function mengecek_sistem_operasi(){}
+function mengecek_sistem_operasi(){
 	echo -e "${p}[${b}*${p}] Mengecek sistem operasi...${r}"
 	tunggu
 	sistem_operasi=$(uname -s)
