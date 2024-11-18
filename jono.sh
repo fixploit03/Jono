@@ -435,6 +435,35 @@ function memasukkan_file_hash_file_rar(){
 	done
 }
 
+# Fungsi untuk memasukkan file hash file 7z
+function memasukkan_file_hash_file_7z(){
+	while true; do
+        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file 7z: ' file_hash_file_7z
+                echo -e "${p}[${b}*${p}] Mengecek file hash file 7z '${file_hash_file_7z}'...${r}"
+                sleep 3
+               	if [[ -z "${file_hash_file_7z}" ]]; then
+                	echo -e "${p}[${m}-${p}] File hash file 7z tidak boleh kosong.${r}"
+                        continue
+               	fi
+                if [[ ! -f "${file_hash_file_7z}" ]]; then
+                	echo -e "${p}[${m}-${p}] File hash file 7z '${file_hash_file_7z}' tidak ditemukan.${r}"
+                        continue
+                fi
+                if [[ "${file_hash_file_7z##*.}" != "john" ]]; then
+                	echo -e "${p}[${m}-${p}] File '${file_hash_file_7z}' bukan file hash.${r}"
+                        continue
+                fi
+		if [[ $(cat "${file_hash_file_7z}" | grep -o "7z") ]]; then
+	                echo -e "${p}[${h}+${p}] File hash file 7z '${file_hash_file_7z}' ditemukan.${r}"
+		else
+			echo -e "${p}[${m}-${p}] Format file hash file 7z '${file_hash_file_7z}' tidak valid.${r}"
+			continue
+		fi
+		break
+	done
+}
+
+
 # Fungsi untuk memasukkan file Wordlist
 function memasukkan_file_wordlist(){
 	while true; do
@@ -522,6 +551,38 @@ function memulihkan_kata_sandi_file_rar(){
 	menampilkan_menu
 }
 
+# Fungsi untuk memulihkan kata sandi file 7z
+function memulihkan_kata_sandi_file_7z(){
+	pot_file_7z="pot_7z.txt"
+	echo ""
+	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file 7z..."
+	echo ""
+	echo "[*] Memulihkan kata sandi file 7z '${file_7z}'..."
+	sleep 3
+	format_file_7z="7z"
+	john --wordlist="${file_wordlist}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
+	if [[ -f "${pot_file_7z}" ]]; then
+		if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
+			kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
+                        echo ""
+			echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${r}"
+			rm "${pot_file_7z}"
+		else
+                        echo ""
+			echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+		fi
+	else
+                echo ""
+		echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+	fi
+	echo ""
+        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+	menampilkan_menu
+}
+
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
 	# Tentang program
@@ -588,6 +649,10 @@ function pilih_menu(){
 			memasukkan_file_hash_file_rar
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_rar
+		elif [[ "${pilih_menu}" == "8" ]]; then
+			memasukkan_file_hash_file_7z
+			memasukkan_file_wordlist
+			memulihkan_kata_sandi_file_7z
 		else
 			echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
 			continue
