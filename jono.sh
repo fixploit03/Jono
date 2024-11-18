@@ -435,11 +435,11 @@ function memulihkan_kata_sandi_file_zip(){
 	echo "[*] Memulihkan kata sandi file ZIP '${file_zip}'..."
 	sleep 3
 	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
-		format="PKZIP"
+		format_file_zip="PKZIP"
 	elif [[ $(cat "${file_hash_file_zip}" | grep -o "zip") ]]; then
-		format="ZIP"
+		format_file_zip="ZIP"
 	fi
-	john --wordlist="${file_wordlist}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${file_hash_file_zip}"
+	john --wordlist="${file_wordlist}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${file_hash_file_zip}"
 	if [[ -f "${pot_file_zip}" ]]; then
 		if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
 			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
@@ -461,6 +461,37 @@ function memulihkan_kata_sandi_file_zip(){
         read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
 	menampilkan_menu
 }
+
+# Fungsi untuk memulihkan kata sandi file RAR
+function memulihkan_kata_sandi_file_rar(){
+	pot_file_rar="pot_rar.txt"
+	echo ""
+	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file RAR..."
+	echo ""
+	echo "[*] Memulihkan kata sandi file RAR '${file_rar}'..."
+	sleep 3
+	format_file_rar="RAR5"
+	john --wordlist="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
+	if [[ -f "${pot_file_rar}" ]]; then
+		if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+			kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+                        echo ""
+			echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${r}"
+			rm "${pot_file_rar}"
+		else
+                        echo ""
+			echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+		fi
+	else
+                echo ""
+		echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+	fi
+	echo ""
+        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+	menampilkan_menu
 
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
@@ -524,6 +555,10 @@ function pilih_menu(){
 			memasukkan_file_hash_file_zip
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_zip
+		elif [[ "${pilih_menu}" == "7" ]]; then
+			memasukkan_file_hash_file_rar
+			memasukkan_file_wordlist
+			memulihkan_kata_sandi_file_rar
 		else
 			echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
 			continue
