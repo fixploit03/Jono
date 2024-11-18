@@ -407,6 +407,34 @@ function memasukkan_file_hash_file_zip(){
 	done
 }
 
+# Fungsi untuk memasukkan file hash file RAR
+function memasukkan_file_hash_file_rar(){
+	while true; do
+        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file RAR: ' file_hash_file_rar
+                echo -e "${p}[${b}*${p}] Mengecek file hash file RAR '${file_hash_file_rar}'...${r}"
+                sleep 3
+               	if [[ -z "${file_hash_file_rar}" ]]; then
+                	echo -e "${p}[${m}-${p}] File hash file RAR tidak boleh kosong.${r}"
+                        continue
+               	fi
+                if [[ ! -f "${file_hash_file_rar}" ]]; then
+                	echo -e "${p}[${m}-${p}] File hash file RAR '${file_hash_file_rar}' tidak ditemukan.${r}"
+                        continue
+                fi
+                if [[ "${file_hash_file_rar##*.}" != "john" ]]; then
+                	echo -e "${p}[${m}-${p}] File '${file_hash_file_rar}' bukan file hash.${r}"
+                        continue
+                fi
+		if [[ $(cat "${file_hash_file_rar}" | grep -o "rar5") ]]; then
+	                echo -e "${p}[${h}+${p}] File hash file RAR '${file_hash_file_rar}' ditemukan.${r}"
+		else
+			echo -e "${p}[${m}-${p}] Format file hash file RAR '${file_hash_file_rar}' tidak valid.${r}"
+			continue
+		fi
+		break
+	done
+}
+
 # Fungsi untuk memasukkan file Wordlist
 function memasukkan_file_wordlist(){
 	while true; do
