@@ -544,7 +544,7 @@ function memulihkan_kata_sandi_file_zip(){
 			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}.${r}"
 			rm "${pot_file_zip}"
 		else
                         echo ""
@@ -576,7 +576,7 @@ function memulihkan_kata_sandi_file_rar(){
 			kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}.${r}"
 			rm "${pot_file_rar}"
 		else
                         echo ""
@@ -608,7 +608,7 @@ function memulihkan_kata_sandi_file_7z(){
 			kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}.${r}"
 			rm "${pot_file_7z}"
 		else
                         echo ""
@@ -640,7 +640,7 @@ function memulihkan_kata_sandi_file_pdf(){
 			kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}.${r}"
 			rm "${pot_file_pdf}"
 		else
                         echo ""
@@ -672,7 +672,7 @@ function memulihkan_kata_sandi_file_office(){
 			kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}.${r}"
 			rm "${pot_file_office}"
 		else
                         echo ""
