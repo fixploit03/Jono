@@ -702,7 +702,7 @@ function menampilkan_menu(){
 
         # Menu yang tersedia
         echo ""
-        echo -e "${p}[${k}${program}${p}] [${b}${waktu}${p}] [${h}${github}${p}]${r}"
+        echo -e "${p}[${k}${program}${p}] [${h}${github}${p}] [${b}${waktu}${p}]${r}"
         echo ""
         echo -e "${p}Daftar menu yang tersedia:${r}"
         echo ""
