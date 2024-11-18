@@ -463,6 +463,34 @@ function memasukkan_file_hash_file_7z(){
 	done
 }
 
+# Fungsi untuk memasukkan file hash file PDF
+function memasukkan_file_hash_file_pdf(){
+	while true; do
+        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file PDF: ' file_hash_file_pdf
+                echo -e "${p}[${b}*${p}] Mengecek file hash file PDF '${file_hash_file_pdf}'...${r}"
+                sleep 3
+               	if [[ -z "${file_hash_file_pdf}" ]]; then
+                	echo -e "${p}[${m}-${p}] File hash file PDF tidak boleh kosong.${r}"
+                        continue
+               	fi
+                if [[ ! -f "${file_hash_file_pdf}" ]]; then
+                	echo -e "${p}[${m}-${p}] File hash file PDF '${file_hash_file_pdf}' tidak ditemukan.${r}"
+                        continue
+                fi
+                if [[ "${file_hash_file_pdf##*.}" != "john" ]]; then
+                	echo -e "${p}[${m}-${p}] File '${file_hash_file_pdf}' bukan file hash.${r}"
+                        continue
+                fi
+		if [[ $(cat "${file_hash_file_pdf}" | grep -o "pdf") ]]; then
+	                echo -e "${p}[${h}+${p}] File hash file PDF '${file_hash_file_pdf}' ditemukan.${r}"
+		else
+			echo -e "${p}[${m}-${p}] Format file hash file PDF '${file_hash_file_pdf}' tidak valid.${r}"
+			continue
+		fi
+		break
+	done
+}
+
 
 # Fungsi untuk memasukkan file Wordlist
 function memasukkan_file_wordlist(){
@@ -576,6 +604,38 @@ function memulihkan_kata_sandi_file_7z(){
 	else
                 echo ""
 		echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+	fi
+	echo ""
+        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+	menampilkan_menu
+}
+
+# Fungsi untuk memulihkan kata sandi file PDF
+function memulihkan_kata_sandi_file_pdf(){
+	pot_file_pdf="pot_pdf.txt"
+	echo ""
+	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file PDF..."
+	echo ""
+	echo "[*] Memulihkan kata sandi file PDF '${file_pdf}'..."
+	sleep 3
+	format_file_pdf="PDF"
+	john --wordlist="${file_wordlist}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
+	if [[ -f "${pot_file_pdf}" ]]; then
+		if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
+			kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
+                        echo ""
+			echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${r}"
+			rm "${pot_file_pdf}"
+		else
+                        echo ""
+			echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+		fi
+	else
+                echo ""
+		echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
 		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
 	fi
 	echo ""
