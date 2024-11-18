@@ -491,6 +491,34 @@ function memasukkan_file_hash_file_pdf(){
 	done
 }
 
+# Fungsi untuk memasukkan file hash file Office
+function memasukkan_file_hash_file_office(){
+	while true; do
+        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file Office: ' file_hash_file_office
+                echo -e "${p}[${b}*${p}] Mengecek file hash file Office '${file_hash_file_office}'...${r}"
+                sleep 3
+               	if [[ -z "${file_hash_file_office}" ]]; then
+                	echo -e "${p}[${m}-${p}] File hash file Office tidak boleh kosong.${r}"
+                        continue
+               	fi
+                if [[ ! -f "${file_hash_file_office}" ]]; then
+                	echo -e "${p}[${m}-${p}] File hash file Office '${file_hash_file_office}' tidak ditemukan.${r}"
+                        continue
+                fi
+                if [[ "${file_hash_file_office##*.}" != "john" ]]; then
+                	echo -e "${p}[${m}-${p}] File '${file_hash_file_office}' bukan file hash.${r}"
+                        continue
+                fi
+		if [[ $(cat "${file_hash_file_office}" | grep -o "office") ]]; then
+	                echo -e "${p}[${h}+${p}] File hash file Office '${file_hash_file_office}' ditemukan.${r}"
+		else
+			echo -e "${p}[${m}-${p}] Format file hash file Office '${file_hash_file_office}' tidak valid.${r}"
+			continue
+		fi
+		break
+	done
+}
+
 
 # Fungsi untuk memasukkan file Wordlist
 function memasukkan_file_wordlist(){
@@ -643,6 +671,38 @@ function memulihkan_kata_sandi_file_pdf(){
 	menampilkan_menu
 }
 
+# Fungsi untuk memulihkan kata sandi file Office
+function memulihkan_kata_sandi_file_office(){
+	pot_file_office="pot_office.txt"
+	echo ""
+	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file Office..."
+	echo ""
+	echo "[*] Memulihkan kata sandi file Office '${file_office}'..."
+	sleep 3
+	format_file_office="Office"
+	john --wordlist="${file_wordlist}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
+	if [[ -f "${pot_file_office}" ]]; then
+		if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
+			kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
+                        echo ""
+			echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${r}"
+			rm "${pot_file_office}"
+		else
+                        echo ""
+			echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+		fi
+	else
+                echo ""
+		echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+	fi
+	echo ""
+        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+	menampilkan_menu
+}
+
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
 	# Tentang program
@@ -716,6 +776,10 @@ function pilih_menu(){
 			memasukkan_file_hash_file_pdf
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_pdf
+                elif [[ "${pilih_menu}" == "10" ]]; then
+			memasukkan_file_hash_file_office
+			memasukkan_file_wordlist
+			memulihkan_kata_sandi_file_office
 		else
 			echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
 			continue
