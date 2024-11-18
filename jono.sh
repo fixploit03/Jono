@@ -261,7 +261,7 @@ function ekstrak_hash_file_zip(){
         if [[ -f "${nama_file_hash_file_zip}" ]]; then
                 if [[ $(cat "${nama_file_hash_file_zip}" | grep -o "zip" || cat "${nama_file_hash_file_zip}" | grep -o "pkzip") ]]; then
                         echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file ZIP '${file_zip}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file ZIP '${file_zip}' disimpan di: ${nama_file_hash_file_zip}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file ZIP '${file_zip}' disimpan di: ${h}${nama_file_hash_file_zip}${p}.${r}"
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP '${file_zip}'.${r}"
                 fi
@@ -284,7 +284,7 @@ function ekstrak_hash_file_rar(){
         if [[ -f "${nama_file_hash_file_rar}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_rar}" | grep -o "rar5") ]]; then
                      	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file RAR '${file_rar}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file RAR '${file_rar}' disimpan di: ${nama_file_hash_file_rar}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file RAR '${file_rar}' disimpan di: ${h}${nama_file_hash_file_rar}${p}.${r}"
                 else
              	        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR '${file_rar}'.${r}"
                 fi
@@ -307,7 +307,7 @@ function ekstrak_hash_file_7z(){
         if [[ -f "${nama_file_hash_file_7z}" ]]; then
                 if [[ $(cat "${nama_file_hash_file_7z}" | grep -o "7z") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file 7z '${file_7z}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file 7z '${file_7z}' disimpan di: ${nama_file_hash_file_7z}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file 7z '${file_7z}' disimpan di: ${h}${nama_file_hash_file_7z}${p}.${r}"
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z '${file_7z}'.${r}"
                 fi
@@ -330,7 +330,7 @@ function ekstrak_hash_file_pdf(){
         if [[ -f "${nama_file_hash_file_pdf}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_pdf}" | grep -o "pdf") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file PDF '${file_pdf}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file PDF '${file_pdf}' disimpan di: ${nama_file_hash_file_pdf}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file PDF '${file_pdf}' disimpan di: ${h}${nama_file_hash_file_pdf}${p}.${r}"
                 else
                        	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF '${file_pdf}'.${r}"
                 fi
@@ -353,7 +353,7 @@ function ekstrak_hash_file_office(){
         if [[ -f "${nama_file_hash_file_office}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_office}" | grep -o "office") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file Office '${file_office}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file Office '${file_office}' disimpan di: ${nama_file_hash_file_office}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file Office '${file_office}' disimpan di: ${h}${nama_file_hash_file_office}${p}.${r}"
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office '${file_office}'.${r}"
                 fi
