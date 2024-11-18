@@ -712,6 +712,10 @@ function pilih_menu(){
 			memasukkan_file_hash_file_7z
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_7z
+                elif [[ "${pilih_menu}" == "9" ]]; then
+			memasukkan_file_hash_file_pdf
+			memasukkan_file_wordlist
+			memulihkan_kata_sandi_file_pdf
 		else
 			echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
 			continue
