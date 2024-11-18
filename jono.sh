@@ -444,13 +444,12 @@ function memulihkan_kata_sandi_file_zip(){
 		if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
 			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
 			echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_zip_john}${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${r}"
 			rm "${pot_file_zip}"
 		else
 			echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
 			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
 		fi
-		break
 	else
 		echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
 		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
