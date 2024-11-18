@@ -492,6 +492,7 @@ function memulihkan_kata_sandi_file_rar(){
 	echo ""
         read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
 	menampilkan_menu
+}
 
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
