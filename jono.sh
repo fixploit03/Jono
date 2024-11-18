@@ -543,9 +543,9 @@ function memasukkan_file_wordlist(){
 function memulihkan_kata_sandi_file_zip(){
 	pot_file_zip="pot_zip.txt"
 	echo ""
-	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file ZIP..."
+	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
 	echo ""
-	echo "[*] Memulihkan kata sandi file ZIP '${file_zip}'..."
+	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file ZIP '${file_zip}'...${r}"
 	sleep 3
 	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
 		format_file_zip="PKZIP"
@@ -579,9 +579,9 @@ function memulihkan_kata_sandi_file_zip(){
 function memulihkan_kata_sandi_file_rar(){
 	pot_file_rar="pot_rar.txt"
 	echo ""
-	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file RAR..."
+	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
 	echo ""
-	echo "[*] Memulihkan kata sandi file RAR '${file_rar}'..."
+	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file RAR '${file_rar}'...${r}"
 	sleep 3
 	format_file_rar="RAR5"
 	john --wordlist="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
@@ -611,9 +611,9 @@ function memulihkan_kata_sandi_file_rar(){
 function memulihkan_kata_sandi_file_7z(){
 	pot_file_7z="pot_7z.txt"
 	echo ""
-	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file 7z..."
+	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
 	echo ""
-	echo "[*] Memulihkan kata sandi file 7z '${file_7z}'..."
+	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file 7z '${file_7z}'...${r}"
 	sleep 3
 	format_file_7z="7z"
 	john --wordlist="${file_wordlist}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
@@ -643,9 +643,9 @@ function memulihkan_kata_sandi_file_7z(){
 function memulihkan_kata_sandi_file_pdf(){
 	pot_file_pdf="pot_pdf.txt"
 	echo ""
-	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file PDF..."
+	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
 	echo ""
-	echo "[*] Memulihkan kata sandi file PDF '${file_pdf}'..."
+	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file PDF '${file_pdf}'...${r}"
 	sleep 3
 	format_file_pdf="PDF"
 	john --wordlist="${file_wordlist}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
@@ -675,9 +675,9 @@ function memulihkan_kata_sandi_file_pdf(){
 function memulihkan_kata_sandi_file_office(){
 	pot_file_office="pot_office.txt"
 	echo ""
-	read -p $"Tekan [Enter] untuk memulai proses pemulihan kata sandi file Office..."
+	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
 	echo ""
-	echo "[*] Memulihkan kata sandi file Office '${file_office}'..."
+	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file Office '${file_office}'...${r}"
 	sleep 3
 	format_file_office="Office"
 	john --wordlist="${file_wordlist}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
