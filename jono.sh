@@ -43,12 +43,36 @@ function menampilkan_kata_kata_peringatan(){
         membersihkan_layar_terminal
 	echo ""
 	echo -e "${b}Selamat datang di Jono${r}"
-	echo -e "${p}-------------------${r}"
+	echo -e "${p}----------------------${r}"
 	echo ""
 	echo -e "${p}Jono adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi${r}"
 	echo -e "${p}file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan${r}"
 	echo -e "${p}John The Ripper.${r}"
 	echo ""
+	echo -e "${m}Peringatan${r}"
+	echo -e "${p}----------${r}"
+	echo -e "${p}Program ini dirancang hanya untuk tujuan pendidikan dan penelitian${r}"
+	echo -e "${p}yang sah. Dilarang keras menggunakan program ini untuk kegiatan ilegal,${r}"
+	echo -e "${p}merusak, atau tanpa izin pemilik file. Pengguna bertanggung jawab penuh${r}"
+	echo -e "${p}atas segala konsekuensi hukum yang mungkin timbul dari penggunaan${r}"
+	echo -e "${p}program ini. Pastikan untuk selalu mematuhi peraturan dan etika yang${r}"
+	echo -e "${p}berlaku di wilayah Anda.${r}"
+	echo ""
+}
+
+# Fungsi untuk konfirmasi
+function konfirmasi(){
+	while true; do
+		read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Apakah Anda ingin melanjutkannya [Y/n]: ' konfirmasi
+		if [[ "${konfirmasi}" == "y" || "${konfirmasi}" == "Y" ]]; then
+			break
+		elif [[ "${konfirmasi}" == "n" || "${konfirmasi}" == "N" ]]; then
+			keluar
+		else
+			echo -e "${p}[${m}-${p}] Masukkan tidak valid. Harap masukkan 'y' atau 'n'.${r}"
+			continue
+		fi
+	done
 }
 
 # Fugsi untuk tunggu selama 3 detik
@@ -58,6 +82,7 @@ function tunggu(){
 
 # Fungsi untuk mengecek sistem operasi
 function mengecek_sistem_operasi(){
+	echo ""
 	echo -e "${p}[${b}*${p}] Mengecek sistem operasi...${r}"
 	tunggu
 	sistem_operasi=$(uname -s)
@@ -124,7 +149,7 @@ function mengecek_alat(){
 
 	echo -e "${p}[${h}+${p}] Semua alat yang dibutuhkan oleh Jono sudah terinstal.${r}"
 	echo ""
-	read -p l$'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk melanjutkan...\e[0m'
+	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk melanjutkan...\e[0m'
 }
 
 # Fungsi untuk keluar program
@@ -261,7 +286,7 @@ function ekstrak_hash_file_zip(){
         if [[ -f "${nama_file_hash_file_zip}" ]]; then
                 if [[ $(cat "${nama_file_hash_file_zip}" | grep -o "zip" || cat "${nama_file_hash_file_zip}" | grep -o "pkzip") ]]; then
                         echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file ZIP '${file_zip}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file ZIP '${file_zip}' disimpan di: ${h}${nama_file_hash_file_zip}${p}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file ZIP '${file_zip}' disimpan di: ${h}${nama_file_hash_file_zip}${p}${r}"
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP '${file_zip}'.${r}"
                 fi
@@ -284,7 +309,7 @@ function ekstrak_hash_file_rar(){
         if [[ -f "${nama_file_hash_file_rar}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_rar}" | grep -o "rar5") ]]; then
                      	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file RAR '${file_rar}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file RAR '${file_rar}' disimpan di: ${h}${nama_file_hash_file_rar}${p}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file RAR '${file_rar}' disimpan di: ${h}${nama_file_hash_file_rar}${p}${r}"
                 else
              	        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR '${file_rar}'.${r}"
                 fi
@@ -307,7 +332,7 @@ function ekstrak_hash_file_7z(){
         if [[ -f "${nama_file_hash_file_7z}" ]]; then
                 if [[ $(cat "${nama_file_hash_file_7z}" | grep -o "7z") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file 7z '${file_7z}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file 7z '${file_7z}' disimpan di: ${h}${nama_file_hash_file_7z}${p}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file 7z '${file_7z}' disimpan di: ${h}${nama_file_hash_file_7z}${p}${r}"
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z '${file_7z}'.${r}"
                 fi
@@ -330,7 +355,7 @@ function ekstrak_hash_file_pdf(){
         if [[ -f "${nama_file_hash_file_pdf}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_pdf}" | grep -o "pdf") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file PDF '${file_pdf}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file PDF '${file_pdf}' disimpan di: ${h}${nama_file_hash_file_pdf}${p}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file PDF '${file_pdf}' disimpan di: ${h}${nama_file_hash_file_pdf}${p}${r}"
                 else
                        	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF '${file_pdf}'.${r}"
                 fi
@@ -353,7 +378,7 @@ function ekstrak_hash_file_office(){
         if [[ -f "${nama_file_hash_file_office}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_office}" | grep -o "office") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file Office '${file_office}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file Office '${file_office}' disimpan di: ${h}${nama_file_hash_file_office}${p}.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file Office '${file_office}' disimpan di: ${h}${nama_file_hash_file_office}${p}${r}"
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office '${file_office}'.${r}"
                 fi
@@ -544,7 +569,7 @@ function memulihkan_kata_sandi_file_zip(){
 			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
 			rm "${pot_file_zip}"
 		else
                         echo ""
@@ -576,7 +601,7 @@ function memulihkan_kata_sandi_file_rar(){
 			kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
 			rm "${pot_file_rar}"
 		else
                         echo ""
@@ -608,7 +633,7 @@ function memulihkan_kata_sandi_file_7z(){
 			kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
 			rm "${pot_file_7z}"
 		else
                         echo ""
@@ -640,7 +665,7 @@ function memulihkan_kata_sandi_file_pdf(){
 			kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
 			rm "${pot_file_pdf}"
 		else
                         echo ""
@@ -661,7 +686,7 @@ function memulihkan_kata_sandi_file_pdf(){
 function memulihkan_kata_sandi_file_office(){
 	pot_file_office="pot_office.txt"
 	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
+	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
 	echo ""
 	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file Office '${file_office}'...${r}"
 	tunggu
@@ -672,7 +697,7 @@ function memulihkan_kata_sandi_file_office(){
 			kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
                         echo ""
 			echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}.${r}"
+			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
 			rm "${pot_file_office}"
 		else
                         echo ""
@@ -702,13 +727,6 @@ function menampilkan_menu(){
 
         # Menu yang tersedia
 	echo ""
-	echo -e "     ${k}██${p}╗ ${k}██████${p}╗ ${k}███${p}╗   ${k}██${p}╗ ${k}██████${p}╗${r} "
-	echo -e "     ${k}██${p}║${k}██${p}╔═══${k}██${p}╗${k}████${p}╗  ${k}██${p}║${k}██${p}╔═══${k}██${p}╗${r}"
-	echo -e "     ${k}██${p}║${k}██${p}║   ${k}██${p}║${k}██${p}╔${k}██${p}╗ ${k}██${p}║${k}██${p}║   ${k}██${p}║${r}"
-	echo -e "${k}██   ██${p}║${k}██${p}║   ${k}██${p}║${k}██${p}║╚${k}██${p}╗${k}██${p}║${k}██${p}║   ${k}██${p}║${r}"
-	echo -e "${p}╚${k}█████${p}╔╝╚${k}██████${p}╔╝${k}██${p}║ ╚${k}████${p}║╚${k}██████${p}╔╝${r}"
-	echo -e " ${p}╚════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝  Ditenagai oleh: ${m}John The Ripper${r}"
-        echo ""
         echo -e "${p}[${k}${program}${p}] [${h}${github}${p}] [${b}${waktu}${p}]${r}"
         echo ""
         echo -e "${p}Daftar menu yang tersedia:${r}"
@@ -735,39 +753,50 @@ function menampilkan_menu(){
 function pilih_menu(){
         while true; do
                 read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Pilih menu: '  pilih_menu
+		# Menu keluar
                 if [[  "${pilih_menu}" == "0" ]]; then
 			keluar
+		# Menu ekstrak hash file zip
 		elif [[ "${pilih_menu}" == "1" ]]; then
 			memasukkan_file_zip
 			ekstrak_hash_file_zip
+		# Menu ekstrak hash file RAR
 		elif [[ "${pilih_menu}" == "2" ]]; then
 			memasukkan_file_rar
 			ekstrak_hash_file_rar
+		# Menu ekstrak hash file 7z
 		elif [[ "${pilih_menu}" == "3" ]]; then
 			memasukkan_file_7z
 			ekstrak_hash_file_7z
+		# Menu ekstrak hash file PDF
 		elif [[ "${pilih_menu}" == "4" ]]; then
 			memasukkan_file_pdf
 			ekstrak_hash_file_pdf
+		# Menu ekstrak hash file Office
 		elif [[ "${pilih_menu}" == "5" ]]; then
 			memasukkan_file_office
 			ekstrak_hash_file_office
+		# Menu memulihkan kata sandi file ZIP
 		elif [[ "${pilih_menu}" == "6" ]]; then
 			memasukkan_file_hash_file_zip
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_zip
+		# Menu memulihkan kata sandi file RAR
 		elif [[ "${pilih_menu}" == "7" ]]; then
 			memasukkan_file_hash_file_rar
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_rar
+		# Menu memulihkan kata sandi file 7z
 		elif [[ "${pilih_menu}" == "8" ]]; then
 			memasukkan_file_hash_file_7z
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_7z
+		# Menu memulihkan kata sandi file PDF
                 elif [[ "${pilih_menu}" == "9" ]]; then
 			memasukkan_file_hash_file_pdf
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_pdf
+		# Menu memulihkan kata sandi file Office
                 elif [[ "${pilih_menu}" == "10" ]]; then
 			memasukkan_file_hash_file_office
 			memasukkan_file_wordlist
@@ -782,13 +811,23 @@ function pilih_menu(){
 
 # Fungsi utama
 function utama(){
+	# Memanggil fungsi mengecek_root
 	mengecek_root
+	# Memanggil fungdi membuat_folder_file_hash
 	membuat_folder_file_hash
+	# Memanggil fungsi menampilkan_kata_kata_peringatan
 	menampilkan_kata_kata_peringatan
+	# Memanggil fungsi konfirmasi
+	konfirmasi
+	# Memanggil fungsi mengecek_sistem_operasi
 	mengecek_sistem_operasi
+	# Memanggil fungsi mengecek_alat
 	mengecek_alat
+	# Memanggil fungsi menampilkan_menu
 	menampilkan_menu
+	# Memanggil fungsi pilih_menu
 	pilih_menu
 }
 
+# Memanggil fungsi utama
 utama
