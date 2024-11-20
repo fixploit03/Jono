@@ -29,7 +29,7 @@ Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jo
 
 ## Credits
 
-Program ini menggunakan [John the Ripper](https://github.com/openeall/john), yang dikembangkan oleh Openwall.
+Program ini menggunakan [John the Ripper](https://github.com/openwall/john), yang dikembangkan oleh Openwall.
 
 
 **Selamat mencoba!**
