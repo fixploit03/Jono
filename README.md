@@ -7,3 +7,8 @@ Jono adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi fi
 ## Lisensi 
 
 Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jono/blob/main/LICENSE).
+
+## Screenshot 
+
+![](img_1.jpg)
+<p align="center">[ Menu utama Jono ]</p>
