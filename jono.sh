@@ -156,6 +156,118 @@ function keluar(){
 	exit 1
 }
 
+function banner_ekstrak_hash_file_zip(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ________  _____________${r}"
+	echo -e "${b}   / ____/ / / / ____/__  /${r}"
+	echo -e "${b}  / __/ / /_/ / /_     / / ${r}"
+	echo -e "${b} / /___/ __  / __/    / /__${p} Ekstrak hash file ZIP${r}"
+	echo -e "${b}/_____/_/ /_/_/      /____/${h} https://github.com/fixploit03/Jono/${r}"
+	echo ""
+}
+
+function banner_ekstrak_hash_file_rar(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ________  ____________  ${r}"
+	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
+	echo -e "${b}  / __/ / /_/ / /_  / /_/ / ${r}"
+	echo -e "${b} / /___/ __  / __/ / _, _/${p} Ekstrak hash file RAR${r} "
+	echo -e "${b}/_____/_/ /_/_/   /_/ |_| ${h} https://github.com/fixploit03/Jono/${r} "
+	echo ""
+}
+
+function banner_ekstrak_hash_file_7z(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ________  _____________${r}"
+	echo -e "${b}   / ____/ / / / ____/__  /${r}"
+	echo -e "${b}  / __/ / /_/ / /_     / /${r}"
+	echo -e "${b} / /___/ __  / __/    / / ${p}Ekstrak hash file 7z${r}"
+	echo -e "${b}/_____/_/ /_/_/      /_/  ${h}https://github.com/fixploit03/Jono/${r}"
+	echo ""
+}
+
+function banner_ekstrak_hash_file_pdf(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ________  ____________  ${r}"
+	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
+	echo -e "${b}  / __/ / /_/ / /_  / /_/ / ${r}"
+	echo -e "${b} / /___/ __  / __/ / ____/ ${p}Ekstrak hash file PDF${r}"
+	echo -e "${b}/_____/_/ /_/_/   /_/      ${h}https://github.com/fixploit03/Jono/${r}"
+	echo ""                           
+}
+
+function banner_ekstrak_hash_file_office(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ________  ____________  ${r}"
+	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
+	echo -e "${b}  / __/ / /_/ / /_  / / / / ${r}"
+	echo -e "${b} / /___/ __  / __/ / /_/ / ${p}Ekstrak hash file Ofiice (.docx, .xlsx, .pptx)${r}"
+	echo -e "${b}/_____/_/ /_/_/    \____/  ${h}https://github.com/fixploit03/Jono/${r}"
+        echo ""
+
+}
+
+function banner_pulihkan_kata_sandi_file_zip(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ____  __ _______ ___________ ${r}"
+	echo -e "${b}   / __ \/ //_/ ___// ____/__  / ${r}"
+	echo -e "${b}  / /_/ / ,<  \__ \/ /_     / /  ${r}"
+	echo -e "${b} / ____/ /| |___/ / __/    / /__ ${p}Pulihkan kata sandi file ZIP${r}"
+	echo -e "${b}/_/   /_/ |_/____/_/      /____/ ${h}https://github.com/fixploit03/Jono/${r}"
+	echo ""
+}
+
+function banner_pulihkan_kata_sandi_file_rar(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ____  __ _______ __________  ${r}"
+	echo -e "${b}   / __ \/ //_/ ___// ____/ __ \ ${r}"
+	echo -e "${b}  / /_/ / ,<  \__ \/ /_  / /_/ / ${r}"
+	echo -e "${b} / ____/ /| |___/ / __/ / _, _/ ${p}Pulihkan kata sandi file RAR${r}"
+	echo -e "${b}/_/   /_/ |_/____/_/   /_/ |_|  ${h}https://github.com/fixploit03/Jono/${r}"
+	echo ""
+}
+
+function banner_pulihkan_kata_sandi_file_7z(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ____  __ _______ ___________${r}"
+	echo -e "${b}   / __ \/ //_/ ___// ____/__  /${r}"
+	echo -e "${b}  / /_/ / ,<  \__ \/ /_     / / ${r}"
+	echo -e "${b} / ____/ /| |___/ / __/    / / ${p}Pulihkan kata sandi file 7z${r}"
+	echo -e "${b}/_/   /_/ |_/____/_/      /_/  ${h}https://github.com/fixploit03/Jono/${r}"
+        echo ""
+
+}
+
+function banner_pulihkan_kata_sandi_file_pdf(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ____  __ _______ __________  ${r}"
+	echo -e "${b}   / __ \/ //_/ ___// ____/ __ \ ${r}"
+	echo -e "${b}  / /_/ / ,<  \__ \/ /_  / /_/ / ${r}"
+	echo -e "${b} / ____/ /| |___/ / __/ / ____/ ${p}Pulihkan kata sandi file PDF${r}"
+	echo -e "${b}/_/   /_/ |_/____/_/   /_/      ${h}https://github.com/fixploit03/Jono/${r}"
+	echo ""
+}
+
+function banner_pulihkan_kata_sandi_file_office(){
+	membersihkan_layar_terminal
+	echo -e "${b}    ____  __ _______ __________  ${r}"
+	echo -e "${b}   / __ \/ //_/ ___// ____/ __ \ ${r}"
+	echo -e "${b}  / /_/ / ,<  \__ \/ /_  / / / / ${r}"
+	echo -e "${b} / ____/ /| |___/ / __/ / /_/ / ${p}Pulihkan kata sandi file Office (.docx, .xlsx, .pptx)${r}"
+	echo -e "${b}/_/   /_/ |_/____/_/    \____/  ${h}https://github.com/fixploit03/Jono/${r}"
+	echo ""
+}
+
+function banner_tentang_program_jono(){
+	membersihkan_layar_terminal
+	echo -e "${b}  __________      __${r}"
+	echo -e "${b} /_  __/ __ \    / /${r}"
+	echo -e "${b}  / / / /_/ /_  / / ${r}"
+	echo -e "${b} / / / ____/ /_/ / ${p}Tentang program Jono${r}"
+	echo -e "${b}/_/ /_/    \____/  ${h}https://github.com/fixploit03/Jono/${r}"
+	echo ""
+}
+
 # Fungsi untuk memasukkan file ZIP
 function memasukkan_file_zip(){
 	while true; do
@@ -725,10 +837,10 @@ function memulihkan_kata_sandi_file_office(){
 
 function tentang_program(){
 	echo ""
-	echo -e "${b}Jono${r}"
-	echo -e "${p}----${r}"
 	echo -e "${p}Jono adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi file ZIP,${r}"
 	echo -e "${p}RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan John The Ripper.${r}"
+	echo ""
+	echo -e "${p}Dibuat oleh: ${h}fixploit03${r}"
 	echo ""
         read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
 	menampilkan_menu
@@ -737,36 +849,33 @@ function tentang_program(){
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
 	membersihkan_layar_terminal
-        echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀    ${r}                               ⠀⠀⠀      ${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⡰⠉⠀⠀⠉⠻⢦⡀⠀⡀⠀⠀⠀  ${r}                                       ⠀${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⣰⠁⠀⠀⠀⠀⠈⣶⣝⣺⢷⡀⠀⠀⠀ ${c}       ______  _   ______               ${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠀⢠⡗⠂⠀⠀⠀⠁⠐⠺⡌⠁⠈⠛⠂⠀⠀ ${c}      / / __ \/ | / / __ \              ${r}"
-	echo -e "${b}⠀⠀⠀⢀⣠⠴⠚⠊⠉⠉⠁⠈⠉⠉⠑⠓⠦⣄⡀⠀⠀⠀ ${c} __  / / / / /  |/ / / / /              ${r}"
-	echo -e "${b}⢀⣴⣾⣭⡤⢤⣤⣄⣀⣀⣀⣀⣀⣀⣠⣤⡤⢤⣭⣷⣦⡀ ${c}/ /_/ / /_/ / /|  / /_/ /               ${r}"
-	echo -e "${b}⠈⢯⣿⡿⣁⡜⣨⠀⠷⣲⡞⢻⣖⠾⠀⡅⢳⣈⢿⣟⡽⠁ ${c}\____/\____/_/ |_/\____/                ${r}"
-	echo -e "${b}⠀⠀⠈⠙⡟⡜⣸⡀⠀⡅⠇⠘⠢⠀⢀⣇⢣⢻⠋⠁⠀⠀ ${p} Pemulih kata sandi file                ${r}"
-	echo -e "${b}⠀⠀⠀⠰⡾⡰⡏⠛⠚⠋⣉⣍⠙⠓⠛⢹⢆⢷⠆    ${p} ZIP, RAR, 7Z, PDF dan Office           ${r}"
-	echo -e "${b}⠀⠀⠀⠀⢷⠡⢹⠒⢖⡬⠄⠀⢭⡲⠒⡏⠈⡾⠀⠀⠀⠀ ${p} (.docx, .xlsx, .pptx)                  ${r}"
-	echo -e "${b}⠀⠀⠀⠀⠸⢇⣏⣦⠀⠀⠀⠀⠀⠀⣴⣽⡼⠇⠀⠀⠀  ${p}                                   ⠀    ${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠈⠈⠉⠻⣴⠀⠀⣤⠟⠁⠁⠁⠀⠀⠀⠀⠀ ${h} https://github.com/fixploit03/Jono/    ${r}"
+        echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀    ${r}                               ⠀    ${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⡰⠉⠀⠀⠉⠻⢦⡀⠀⡀⠀⠀⠀  ${r}                                   ⠀${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⣰⠁⠀⠀⠀⠀⠈⣶⣝⣺⢷⡀⠀⠀⠀ ${c}       ______  _   ______           ${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠀⢠⡗⠂⠀⠀⠀⠁⠐⠺⡌⠁⠈⠛⠂⠀⠀ ${c}      / / __ \/ | / / __ \          ${r}"
+	echo -e "${b}⠀⠀⠀⢀⣠⠴⠚⠊⠉⠉⠁⠈⠉⠉⠑⠓⠦⣄⡀⠀⠀⠀ ${c} __  / / / / /  |/ / / / /          ${r}"
+	echo -e "${b}⢀⣴⣾⣭⡤⢤⣤⣄⣀⣀⣀⣀⣀⣀⣠⣤⡤⢤⣭⣷⣦⡀ ${c}/ /_/ / /_/ / /|  / /_/ /           ${r}"
+	echo -e "${b}⠈⢯⣿⡿⣁⡜⣨⠀⠷⣲⡞⢻⣖⠾⠀⡅⢳⣈⢿⣟⡽⠁ ${c}\____/\____/_/ |_/\____/            ${r}"
+	echo -e "${b}⠀⠀⠈⠙⡟⡜⣸⡀⠀⡅⠇⠘⠢⠀⢀⣇⢣⢻⠋⠁⠀⠀ ${p} Pemulih kata sandi file            ${r}"
+	echo -e "${b}⠀⠀⠀⠰⡾⡰⡏⠛⠚⠋⣉⣍⠙⠓⠛⢹⢆⢷⠆    ${p} ZIP, RAR, 7Z, PDF dan Office       ${r}"
+	echo -e "${b}⠀⠀⠀⠀⢷⠡⢹⠒⢖⡬⠄⠀⢭⡲⠒⡏⠈⡾⠀⠀⠀⠀ ${p} (.docx, .xlsx, .pptx)              ${r}"
+	echo -e "${b}⠀⠀⠀⠀⠸⢇⣏⣦⠀⠀⠀⠀⠀⠀⣴⣽⡼⠇⠀⠀⠀  ${h} https://github.com/fixploit03/Jono/${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠈⠈⠉⠻⣴⠀⠀⣤⠟⠁⠁⠁⠀⠀⠀⠀⠀ ${r}"
 	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⠞⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀ ${r}"
-	echo -e "${p}-----------------------------------------------------------${r}"
-	echo -e "${p}[${k}00${p}] Keluar program Jono${r}"
-	echo -e "${p}-----------------------------------------------------------${r}"
-	echo -e "${p}[${k}01${p}] Ekstrak hash file ZIP${r}"
-	echo -e "${p}[${k}02${p}] Ekstrak hash file RAR${r}"
-	echo -e "${p}[${k}03${p}] Ekstrak hash file 7z${r}"
-	echo -e "${p}[${k}04${p}] Ekstrak hash file PDF${r}"
-	echo -e "${p}[${k}05${p}] Ekstrak hash file Office (.docx, .xlsx, .pptx)${r}"
-	echo -e "${p}-----------------------------------------------------------${r}"
-	echo -e "${p}[${k}06${p}] Pulihkan kata sandi file ZIP ${r}"
-	echo -e "${p}[${k}07${p}] Pulihkan kata sandi file RAR${r}"
-	echo -e "${p}[${k}08${p}] Pulihkan kata sandi file 7Z${r}"
-	echo -e "${p}[${k}09${p}] Pulihkan kata sandi file PDF${r}"
-	echo -e "${p}[${k}10${p}] Pulihkan kata sandi file Ofiice (.docx, .xlsx, .pptx)${r}"
-	echo -e "${p}-----------------------------------------------------------${r}"
-	echo -e "${p}[${k}99${p}] Tentang program Jono${r}"
-	echo -e "${p}-----------------------------------------------------------${r}"
+	echo ""
+	echo -e "${p}     [${k}00${p}] Keluar program Jono                                   ${r}"
+	echo -e "${p}     [${k}01${p}] Ekstrak hash file ZIP                                 ${r}"
+	echo -e "${p}     [${k}02${p}] Ekstrak hash file RAR                                 ${r}"
+	echo -e "${p}     [${k}03${p}] Ekstrak hash file 7z                                  ${r}"
+	echo -e "${p}     [${k}04${p}] Ekstrak hash file PDF                                 ${r}"
+	echo -e "${p}     [${k}05${p}] Ekstrak hash file Office (.docx, .xlsx, .pptx)        ${r}"
+	echo -e "${p}     [${k}06${p}] Pulihkan kata sandi file ZIP                          ${r}"
+	echo -e "${p}     [${k}07${p}] Pulihkan kata sandi file RAR                          ${r}"
+	echo -e "${p}     [${k}08${p}] Pulihkan kata sandi file 7Z                           ${r}"
+	echo -e "${p}     [${k}09${p}] Pulihkan kata sandi file PDF                          ${r}"
+	echo -e "${p}     [${k}10${p}] Pulihkan kata sandi file Ofiice (.docx, .xlsx, .pptx) ${r}"
+	echo -e "${p}     [${k}99${p}] Tentang program Jono                                  ${r}"
+	echo ""
 }
 
 function pilih_menu(){
@@ -777,51 +886,62 @@ function pilih_menu(){
 			keluar
 		# Menu ekstrak hash file zip
 		elif [[ "${pilih_menu}" == "01" ]]; then
+			banner_ekstrak_hash_file_zip
 			memasukkan_file_zip
 			ekstrak_hash_file_zip
 		# Menu ekstrak hash file RAR
 		elif [[ "${pilih_menu}" == "02" ]]; then
+			banner_ekstrak_hash_file_rar
 			memasukkan_file_rar
 			ekstrak_hash_file_rar
 		# Menu ekstrak hash file 7z
 		elif [[ "${pilih_menu}" == "03" ]]; then
+			banner_ekstrak_hash_file_7z
 			memasukkan_file_7z
 			ekstrak_hash_file_7z
 		# Menu ekstrak hash file PDF
 		elif [[ "${pilih_menu}" == "04" ]]; then
+			banner_ekstrak_hash_file_pdf
 			memasukkan_file_pdf
 			ekstrak_hash_file_pdf
 		# Menu ekstrak hash file Office
 		elif [[ "${pilih_menu}" == "05" ]]; then
+			banner_ekstrak_hash_file_office
 			memasukkan_file_office
 			ekstrak_hash_file_office
 		# Menu memulihkan kata sandi file ZIP
 		elif [[ "${pilih_menu}" == "06" ]]; then
+			banner_pulihkan_kata_sandi_file_zip
 			memasukkan_file_hash_file_zip
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_zip
 		# Menu memulihkan kata sandi file RAR
 		elif [[ "${pilih_menu}" == "07" ]]; then
+			banner_pulihkan_kata_sandi_file_rar
 			memasukkan_file_hash_file_rar
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_rar
 		# Menu memulihkan kata sandi file 7z
 		elif [[ "${pilih_menu}" == "08" ]]; then
+			banner_pulihkan_kata_sandi_file_7z
 			memasukkan_file_hash_file_7z
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_7z
 		# Menu memulihkan kata sandi file PDF
                 elif [[ "${pilih_menu}" == "09" ]]; then
+			banner_pulihkan_kata_sandi_file_pdf
 			memasukkan_file_hash_file_pdf
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_pdf
 		# Menu memulihkan kata sandi file Office
                 elif [[ "${pilih_menu}" == "10" ]]; then
+			banner_pulihkan_kata_sandi_file_office
 			memasukkan_file_hash_file_office
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_office
 		# Menu tentang program Jono
                 elif [[ "${pilih_menu}" == "99" ]]; then
+			banner_tentang_program_jono
 			tentang_program
 		else
 			echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
