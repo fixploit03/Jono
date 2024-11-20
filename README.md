@@ -12,3 +12,6 @@ Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jo
 
 ![](https://github.com/fixploit03/Jono/blob/main/menu.png)
 <p align="center">[ Menu utama Jono ]</p>
+
+![](https://github.com/fixploit03/Jono/blob/main/ekstrak%20hash%20file%20zip.png)
+<p align="center">[ Menu ekstrak hash file ZIP ]</p>
