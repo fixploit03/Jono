@@ -10,5 +10,5 @@ Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jo
 
 ## Screenshot 
 
-![](img_1.jpg)
+![](https://github.com/fixploit03/Jono/blob/main/menu.png)
 <p align="center">[ Menu utama Jono ]</p>
