@@ -40,11 +40,9 @@ function membersihkan_layar_terminal(){
 
 # Fungsi untuk menampilkan kata kata peringatan
 function menampilkan_kata_kata_peringatan(){
-        membersihkan_layar_terminal
-	echo ""
+	membersihkan_layar_terminal
 	echo -e "${b}Selamat datang di Jono${r}"
 	echo -e "${p}----------------------${r}"
-	echo ""
 	echo -e "${p}Jono adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi${r}"
 	echo -e "${p}file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan${r}"
 	echo -e "${p}John The Ripper.${r}"
@@ -725,85 +723,95 @@ function memulihkan_kata_sandi_file_office(){
 	menampilkan_menu
 }
 
+function tentang_program(){
+	echo ""
+	echo -e "${b}Jono${r}"
+	echo -e "${p}----${r}"
+	echo -e "${p}Jono adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi file ZIP,${r}"
+	echo -e "${p}RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan John The Ripper.${r}"
+	echo ""
+        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+	menampilkan_menu
+}
+
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
-	# Tentang program
-	program="Jono"
-        github="https://github.com/fixploit03/Jono/"
-
 	membersihkan_layar_terminal
-
-        # waktu saat ini
-        waktu=$(date +"%d-%m-%Y %H:%M:%S")
-
-        # Menu yang tersedia
-	echo ""
-        echo -e "${p}[${k}${program}${p}] [${h}${github}${p}] [${b}${waktu}${p}]${r}"
-        echo ""
-        echo -e "${p}Daftar menu yang tersedia:${r}"
-        echo ""
-        echo -e "${p}------------------------------------------------------------------${r}"
-        echo -e "${p}[${k}0${p}] Keluar${r}"
-        echo -e "------------------------------------------------------------------"
-        echo -e "${p}[${k}1${p}] Ekstrak hash file ZIP${r}"
-        echo -e "${p}[${k}2${p}] Ekstrak hash file RAR${r}"
-        echo -e "${p}[${k}3${p}] Ekstrak hash file 7z${r}"
-        echo -e "${p}[${k}4${p}] Ekstrak hash file PDF${r}"
-        echo -e "${p}[${k}5${p}] Ekstrak hash file Office (.docx, .xlsx, .pptx)${r}"
-        echo -e "${p}------------------------------------------------------------------${r}"
-        echo -e "${p}[${k}6${p}] Pulihkan kata sandi file ZIP${r}"
-        echo -e "${p}[${k}7${p}] Pulihkan kata sandi file RAR${r}"
-        echo -e "${p}[${k}8${p}] Pulihkan kata sandi file 7z${r}"
-        echo -e "${p}[${k}9${p}] Pulihkan kata sandi file PDF${r}"
-        echo -e "${p}[${k}10${p}] Pulihkan kata sandi file Office (.docx, .xlsx, .pptx)${r}"
-        echo -e "${p}------------------------------------------------------------------${r}"
-        echo -e "${p}[${k}11${p}] Tentang${r}"
-        echo -e "${p}------------------------------------------------------------------${r}"
+        echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀    ${r}                               ⠀⠀⠀      ${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⡰⠉⠀⠀⠉⠻⢦⡀⠀⡀⠀⠀⠀  ${r}                                       ⠀${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⣰⠁⠀⠀⠀⠀⠈⣶⣝⣺⢷⡀⠀⠀⠀ ${c}       ______  _   ______               ${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠀⢠⡗⠂⠀⠀⠀⠁⠐⠺⡌⠁⠈⠛⠂⠀⠀ ${c}      / / __ \/ | / / __ \              ${r}"
+	echo -e "${b}⠀⠀⠀⢀⣠⠴⠚⠊⠉⠉⠁⠈⠉⠉⠑⠓⠦⣄⡀⠀⠀⠀ ${c} __  / / / / /  |/ / / / /              ${r}"
+	echo -e "${b}⢀⣴⣾⣭⡤⢤⣤⣄⣀⣀⣀⣀⣀⣀⣠⣤⡤⢤⣭⣷⣦⡀ ${c}/ /_/ / /_/ / /|  / /_/ /               ${r}"
+	echo -e "${b}⠈⢯⣿⡿⣁⡜⣨⠀⠷⣲⡞⢻⣖⠾⠀⡅⢳⣈⢿⣟⡽⠁ ${c}\____/\____/_/ |_/\____/                ${r}"
+	echo -e "${b}⠀⠀⠈⠙⡟⡜⣸⡀⠀⡅⠇⠘⠢⠀⢀⣇⢣⢻⠋⠁⠀⠀ ${p} Pemulih kata sandi file                ${r}"
+	echo -e "${b}⠀⠀⠀⠰⡾⡰⡏⠛⠚⠋⣉⣍⠙⠓⠛⢹⢆⢷⠆    ${p} ZIP, RAR, 7Z, PDF dan Office           ${r}"
+	echo -e "${b}⠀⠀⠀⠀⢷⠡⢹⠒⢖⡬⠄⠀⢭⡲⠒⡏⠈⡾⠀⠀⠀⠀ ${p} (.docx, .xlsx, .pptx)                  ${r}"
+	echo -e "${b}⠀⠀⠀⠀⠸⢇⣏⣦⠀⠀⠀⠀⠀⠀⣴⣽⡼⠇⠀⠀⠀  ${p}                                   ⠀    ${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠈⠈⠉⠻⣴⠀⠀⣤⠟⠁⠁⠁⠀⠀⠀⠀⠀ ${h} https://github.com/fixploit03/Jono/    ${r}"
+	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⠞⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀ ${r}                                        ${r}"
+	echo -e "${p}-----------------------------------------------------------        ${r}"
+	echo -e "${p}[${k}00${p}] Keluar program Jono                                   ${r}"
+	echo -e "${p}-----------------------------------------------------------        ${r}"
+	echo -e "${p}[${k}01${p}] Ekstrak hash file ZIP                                 ${r}"
+	echo -e "${p}[${k}02${p}] Ekstrak hash file RAR                                 ${r}"
+	echo -e "${p}[${k}03${p}] Ekstrak hash file 7z                                  ${r}"
+	echo -e "${p}[${k}04${p}] Ekstrak hash file PDF                                 ${r}"
+	echo -e "${p}[${k}05${p}] Ekstrak hash file Office (.docx, .xlsx, .pptx)        ${r}"
+	echo -e "${p}-----------------------------------------------------------        ${r}"
+	echo -e "${p}[${k}06${p}] Pulihkan kata sandi file ZIP                          ${r}"
+	echo -e "${p}[${k}07${p}] Pulihkan kata sandi file RAR                          ${r}"
+	echo -e "${p}[${k}08${p}] Pulihkan kata sandi file 7Z                           ${r}"
+	echo -e "${p}[${k}09${p}] Pulihkan kata sandi file PDF                          ${r}"
+	echo -e "${p}[${k}10${p}] Pulihkan kata sandi file Ofiice (.docx, .xlsx, .pptx) ${r}"
+	echo -e "${p}-----------------------------------------------------------        ${r}"
+	echo -e "${p}[${k}99${p}] Tentang program Jono                                  ${r}"
+	echo -e "${p}-----------------------------------------------------------        ${r}"
 }
 
 function pilih_menu(){
         while true; do
                 read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Pilih menu: '  pilih_menu
 		# Menu keluar
-                if [[  "${pilih_menu}" == "0" ]]; then
+                if [[  "${pilih_menu}" == "00" ]]; then
 			keluar
 		# Menu ekstrak hash file zip
-		elif [[ "${pilih_menu}" == "1" ]]; then
+		elif [[ "${pilih_menu}" == "01" ]]; then
 			memasukkan_file_zip
 			ekstrak_hash_file_zip
 		# Menu ekstrak hash file RAR
-		elif [[ "${pilih_menu}" == "2" ]]; then
+		elif [[ "${pilih_menu}" == "02" ]]; then
 			memasukkan_file_rar
 			ekstrak_hash_file_rar
 		# Menu ekstrak hash file 7z
-		elif [[ "${pilih_menu}" == "3" ]]; then
+		elif [[ "${pilih_menu}" == "03" ]]; then
 			memasukkan_file_7z
 			ekstrak_hash_file_7z
 		# Menu ekstrak hash file PDF
-		elif [[ "${pilih_menu}" == "4" ]]; then
+		elif [[ "${pilih_menu}" == "04" ]]; then
 			memasukkan_file_pdf
 			ekstrak_hash_file_pdf
 		# Menu ekstrak hash file Office
-		elif [[ "${pilih_menu}" == "5" ]]; then
+		elif [[ "${pilih_menu}" == "05" ]]; then
 			memasukkan_file_office
 			ekstrak_hash_file_office
 		# Menu memulihkan kata sandi file ZIP
-		elif [[ "${pilih_menu}" == "6" ]]; then
+		elif [[ "${pilih_menu}" == "06" ]]; then
 			memasukkan_file_hash_file_zip
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_zip
 		# Menu memulihkan kata sandi file RAR
-		elif [[ "${pilih_menu}" == "7" ]]; then
+		elif [[ "${pilih_menu}" == "07" ]]; then
 			memasukkan_file_hash_file_rar
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_rar
 		# Menu memulihkan kata sandi file 7z
-		elif [[ "${pilih_menu}" == "8" ]]; then
+		elif [[ "${pilih_menu}" == "08" ]]; then
 			memasukkan_file_hash_file_7z
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_7z
 		# Menu memulihkan kata sandi file PDF
-                elif [[ "${pilih_menu}" == "9" ]]; then
+                elif [[ "${pilih_menu}" == "09" ]]; then
 			memasukkan_file_hash_file_pdf
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_pdf
@@ -812,6 +820,9 @@ function pilih_menu(){
 			memasukkan_file_hash_file_office
 			memasukkan_file_wordlist
 			memulihkan_kata_sandi_file_office
+		# Menu tentang program Jono
+                elif [[ "${pilih_menu}" == "99" ]]; then
+			tentang_program
 		else
 			echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
 			continue
