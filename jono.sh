@@ -17,7 +17,7 @@ r="\e[0m"    # Reset
 # Fungsi untuk mengecek root
 function mengecek_root(){
 	if [[ "$EUID" -ne 0 ]]; then
-        	echo -e "${p}[${m}-${p}] ${p}Script ini harus dijalankan sebagai root.${r}"
+        	echo -e "${p}[${m}-${p}] ${p}Program ini harus dijalankan sebagai root.${r}"
 	        exit 1
 	fi
 }
@@ -87,20 +87,20 @@ function mengecek_sistem_operasi(){
 	tunggu
 	sistem_operasi=$(uname -s)
 	if [[ "${sistem_operasi}" != "Linux" ]]; then
-	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
+	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
 	        exit 1
 	fi
 
 	# Mengecek ID Linux
 	file_id_linux="/etc/os-release"
 	if [[ ! -f "${file_id_linux}" ]]; then
-	        echo -e "${p}[${m}-${p}] File '${file_id_linux}' tidak ditemukan. Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
+	        echo -e "${p}[${m}-${p}] File '${file_id_linux}' tidak ditemukan. Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
 	        exit 1
 	fi
 	. "${file_id_linux}"
 	id_linux=$ID
-	if [[ "${id_linux}" != "debian" && "${id_linux}" != "ubuntu" && "${id_linux}" != "kali" ]]; then
-	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
+	if [[ "${id_linux}" != "kali" ]]; then
+	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
 	        exit 1
 	fi
 
@@ -121,7 +121,7 @@ function mengecek_alat(){
 	# Alat yang belum terinstal
 	daftar_alat_belum_terinstal=()
 
-	echo -e "${p}[${b}*${p}] Mengecek alat-alat yang dibutuhkan oleh Jono...${r}"
+	echo -e "${p}[${b}*${p}] Mengecek alat-alat yang dibutuhkan oleh program Jono...${r}"
 	tunggu
 
 	for alat in "${daftar_alat[@]}"; do
@@ -137,7 +137,7 @@ function mengecek_alat(){
 	done
 
 	if [[ "${#daftar_alat_belum_terinstal[@]}" -ne 0 ]]; then
-        	echo -e "${p}[${m}-${p}] Jono tidak dapat dijalankan karena ada beberapa alat yang belum terinstal..${r}"
+        	echo -e "${p}[${m}-${p}] Program Jono tidak dapat dijalankan karena ada beberapa alat yang belum terinstal..${r}"
 	        echo ""
 	        echo -e "${p}Alat yang belum terinstal:${r}"
         	for alat_belum_terinstal in "${daftar_alat_belum_terinstal[@]}"; do
@@ -147,7 +147,7 @@ function mengecek_alat(){
 
 	fi
 
-	echo -e "${p}[${h}+${p}] Semua alat yang dibutuhkan oleh Jono sudah terinstal.${r}"
+	echo -e "${p}[${h}+${p}] Semua alat yang dibutuhkan oleh program Jono sudah terinstal.${r}"
 	echo ""
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk melanjutkan...\e[0m'
 }
@@ -162,6 +162,7 @@ function keluar(){
 function memasukkan_file_zip(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file ZIP: ' file_zip
+		file_zip=$(echo "${file_zip}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file ZIP '${file_zip}'...${r}"
                 tunggu
                	if [[ -z "${file_zip}" ]]; then
@@ -185,6 +186,7 @@ function memasukkan_file_zip(){
 function memasukkan_file_rar(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file RAR: ' file_rar
+		file_rar=$(echo "${file_rar}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file RAR '${file_rar}'...${r}"
                 tunggu
                 if [[ -z "${file_rar}" ]]; then
@@ -208,6 +210,7 @@ function memasukkan_file_rar(){
 function memasukkan_file_7z(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file 7z: ' file_7z
+		file_7z=$(echo "${file_7z}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file 7z '${file_7z}'...${r}"
                 tunggu
                 if [[ -z "${file_7z}" ]]; then
@@ -232,6 +235,7 @@ function memasukkan_file_7z(){
 function memasukkan_file_pdf(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file PDF: ' file_pdf
+		file_pdf=$(echo "${file_pdf}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file PDF '${file_pdf}'...${r}"
                 tunggu
                 if [[ -z "${file_pdf}" ]]; then
@@ -255,6 +259,7 @@ function memasukkan_file_pdf(){
 function memasukkan_file_office(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file Office (.docx, .xlsx, .pptx): ' file_office
+		file_office=$(echo "${file_office}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file Office '${file_office}'...${r}"
                 tunggu
                 if [[ -z "${file_office}" ]]; then
@@ -394,6 +399,7 @@ function ekstrak_hash_file_office(){
 function memasukkan_file_hash_file_zip(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file ZIP: ' file_hash_file_zip
+		file_hash_file_zip=$(echo "${file_hash_file_zip}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file hash file ZIP '${file_hash_file_zip}'...${r}"
                 tunggu
                	if [[ -z "${file_hash_file_zip}" ]]; then
@@ -422,6 +428,7 @@ function memasukkan_file_hash_file_zip(){
 function memasukkan_file_hash_file_rar(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file RAR: ' file_hash_file_rar
+		file_hash_file_rar=$(echo "${file_hash_file_rar}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file hash file RAR '${file_hash_file_rar}'...${r}"
                 tunggu
                	if [[ -z "${file_hash_file_rar}" ]]; then
@@ -450,6 +457,7 @@ function memasukkan_file_hash_file_rar(){
 function memasukkan_file_hash_file_7z(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file 7z: ' file_hash_file_7z
+		file_hash_file_7z=$(echo "${file_hash_file_7z}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file hash file 7z '${file_hash_file_7z}'...${r}"
                 tunggu
                	if [[ -z "${file_hash_file_7z}" ]]; then
@@ -478,6 +486,7 @@ function memasukkan_file_hash_file_7z(){
 function memasukkan_file_hash_file_pdf(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file PDF: ' file_hash_file_pdf
+		file_hash_file_pdf=$(echo "${file_hash_file_pdf}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file hash file PDF '${file_hash_file_pdf}'...${r}"
                 tunggu
                	if [[ -z "${file_hash_file_pdf}" ]]; then
@@ -506,6 +515,7 @@ function memasukkan_file_hash_file_pdf(){
 function memasukkan_file_hash_file_office(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file Office: ' file_hash_file_office
+		file_hash_file_office=$(echo "${file_hash_file_office}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file hash file Office '${file_hash_file_office}'...${r}"
                 tunggu
                	if [[ -z "${file_hash_file_office}" ]]; then
@@ -535,6 +545,7 @@ function memasukkan_file_hash_file_office(){
 function memasukkan_file_wordlist(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file Wordlist: ' file_wordlist
+		file_wordlist=$(echo "${file_wordlist}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
                 echo -e "${p}[${b}*${p}] Mengecek file Wordlist '${file_wordlist}'...${r}"
                 tunggu
                	if [[ -z "${file_wordlist}" ]]; then
