@@ -22,6 +22,11 @@ Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jo
 ![](https://github.com/fixploit03/Jono/blob/main/pulihkan%20kata%20sandi%20file%20zip.png)
 <p align="center">[ Menu pulihkan kata sandi file ZIP ]</p>
 
+## Credits
+
+Program ini menggunakan [John the Ripper](https://github.com/openeall/john), yang dikembangkan oleh Openwall.
+
+
 > **Catatan**
 > 1. Program ini hanya dapat dijalankan di sistem operasi Kali Linux.
 > 2. Program ini menggunakan teknik serangan dictionary attack, di mana keberhasilan menemukan kata sandi tergantung pada isi file wordlist yang digunakan.
