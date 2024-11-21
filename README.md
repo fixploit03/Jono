@@ -8,6 +8,10 @@
 
 > Peringatan: Program ini dirancang hanya untuk tujuan pendidikan dan penelitian yang sah. Dilarang keras menggunakan program ini untuk kegiatan ilegal, merusak, atau tanpa izin pemilik file. Pengguna bertanggung jawab penuh atas segala konsekuensi hukum yang mungkin timbul dari penggunaan program ini. Pastikan untuk selalu mematuhi peraturan dan etika yang berlaku di wilayah Anda.
 
+## Demo
+
+![](https://github.com/fixploit03/Jono/blob/main/demo_jono.gif)
+
 ## Instalasi 
 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
