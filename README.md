@@ -12,12 +12,17 @@
 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
 
-```
-$ apt-get install bash git
+```sh
+$ apt-get update
+$ apt-get install john
+$ apt-get install john-data
+$ apt-get install git
 $ git clone https://github.com/fixploit03/Jono.git
 $ cd Jono
-$ bash jono.sh
+$ chmod +x jono.sh
+$ ./jono.sh
 ```
+
 
 > **Catatan**
 > 1. Program ini hanya dapat dijalankan di sistem operasi Kali Linux.
