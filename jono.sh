@@ -950,7 +950,7 @@ function waktu(){
 		zona_waktu="WIT"
 	fi
 
-	echo "${hari}, ${tanggal}-${bulan}-${tahun}, ${jam} ${zona_waktu}"
+	echo -e "${p}${hari}, ${tanggal}-${bulan}-${tahun}, ${jam} ${zona_waktu}${r}"
 }
 
 # Fungsi untuk menampilkan menu yang tersedia
