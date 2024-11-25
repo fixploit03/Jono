@@ -156,8 +156,10 @@ function keluar(){
 	exit 1
 }
 
+# Fungsi untuk menampilkan banner ekstrak hash file ZIP
 function banner_ekstrak_hash_file_zip(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ________  _____________${r}"
 	echo -e "${b}   / ____/ / / / ____/__  /${r}"
 	echo -e "${b}  / __/ / /_/ / /_     / / ${r}"
@@ -166,8 +168,10 @@ function banner_ekstrak_hash_file_zip(){
 	echo ""
 }
 
+# Fungsi untuk menampilkan banner ekstrak hash file RAR
 function banner_ekstrak_hash_file_rar(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ________  ____________  ${r}"
 	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
 	echo -e "${b}  / __/ / /_/ / /_  / /_/ / ${r}"
@@ -176,8 +180,10 @@ function banner_ekstrak_hash_file_rar(){
 	echo ""
 }
 
+# Fungsi untuk menampilkan banner ekstrak hash file 7z
 function banner_ekstrak_hash_file_7z(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ________  _____________${r}"
 	echo -e "${b}   / ____/ / / / ____/__  /${r}"
 	echo -e "${b}  / __/ / /_/ / /_     / /${r}"
@@ -186,18 +192,22 @@ function banner_ekstrak_hash_file_7z(){
 	echo ""
 }
 
+# Fungsi untuk menampilkan banner ekstrak hash file PDF
 function banner_ekstrak_hash_file_pdf(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ________  ____________  ${r}"
 	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
 	echo -e "${b}  / __/ / /_/ / /_  / /_/ / ${r}"
 	echo -e "${b} / /___/ __  / __/ / ____/ ${p}Ekstrak hash file PDF${r}"
 	echo -e "${b}/_____/_/ /_/_/   /_/      ${h}https://github.com/fixploit03/Jono/${r}"
-	echo ""                           
+	echo ""
 }
 
+# Fungsi untuk menampilkan banner ekstrak hash file Office
 function banner_ekstrak_hash_file_office(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ________  ____________  ${r}"
 	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
 	echo -e "${b}  / __/ / /_/ / /_  / / / / ${r}"
@@ -207,8 +217,10 @@ function banner_ekstrak_hash_file_office(){
 
 }
 
+# Fungsi untuk menampilkan banner pulihkan kata sandi file ZIP
 function banner_pulihkan_kata_sandi_file_zip(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ____  __ _______ ___________ ${r}"
 	echo -e "${b}   / __ \/ //_/ ___// ____/__  / ${r}"
 	echo -e "${b}  / /_/ / ,<  \__ \/ /_     / /  ${r}"
@@ -217,8 +229,10 @@ function banner_pulihkan_kata_sandi_file_zip(){
 	echo ""
 }
 
+# Fungsi untuk menampilkan banner pulihkan kata sandi file RAR
 function banner_pulihkan_kata_sandi_file_rar(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ____  __ _______ __________  ${r}"
 	echo -e "${b}   / __ \/ //_/ ___// ____/ __ \ ${r}"
 	echo -e "${b}  / /_/ / ,<  \__ \/ /_  / /_/ / ${r}"
@@ -227,8 +241,10 @@ function banner_pulihkan_kata_sandi_file_rar(){
 	echo ""
 }
 
+# Fungsi untuk menampilkan banner pulihkan kata sandi file 7z
 function banner_pulihkan_kata_sandi_file_7z(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ____  __ _______ ___________${r}"
 	echo -e "${b}   / __ \/ //_/ ___// ____/__  /${r}"
 	echo -e "${b}  / /_/ / ,<  \__ \/ /_     / / ${r}"
@@ -238,8 +254,10 @@ function banner_pulihkan_kata_sandi_file_7z(){
 
 }
 
+# Fungsi untuk menampilkan banner pulihkan kata sandi file PDF
 function banner_pulihkan_kata_sandi_file_pdf(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ____  __ _______ __________  ${r}"
 	echo -e "${b}   / __ \/ //_/ ___// ____/ __ \ ${r}"
 	echo -e "${b}  / /_/ / ,<  \__ \/ /_  / /_/ / ${r}"
@@ -248,8 +266,10 @@ function banner_pulihkan_kata_sandi_file_pdf(){
 	echo ""
 }
 
+# Fungsi untuk menampilkan banner pulihkan kata sandi file Office
 function banner_pulihkan_kata_sandi_file_office(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}    ____  __ _______ __________  ${r}"
 	echo -e "${b}   / __ \/ //_/ ___// ____/ __ \ ${r}"
 	echo -e "${b}  / /_/ / ,<  \__ \/ /_  / / / / ${r}"
@@ -258,8 +278,10 @@ function banner_pulihkan_kata_sandi_file_office(){
 	echo ""
 }
 
+# Fungsi untuk menampilkan banner tentang program Jono
 function banner_tentang_program_jono(){
 	membersihkan_layar_terminal
+	waktu
 	echo -e "${b}  __________      __${r}"
 	echo -e "${b} /_  __/ __ \    / /${r}"
 	echo -e "${b}  / / / /_/ /_  / / ${r}"
@@ -846,9 +868,95 @@ function tentang_program(){
 	menampilkan_menu
 }
 
+function waktu(){
+	hari=$(date +"%A")
+	tanggal=$(date +"%d")
+	bulan=$(date +"%B")
+	tahun=$(date +"%Y")
+	jam=$(date +"%H:%M:%S")
+
+	# Mengonverssi nama hari
+	# Minggu
+	if [[ "${hari}" == "Sunday" ]]; then
+		hari="Minggu"
+	# Senin
+	elif [[ "${hari}" == "Monday" ]]; then
+		hari="Senin"
+	# Selasa
+	elif [[ "${hari}" == "Tuesday" ]]; then
+		hari="Selasa"
+	# Rabu
+	elif [[ "${hari}" == "Wednesday" ]]; then
+		hari="Rabu"
+	# Kamis
+	elif [[ "${hari}" == "Thursday" ]]; then
+		hari="Kamis"
+	# Jumat
+	elif [[ "${hari}" == "Friday" ]]; then
+		hari="Jumat"
+	# Sabtu
+	elif [[ "${hari}" == "Saturday" ]]; then
+		hari="Sabtu"
+	fi
+
+	# Mengonversi nama bulan
+	# Januari
+	if [[ "${bulan}" == "January" ]]; then
+		bulan="Januari"
+	# Februari
+	elif [[ "${bulan}" == "February" ]]; then
+		bulan="Februari"
+	# Maret
+	elif [[ "${bulan}" == "March" ]]; then
+		bulan="Maret"
+	# April
+	elif [[ "${bulan}" == "April" ]]; then
+		bulan="April"
+	# Mei
+	elif [[ "${bulan}" == "May" ]]; then
+		bulan="Mei"
+	# Juni
+	elif [[ "${bulan}" == "June" ]]; then
+		bulan="Juni"
+	# Juli
+	elif [[ "${bulan}" == "July" ]]; then
+		bulan="Juli"
+	# Agustus
+	elif [[ "${bulan}" == "August" ]]; then
+		bulan="Agustus"
+	# September
+	elif [[ "${bulan}" == "September" ]]; then
+		bulan="September"
+	# Oktober
+	elif [[ "${bulan}" == "October" ]]; then
+		bulan="Oktober"
+	# November
+	elif [[ "${bulan}" == "November" ]]; then
+		bulan="November"
+	# Desember
+	elif [[ "${bulan}" == "December" ]]; then
+		bulan="Desember"
+	fi
+
+	zona_waktu=$(timedatectl | grep -i "Time zone" | awk '{print $3}')
+	# Zona Waktu Indonesia Barat (WIB)
+	if [[ "${zona_waktu}" == "Asia/Jakarta" ]]; then
+		zona_waktu="WIB"
+	# Zona Waktu Indonesia Barat (WITA)
+	elif [[ "${zona_waktu}" == "Asia/Makassar" ]]; then
+		zona_waktu="WITA"
+	# Zona Waktu Indonesia Barat (WIT)
+	elif [[ "${zona_waktu}" == "Asia/Jayapura" ]]; then
+		zona_waktu="WIT"
+	fi
+
+	echo "${hari}, ${tanggal}-${bulan}-${tahun}, ${jam} ${zona_waktu}"
+}
+
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
 	membersihkan_layar_terminal
+	waktu
         echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀    ${r}                               ⠀    ${r}"
 	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⡰⠉⠀⠀⠉⠻⢦⡀⠀⡀⠀⠀⠀  ${r}                                   ⠀${r}"
 	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⣰⠁⠀⠀⠀⠀⠈⣶⣝⣺⢷⡀⠀⠀⠀ ${c}       ______  _   ______           ${r}"
