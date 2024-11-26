@@ -1,6 +1,6 @@
 #!/bin/bash
 #-------------------------------------------
-# [instal_john.sh]
+# [installer_jono_deb_ubuntu.sh
 # File ini merupakan bagian dari proyek Jono
 # Dibuat oleh: fixploit03 
 #-------------------------------------------
