@@ -31,6 +31,13 @@ $ ./jono
 > 1. Program ini hanya dapat dijalankan di sistem operasi Kali Linux.
 > 2. Program ini menggunakan teknik serangan dictionary attack, di mana keberhasilan menemukan kata sandi tergantung pada isi file wordlist yang digunakan.
 
+## Screenshot 
+
+<p align="center">
+  <img src="https://github.com/fixploit03/Jono/blob/main/aset/Screenshot%20from%202024-11-27%2000-09-08.png" />
+  Linux Ubuntu 20.04
+</p>
+
 ## Lisensi 
 
 Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jono/blob/main/LICENSE).
