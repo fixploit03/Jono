@@ -34,6 +34,11 @@ $ ./jono
 ## Screenshot 
 
 <p align="center">
+  <img src="https://github.com/fixploit03/Jono/blob/main/aset/Screenshot_2024-11-27_00_20_15.png" />
+  Kali Linux 2024.3
+</p>
+
+<p align="center">
   <img src="https://github.com/fixploit03/Jono/blob/main/aset/Screenshot%20from%202024-11-27%2000-09-08.png" />
   Linux Ubuntu 20.04
 </p>
