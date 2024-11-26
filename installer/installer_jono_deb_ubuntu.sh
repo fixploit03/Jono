@@ -95,7 +95,7 @@ fi
 echo -e "${p}[${h}+${p}] Berhasil memperbarui repositori Linux.${r}"
 
 # Menginstal dependensi yang diperlukan John The Ripper
-echo -e "${p}[${b}*${p}] Menginstal dependensi yang diperlukan John The Ripper...${r}"
+echo -e "${p}[${b}*${p}] Menginstal dependensi yang diperlukan oleh John The Ripper...${r}"
 sleep 3
 for dependensi in "${daftar_dependensi[@]}"; do
       echo -e "${p}[${b}*${p}] Menginstal '${dependensi}'...${r}"
