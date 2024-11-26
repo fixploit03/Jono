@@ -24,8 +24,9 @@ $ apt-get install john-data
 $ apt-get install git
 $ git clone https://github.com/fixploit03/Jono.git
 $ cd Jono
-$ chmod +x jono.sh
-$ ./jono.sh
+$ chmod +x instal_john.sh jono.sh
+$ ./instal_john.sh
+$ ./jono
 ```
 
 
