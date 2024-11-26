@@ -64,7 +64,6 @@ echo -e "${h}[+] ${p}Anda memiliki koneksi internet.${r}"
 
 # Daftar dependensi yang diperlukan untuk menginstal John the Ripper
 daftar_dependensi=(
-        "john"
         "john-data"
         "libcompress-raw-lzma-perl"
 )
@@ -95,49 +94,10 @@ for dependensi in "${daftar_dependensi[@]}"; do
       echo -e "${h}[+] ${p}Berhasil menginstal '${dependensi}'.${r}"
 done
 
-# Mengkloning John The Ripper dari Github
-echo -e "${b}[*] ${p}Mengkloning John The Ripper dari Github...${r}"
-sleep 3
-cd "${lokasi_instalasi_john}"
-git clone https://github.com/openwall/john
-if [[ $? -ne 0 ]]; then
-        echo -e "${m}[-] ${p}Gagal mengkloning John The Ripper dari Github.${r}"
-        exit 1
-
-fi
-
-echo -e "${h}[+] ${p}Berhasil mengkloning John The Ripper dari Github.${r}"
-
-# Folder saat ini '/usr/share'
-# Masuk ke folder 'src' dari John the ripper
-cd john/src
-
-# Membuat Makefile untuk menginstal John The Ripper...
-echo -e "${b}[*] ${p}Membuat Makefile...${r}"
-sleep 3
-./configure
-if [[ $? -ne 0 ]]; then
-        echo -e "${m}[-] ${p}Gagal membuat Makefile.${r}"
-        exit 1
-fi
-
-echo -e "${h}[+] ${p}Berhasil membuat Makefile.${r}"
-
-# Membangun ulang John The Ripper
-echo -e "${b}[*] ${p}Membangun ulang John The Ripper...${r}"
-sleep 3
-make -s clean && make -sj8
-if [[ $? -ne 0 ]]; then
-        echo -e "${m}[-] ${p}Gagal membangun ulang John The Ripper.${r}"
-        exit 1
-fi
-
-echo -e "${h}[+] ${p}Berhasil membangun ulang John The Ripper.${r}"
-
 # Menginstal John The Ripper
 echo -e "${b}[*] ${p}Menginstal John The Ripper...${r}"
 sleep 3
-make install 
+apt-get install john -y
 if [[ $? -ne 0 ]]; then
         echo -e "${m}[-] ${p}Gagal menginstal John The Ripper.${r}"
         exit 1
