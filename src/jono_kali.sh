@@ -141,7 +141,8 @@ function mengecek_alat(){
         	for alat_belum_terinstal in "${daftar_alat_belum_terinstal[@]}"; do
                 	echo -e "${p}- ${alat_belum_terinstal}${r}"
 	        done
-	        exit 1
+	        echo -e "${p}Silakan install dengan mengetikan perintah 'bash instal_john.sh'${r}"
+                exit 1
 
 	fi
 
