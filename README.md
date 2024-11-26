@@ -18,9 +18,6 @@
 
 ```sh
 $ apt-get update
-$ apt-get install libcompress-raw-lzma-perl
-$ apt-get install john
-$ apt-get install john-data
 $ apt-get install git
 $ git clone https://github.com/fixploit03/Jono.git
 $ cd Jono
