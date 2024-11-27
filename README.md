@@ -22,7 +22,7 @@ $ apt-get install python3
 $ apt-get install git
 $ git clone https://github.com/fixploit03/Jono.git
 $ cd Jono
-$ ln -s /usr/bin/python3 /usr/bin/p ython
+$ ln -s /usr/bin/python3 /usr/bin/python
 $ chmod +x instal_john.sh jono.sh
 $ ./instal_john.sh
 $ ./jono
