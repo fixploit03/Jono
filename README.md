@@ -1,3 +1,11 @@
+<h1 align="center">
+  <img src="icons/app_icon.png" width=100 height=100/><br>
+Jono</h1>
+
+<p align="center">
+  <span>Pemulih kata sandi file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx) yang ditenagai oleh <a href="https://github.com/openwall/john" >John The Ripper</a></span>
+</p>
+
 # Jono
 
 [![Dikembangkan](https://img.shields.io/badge/Dikembangkan%20di-Kali%20Linux-blue)](https://www.kali.org/)
