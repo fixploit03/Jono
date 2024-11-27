@@ -6,10 +6,23 @@ Jono</h1>
   <span>Pemulih kata sandi file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx) yang ditenagai oleh <a href="https://github.com/openwall/john" >John The Ripper</a></span>
 </p>
 
+<p align="center">
+  <a href="https://github.com/fixploit03/Jono#instalasi">Instalasi</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/fixploit03/Jono#demonstrasi">Demonstrasi</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/fixploit03/Jono#credits">Credits</a>
+</p>
+
+  <p align="center">
+    <a href="https://www.kali.org/"><img alt="Dikembangkan" src="https://img.shields.io/badge/Dikembangkan%20di-Kali%20Linux-blue"></a>
+    <a href="https://github.com/fixploit03/CrackStego/blob/main/LICENSE"><img alt="Lisensi" src="https://img.shields.io/badge/Lisensi-MIT-blue"></a>
+  </p>
+
 # Jono
 
-[![Dikembangkan](https://img.shields.io/badge/Dikembangkan%20di-Kali%20Linux-blue)](https://www.kali.org/)
-[![lisensi](https://img.shields.io/badge/Lisensi-MIT-blue)](https://github.com/fixploit03/CrackStego/blob/main/LICENSE)
+[![Dikembangkan]()]()
+[![lisensi]()]()
 [![Ditenagai](https://img.shields.io/badge/Ditenagai%20oleh-John%20The%20Ripper-red)](https://github.com/openwall/john)
 
 `Jono` adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan John The Ripper.
