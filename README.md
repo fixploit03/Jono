@@ -23,10 +23,6 @@ Jono</h1>
 
 > Peringatan: Program ini dirancang hanya untuk tujuan pendidikan dan penelitian yang sah. Dilarang keras menggunakan program ini untuk kegiatan ilegal, merusak, atau tanpa izin pemilik file. Pengguna bertanggung jawab penuh atas segala konsekuensi hukum yang mungkin timbul dari penggunaan program ini. Pastikan untuk selalu mematuhi peraturan dan etika yang berlaku di wilayah Anda.
 
-## Demonstrasi 
-
-Video demonstrasi penggunaan program Jono dapat dilihat [di sini](https://youtu.be/NhDhM8yXHFw?si=lM3pWlp10KDU0hcZ).
-
 ## Instalasi 
 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
@@ -42,6 +38,10 @@ $ chmod +x instal_john.sh jono.sh
 $ ./instal_john.sh
 $ ./jono
 ```
+
+## Demonstrasi 
+
+Video demonstrasi penggunaan program Jono dapat dilihat [di sini](https://youtu.be/NhDhM8yXHFw?si=lM3pWlp10KDU0hcZ).
 
 ## Screenshot 
 
