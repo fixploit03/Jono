@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="icons/app_icon.png" width=100 height=100/><br>
+  <img src="https://github.com/fixploit03/Jono/blob/main/aset/20241127_102430.png" width=100 height=100/><br>
 Jono</h1>
 
 <p align="center">
