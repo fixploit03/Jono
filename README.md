@@ -36,7 +36,7 @@ $ cd Jono
 $ ln -s /usr/bin/python3 /usr/bin/python
 $ chmod +x instal_john.sh jono.sh
 $ ./instal_john.sh
-$ ./jono
+$ ./jono.sh
 ```
 
 ## Demonstrasi 
