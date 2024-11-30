@@ -113,7 +113,7 @@ done
 echo -e "${p}[${b}*${p}] Mengkloning John The Ripper dari Github...${r}"
 sleep 3
 cd "${lokasi_instalasi_john}"
-git clone https://github.com/openwall/john
+git clone --depth 1 https://github.com/openwall/john
 if [[ $? -ne 0 ]]; then
         echo -e "${p}[${m}-${p}] Gagal mengkloning John The Ripper dari Github.${r}"
         exit 1
