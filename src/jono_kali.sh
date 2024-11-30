@@ -701,8 +701,6 @@ function memulihkan_kata_sandi_file_zip(){
 	echo ""
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
 	echo ""
-	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file ZIP '${file_zip}'...${r}"
-	tunggu
 	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
 		format_file_zip="PKZIP"
 	elif [[ $(cat "${file_hash_file_zip}" | grep -o "zip") ]]; then
@@ -737,8 +735,6 @@ function memulihkan_kata_sandi_file_rar(){
 	echo ""
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
 	echo ""
-	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file RAR '${file_rar}'...${r}"
-	tunggu
 	format_file_rar="RAR5"
 	john --wordlist="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
 	if [[ -f "${pot_file_rar}" ]]; then
@@ -769,8 +765,6 @@ function memulihkan_kata_sandi_file_7z(){
 	echo ""
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
 	echo ""
-	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file 7z '${file_7z}'...${r}"
-	tunggu
 	format_file_7z="7z"
 	john --wordlist="${file_wordlist}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
 	if [[ -f "${pot_file_7z}" ]]; then
@@ -801,8 +795,6 @@ function memulihkan_kata_sandi_file_pdf(){
 	echo ""
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
 	echo ""
-	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file PDF '${file_pdf}'...${r}"
-	tunggu
 	format_file_pdf="PDF"
 	john --wordlist="${file_wordlist}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
 	if [[ -f "${pot_file_pdf}" ]]; then
@@ -833,8 +825,6 @@ function memulihkan_kata_sandi_file_office(){
 	echo ""
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
 	echo ""
-	echo -e "${p}[${b}*${p}] Memulihkan kata sandi file Office '${file_office}'...${r}"
-	tunggu
 	format_file_office="Office"
 	john --wordlist="${file_wordlist}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
 	if [[ -f "${pot_file_office}" ]]; then
