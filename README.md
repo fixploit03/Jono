@@ -55,8 +55,6 @@ Video demonstrasi penggunaan program Jono dapat dilihat [di sini](https://youtu.
   Linux Ubuntu 20.04
 </p>
 
-> **Catatan**: Program ini menggunakan teknik serangan dictionary attack, di mana keberhasilan menemukan kata sandi tergantung pada isi file wordlist yang digunakan.
-
 ## Lisensi 
 
 Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jono/blob/main/LICENSE).
