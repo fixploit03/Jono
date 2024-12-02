@@ -1056,8 +1056,8 @@ function memilih_teknik_pemulihan_kata_sandi_file_zip(){
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file ZIP yang tersedia:${r}"
 	echo ""
-	echo -e "${p}[${k}01${p}] Brute Force Attcak${r}"
-	echo -e "${p}[${k}02${p}] Dictionary Attcak${r}"
+	echo -e "${p}[${k}01${p}] Brute Force Attack${r}"
+	echo -e "${p}[${k}02${p}] Dictionary Attack${r}"
 	echo ""
 
 	while true; do
@@ -1082,8 +1082,8 @@ function memilih_teknik_pemulihan_kata_sandi_file_rar(){
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file RAR yang tersedia:${r}"
 	echo ""
-	echo -e "${p}[${k}01${p}] Brute Force Attcak${r}"
-	echo -e "${p}[${k}02${p}] Dictionary Attcak${r}"
+	echo -e "${p}[${k}01${p}] Brute Force Attack${r}"
+	echo -e "${p}[${k}02${p}] Dictionary Attack${r}"
 	echo ""
 
 	while true; do
@@ -1108,8 +1108,8 @@ function memilih_teknik_pemulihan_kata_sandi_file_7z(){
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file 7z yang tersedia:${r}"
 	echo ""
-	echo -e "${p}[${k}01${p}] Brute Force Attcak${r}"
-	echo -e "${p}[${k}02${p}] Dictionary Attcak${r}"
+	echo -e "${p}[${k}01${p}] Brute Force Attack${r}"
+	echo -e "${p}[${k}02${p}] Dictionary Attack${r}"
 	echo ""
 
 	while true; do
@@ -1134,8 +1134,8 @@ function memilih_teknik_pemulihan_kata_sandi_file_pdf(){
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file PDF yang tersedia:${r}"
 	echo ""
-	echo -e "${p}[${k}01${p}] Brute Force Attcak${r}"
-	echo -e "${p}[${k}02${p}] Dictionary Attcak${r}"
+	echo -e "${p}[${k}01${p}] Brute Force Attack${r}"
+	echo -e "${p}[${k}02${p}] Dictionary Attack${r}"
 	echo ""
 
 	while true; do
@@ -1160,8 +1160,8 @@ function memilih_teknik_pemulihan_kata_sandi_file_office(){
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file Office yang tersedia:${r}"
 	echo ""
-	echo -e "${p}[${k}01${p}] Brute Force Attcak${r}"
-	echo -e "${p}[${k}02${p}] Dictionary Attcak${r}"
+	echo -e "${p}[${k}01${p}] Brute Force Attack${r}"
+	echo -e "${p}[${k}02${p}] Dictionary Attack${r}"
 	echo ""
 
 	while true; do
