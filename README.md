@@ -66,7 +66,7 @@ $ ./instal_john.sh
 $ ./jono.sh
 ```
 
-## Demonstrasi 
+## :movie_camera: Demonstrasi 
 Video demonstrasi penggunaan program Jono dapat dilihat [di sini](https://youtu.be/NhDhM8yXHFw?si=lM3pWlp10KDU0hcZ).
 
 ## :camera_flash: Screenshot 
