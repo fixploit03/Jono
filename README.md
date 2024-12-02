@@ -19,6 +19,8 @@ Jono</h1>
     <a href="https://github.com/fixploit03/Jono/blob/main/LICENSE"><img alt="Lisensi" src="https://img.shields.io/badge/Lisensi-MIT-blue"></a>
   </p>
 
+![](https://github.com/fixploit03/Jono/blob/main/aset/jono.png)
+
 `Jono` adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan John The Ripper.
 
 ## Fitur Utama 
