@@ -1662,15 +1662,23 @@ function waktu(){
 	fi
 
 	zona_waktu=$(timedatectl | grep -i "Time zone" | awk '{print $3}')
+
+        jakarta="Asia/Jakarta"
+        makassar="Asia/Makassar"
+	jayapura="Asia/Jayapura"
+ 
 	# Zona Waktu Indonesia Barat (WIB)
-	if [[ "${zona_waktu}" == "Asia/Jakarta" ]]; then
+	if [[ "${zona_waktu}" == "${jakarta}" ]]; then
 		zona_waktu="WIB"
+                timedatectl set-timezone "${jakarta}"
 	# Zona Waktu Indonesia Barat (WITA)
-	elif [[ "${zona_waktu}" == "Asia/Makassar" ]]; then
+	elif [[ "${zona_waktu}" == "${makassar}" ]]; then
 		zona_waktu="WITA"
+                timedatectl set-timezone "${makassar}"
 	# Zona Waktu Indonesia Barat (WIT)
-	elif [[ "${zona_waktu}" == "Asia/Jayapura" ]]; then
+	elif [[ "${zona_waktu}" == "${jayapura}" ]]; then
 		zona_waktu="WIT"
+                timedatectl set-timezone "${jayapura}"
 	fi
 
 	echo -e "${p}${hari}, ${tanggal}-${bulan}-${tahun}, ${jam} ${zona_waktu}${r}"
