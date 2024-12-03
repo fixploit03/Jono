@@ -720,6 +720,10 @@ function menentukan_panjang_kata_sandi(){
 			echo -e "${p}[${m}-${p}] Panjang minimal kata sandi tidak boleh kosong.${r}"
 			continue
 		fi
+                if [[ "${min}" =~ ^0 ]]; then
+		        echo -e "${p}[${m}-${p}] Panjang minimal kata sandi tidak boleh diawali dengan angka nol.${r}"
+                        continue
+                fi
 		if [[ ! "${min}" =~ ^[0-9]+$ ]]; then
 			echo -e "${p}[${m}-${p}] Masukkan tidak valid. Harap masukkan angka.${r}"
 			continue
