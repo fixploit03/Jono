@@ -9,9 +9,9 @@ Jono</h1>
 <p align="center">
   <a href="https://github.com/fixploit03/Jono#instalasi">Instalasi</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/fixploit03/Jono#demonstrasi">Demonstrasi</a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/fixploit03/Jono#credits">Credits</a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/fixploit03/Jono#dukungan">Dukungan</a>
 </p>
 
   <p align="center">
