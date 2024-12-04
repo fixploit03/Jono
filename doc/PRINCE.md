@@ -2,7 +2,7 @@
 
 Menghasilkan kombinasi baru secara dinamis dari daftar kata (wordlist) yang ada, menggunakan algoritme tertentu untuk menggabungkan kata.
 
-Contoh Wordlist awal:
+**Contoh**: Wordlist awal:
 
 ```
 admin
