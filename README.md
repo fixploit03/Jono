@@ -70,21 +70,6 @@ $ ./instal_john.sh
 $ ./jono.sh
 ```
 
-## Demonstrasi 
-Video demonstrasi penggunaan program Jono dapat dilihat [di sini](https://youtu.be/NhDhM8yXHFw?si=lM3pWlp10KDU0hcZ).
-
-## Screenshot 
-
-<p align="center">
-  <img src="https://github.com/fixploit03/Jono/blob/main/aset/Screenshot_2024-11-27_00_20_15.png" />
-  Kali Linux 2024.3
-</p>
-
-<p align="center">
-  <img src="https://github.com/fixploit03/Jono/blob/main/aset/Screenshot%20from%202024-11-27%2000-09-08.png" />
-  Linux Ubuntu 20.04
-</p>
-
 ## Peringatan Penting
 **Jono** dirancang untuk tujuan **pendidikan dan penelitian** yang sah. Penggunaan alat ini untuk kegiatan ilegal, merusak, atau tanpa izin pemilik file **dilarang keras**.
 
