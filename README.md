@@ -58,6 +58,9 @@ Jono</h1>
 ## Instalasi 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
 
+Langkah-langkah instalasi:
+
+
 ```sh
 $ apt-get update
 $ apt-get install python3
@@ -67,6 +70,13 @@ $ cd Jono
 $ ln -s /usr/bin/python3 /usr/bin/python
 $ chmod +x instal_john.sh jono.sh
 $ ./instal_john.sh
+```
+
+## Menjalankan Jono:
+
+Setelah proses instalasi selesai, Anda dapat menjalankan Jono dengan perintah:
+
+```sh
 $ ./jono.sh
 ```
 
@@ -82,4 +92,11 @@ Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jo
 ## Credits
 Program ini menggunakan [John the Ripper](https://github.com/openwall/john), yang dikembangkan oleh Openwall.
 
-**Selamat mencoba!**
+## Dukungan
+
+Jika Anda menyukai program ini atau merasa bahwa program ini bermanfaat, Anda dapat mendukung proyek ini dengan cara berikut:
+- **Beri bintang** pada repositori ini di GitHub untuk membantu orang lain menemukannya.
+- **Beri umpan balik** dengan membuka *issue* atau memberikan saran perbaikan.
+
+Terima kasih telah menggunakan **Jono**! Semoga bermanfaat.
+
