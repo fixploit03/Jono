@@ -25,32 +25,23 @@ Jono</h1>
 
 ## :sparkles: Fitur Utama 
 
-1. **Mendukung Berbagai Format File**
-   Program ini dapat memproses berbagai format file yang dilindungi kata sandi, termasuk:
+1. **Dukungan Berbagai Format File**  
+   Program ini mampu memproses file yang dilindungi kata sandi dengan format berikut:
    - **ZIP**  
    - **RAR**  
    - **7Z**  
    - **PDF**  
    - **File Office** (.docx, .xlsx, .pptx)
-
-2. **Teknik pemulihan yang Tersedia**
+     
+2. **Beragam Teknik Pemulihan Kata Sandi**  
    Program menyediakan beberapa metode untuk memulihkan kata sandi berdasarkan kebutuhan:
-   - **Dictionary Attack**: Menggunakan daftar kata (wordlist) yang telah disediakan untuk mencoba kata sandi.
-   - **Brute Force Attack**:
-     Mencoba semua kemungkinan kombinasi karakter.
-   - **Mask Attack**:
-     Menggunakan pola karakter tertentu untuk mempercepat proses.
-     - `?l` untuk huruf kecil a-z
-     - `?u` untuk huruf besar A-Z
-     - `?d` untuk angka 0-9
-     - `?s` untuk simbol $-#
-     - `?a` untuk semua kombinasi karakter`).
-   - **Prince Attack**:
-     Menghasilkan kombinasi kata baru secara dinamis dari wordlist.
-   - **Subsets Attack**:
-     Membentuk kombinasi subset dari kata dalam wordlist.
-
-4. **Antarmuka Interaktif**
+   - **Dictionary Attack**
+   - **Brute Force Attack**
+   - **Mask Attack**
+   - **Prince Attack**
+   - **Subsets Attack**
+     
+3. **Antarmuka Interaktif**
    - Mudah digunakan melalui menu berbasis terminal.  
 
 ## :package: Persyaratan Sistem
