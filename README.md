@@ -23,7 +23,7 @@ Jono</h1>
 
 `Jono` adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan John The Ripper.
 
-## :sparkles: Fitur Utama 
+## Fitur Utama 
 
 1. **Dukungan Berbagai Format File**  
    Program ini mampu memproses file yang dilindungi kata sandi dengan format berikut:
@@ -44,7 +44,7 @@ Jono</h1>
 3. **Antarmuka Interaktif**
    - Mudah digunakan melalui menu berbasis terminal.  
 
-## :package: Persyaratan Sistem
+## Persyaratan Sistem
 - **OS**: Linux Debian/Ubuntu `disarankan Kali Linux`.
 - **Hak Akses**: Harus dijalankan sebagai root.
 - **Tools yang dibutuhkan**:
@@ -55,7 +55,7 @@ Jono</h1>
   - pdf2john
   - office2john
   
-## :hammer_and_wrench: Instalasi 
+## Instalasi 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
 
 ```sh
@@ -70,10 +70,10 @@ $ ./instal_john.sh
 $ ./jono.sh
 ```
 
-## :movie_camera: Demonstrasi 
+## Demonstrasi 
 Video demonstrasi penggunaan program Jono dapat dilihat [di sini](https://youtu.be/NhDhM8yXHFw?si=lM3pWlp10KDU0hcZ).
 
-## :camera_flash: Screenshot 
+## Screenshot 
 
 <p align="center">
   <img src="https://github.com/fixploit03/Jono/blob/main/aset/Screenshot_2024-11-27_00_20_15.png" />
@@ -85,16 +85,16 @@ Video demonstrasi penggunaan program Jono dapat dilihat [di sini](https://youtu.
   Linux Ubuntu 20.04
 </p>
 
-## :warning: Peringatan Penting
+## Peringatan Penting
 **Jono** dirancang untuk tujuan **pendidikan dan penelitian** yang sah. Penggunaan alat ini untuk kegiatan ilegal, merusak, atau tanpa izin pemilik file **dilarang keras**.
 
 - Pastikan Anda memiliki izin eksplisit untuk memulihkan kata sandi file.
 - Pengguna bertanggung jawab penuh atas penggunaan alat ini dan segala konsekuensi hukum yang mungkin timbul.
 
-## :scroll: Lisensi 
+## Lisensi 
 Program ini dilisensikan di bawah [Lisensi MIT](https://github.com/fixploit03/Jono/blob/main/LICENSE).
 
-## :diamond_shape_with_a_dot_inside: Credits
+## Credits
 Program ini menggunakan [John the Ripper](https://github.com/openwall/john), yang dikembangkan oleh Openwall.
 
 **Selamat mencoba!**
