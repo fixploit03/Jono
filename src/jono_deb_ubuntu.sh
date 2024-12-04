@@ -425,7 +425,7 @@ function ekstrak_hash_file_zip(){
         hash_file_zip=$(/usr/share/john/run/zip2john "${file_zip}" 2>/dev/null)
         nama_file_zip=$(basename "${file_zip}")
         nama_file_hash_file_zip="${lokasi_file_hash}/${nama_file_zip}.john"
-        echo "${hash_file_zip}" >> "${nama_file_hash_file_zip}"
+        echo "${hash_file_zip}" > "${nama_file_hash_file_zip}"
         if [[ -f "${nama_file_hash_file_zip}" ]]; then
                 if [[ $(cat "${nama_file_hash_file_zip}" | grep -o "zip" || cat "${nama_file_hash_file_zip}" | grep -o "pkzip") ]]; then
                         echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file ZIP '${file_zip}'.${r}"
@@ -448,7 +448,7 @@ function ekstrak_hash_file_rar(){
         hash_file_rar=$(/usr/share/john/run/rar2john "${file_rar}" 2>/dev/null)
         nama_file_rar=$(basename "${file_rar}")
         nama_file_hash_file_rar="${lokasi_file_hash}/${nama_file_rar}.john"
-        echo "${hash_file_rar}" >> "${nama_file_hash_file_rar}"
+        echo "${hash_file_rar}" > "${nama_file_hash_file_rar}"
         if [[ -f "${nama_file_hash_file_rar}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_rar}" | grep -o "rar5") ]]; then
                      	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file RAR '${file_rar}'.${r}"
@@ -471,7 +471,7 @@ function ekstrak_hash_file_7z(){
         hash_file_7z=$(/usr/share/john/run/7z2john.pl "${file_7z}" 2>/dev/null)
         nama_file_7z=$(basename "${file_7z}")
         nama_file_hash_file_7z="${lokasi_file_hash}/${nama_file_7z}.john"
-        echo "${hash_file_7z}" >> "${nama_file_hash_file_7z}"
+        echo "${hash_file_7z}" > "${nama_file_hash_file_7z}"
         if [[ -f "${nama_file_hash_file_7z}" ]]; then
                 if [[ $(cat "${nama_file_hash_file_7z}" | grep -o "7z") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file 7z '${file_7z}'.${r}"
@@ -494,7 +494,7 @@ function ekstrak_hash_file_pdf(){
         hash_file_pdf=$(/usr/share/john/run/pdf2john.pl "${file_pdf}")
         nama_file_pdf=$(basename "${file_pdf}")
         nama_file_hash_file_pdf="${lokasi_file_hash}/${nama_file_pdf}.john"
-        echo "${hash_file_pdf}" >> "${nama_file_hash_file_pdf}"
+        echo "${hash_file_pdf}" > "${nama_file_hash_file_pdf}"
         if [[ -f "${nama_file_hash_file_pdf}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_pdf}" | grep -o "pdf") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file PDF '${file_pdf}'.${r}"
@@ -517,7 +517,7 @@ function ekstrak_hash_file_office(){
         hash_file_office=$(/usr/share/john/run/office2john.py "${file_office}")
         nama_file_office=$(basename "${file_office}")
         nama_file_hash_file_office="${lokasi_file_hash}/${nama_file_office}.john"
-        echo "${hash_file_office}" >> "${nama_file_hash_file_office}"
+        echo "${hash_file_office}" > "${nama_file_hash_file_office}"
         if [[ -f "${nama_file_hash_file_office}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_office}" | grep -o "office") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file Office '${file_office}'.${r}"
