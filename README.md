@@ -34,12 +34,21 @@ Jono</h1>
    - **File Office** (.docx, .xlsx, .pptx)
 
 2. **Teknik pemulihan yang Tersedia**
-   Program ini Mendi berbagai teknik pemulihan kata sandi termasuk:
-   - **Brute Force Attack**
-   - **Dictionary Attack**
-   - **Mask Attack**
-   - **Prince Attack**
-   - **Subsets Attack**
+   Program menyediakan beberapa metode untuk memulihkan kata sandi berdasarkan kebutuhan:
+   - **Dictionary Attack**: Menggunakan daftar kata (wordlist) yang telah disediakan untuk mencoba kata sandi.
+   - **Brute Force Attack**:
+     Mencoba semua kemungkinan kombinasi karakter.
+   - **Mask Attack**:
+     Menggunakan pola karakter tertentu untuk mempercepat proses.
+     - `?l` untuk huruf kecil a-z
+     - `?u` untuk huruf besar A-Z
+     - `?d` untuk angka 0-9
+     - `?s` untuk simbol $-#
+     - `?a` untuk semua kombinasi karakter`).
+   - **Prince Attack**:
+     Menghasilkan kombinasi kata baru secara dinamis dari wordlist.
+   - **Subsets Attack**:
+     Membentuk kombinasi subset dari kata dalam wordlist.
 
 4. **Antarmuka Interaktif**
    - Mudah digunakan melalui menu berbasis terminal.  
