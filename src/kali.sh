@@ -1584,6 +1584,7 @@ function memilih_teknik_pemulihan_kata_sandi_file_zip(){
 			break
 		elif [[ "${pilih_teknik_zip}" == "03" ]]; then
 			memulihkan_kata_sandi_file_zip_mask
+			break
 		elif [[ "${pilih_teknik_zip}" == "04" ]]; then
 			memulihkan_kata_sandi_file_zip_prince
 			break
