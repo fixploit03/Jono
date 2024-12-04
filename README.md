@@ -33,11 +33,15 @@ Jono</h1>
    - **PDF**  
    - **File Office** (.docx, .xlsx, .pptx)
 
-2. **Metode Serangan yang Tersedia**
-   - **Dictionary Attack**: Menggunakan wordlist untuk mencoba berbagai kemungkinan kata sandi.
-   - **Brute Force Attack**: Memungkinkan pengguna menentukan panjang kata sandi minimal dan maksimal untuk serangan yang lebih fleksibel.
+2. **Teknik pemulihan yang Tersedia**
+   Program ini Mendi berbagai teknik pemulihan kata sandi termasuk:
+   - **Brute Force Attack**
+   - **Dictionary Attack**
+   - **Mask Attack**
+   - **Prince Attack**
+   - **Subsets Attack**
 
-3. **Antarmuka Interaktif**
+4. **Antarmuka Interaktif**
    - Mudah digunakan melalui menu berbasis terminal.  
 
 ## :package: Persyaratan Sistem
