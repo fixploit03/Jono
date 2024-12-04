@@ -2,7 +2,7 @@
 
 Menggunakan daftar kata (wordlist) yang telah disediakan untuk mencoba kata sandi secara berurutan.
 
-Contoh Wordlist:
+**Contoh**: Wordlist:
 
 ```
 password
