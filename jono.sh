@@ -716,6 +716,169 @@ function memulihkan_kata_sandi_file_zip(){
 	done
 }
 
+# Fungsi untuk memulihkan kata sandi file RAR
+function memulihkan_kata_sandi_file_rar(){
+
+	format_file_rar="RAR5"
+
+	pot_file_rar="pot_rar.txt"
+
+	echo ""
+	echo -e "${p}Teknik pemulihan kata sandi file RAR yang tersedia:${r}"
+	echo ""
+	echo -e "${p}[${k}01${p}] Brute Force Attack${r}"
+	echo -e "${p}[${k}02${p}] Dictionary Attack${r}"
+	echo -e "${p}[${k}03${p}] Mask Attack${r}"
+	echo -e "${p}[${k}04${p}] Prince Attack${r}"
+	echo -e "${p}[${k}05${p}] Subsets Attack${r}"
+	echo ""
+
+	while true; do
+		read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Pilih teknik pemulihan kata sandi file RAR: ' pilih_teknik_rar
+
+		if [[ "${pilih_teknik_rar}" == "01" ]]; then
+			menentukan_panjang_kata_sandi
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
+			break
+		elif [[ "${pilih_teknik_rar}" == "02" ]]; then
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+                      		  	echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+                        		echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+                		echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+        		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
+			break
+		elif [[ "${pilih_teknik_rar}" == "03" ]]; then
+			menentukan_panjang_kata_sandi
+			menentukan_pola_mask
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
+			break
+		elif [[ "${pilih_teknik_rar}" == "04" ]]; then
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
+			break
+		elif [[ "${pilih_teknik_rar}" == "05" ]]; then
+			menentukan_panjang_kata_sandi
+			menentukan_kombinasi_karakter
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
+			break
+		else
+			echo -e "${p}[${m}-${p}] Teknik '${pilih_teknik_rar}' tidak tersedia.${r}"
+			continue
+		fi
+	done
+}
 
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
@@ -759,8 +922,9 @@ function pilih_menu(){
 		# Menu memulihkan kata sandi file RAR
 		elif [[ "${pilih_menu}" == "02" ]]; then
 			banner_pulihkan_kata_sandi_file_rar
-			memasukkan_file_hash_file_rar
-			memilih_teknik_pemulihan_kata_sandi_file_rar
+			memasukkan_file_rar
+			ekstrak_hash_file_rar
+			memulihkan_kata_sandi_file_rar
 		# Menu memulihkan kata sandi file 7z
 		elif [[ "${pilih_menu}" == "03" ]]; then
 			banner_pulihkan_kata_sandi_file_7z
