@@ -34,7 +34,7 @@ Jono</h1>
    - **File Office** (.docx, .xlsx, .pptx)
      
 2. **Beragam Teknik Pemulihan Kata Sandi**  
-   Program menyediakan beberapa metode untuk memulihkan kata sandi berdasarkan kebutuhan:
+   Program menyediakan beberapa teknik untuk memulihkan kata sandi berdasarkan kebutuhan:
    - **[Dictionary Attack](https://github.com/fixploit03/Jono/blob/main/doc/DICT.md)**
    - **[Brute Force Attack](https://github.com/fixploit03/Jono/blob/main/doc/BRUTE.md)**
    - **[Mask Attack](https://github.com/fixploit03/Jono/blob/main/doc/MASK.md)**
@@ -99,4 +99,3 @@ Jika Anda menyukai program ini atau merasa bahwa program ini bermanfaat, Anda da
 - **Beri umpan balik** dengan membuka *issue* atau memberikan saran perbaikan.
 
 Terima kasih telah menggunakan **Jono**! Semoga bermanfaat.
-
