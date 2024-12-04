@@ -35,11 +35,11 @@ Jono</h1>
      
 2. **Beragam Teknik Pemulihan Kata Sandi**  
    Program menyediakan beberapa metode untuk memulihkan kata sandi berdasarkan kebutuhan:
-   - **Dictionary Attack**
-   - **Brute Force Attack**
-   - **Mask Attack**
-   - **Prince Attack**
-   - **Subsets Attack**
+   - **[Dictionary Attack](https://github.com/fixploit03/Jono/blob/main/doc/DICT.md)**
+   - **[Brute Force Attack](https://github.com/fixploit03/Jono/blob/main/doc/BRUTE.md)**
+   - **[Mask Attack](https://github.com/fixploit03/Jono/blob/main/doc/MASK.md)**
+   - **[Prince Attack](https://github.com/fixploit03/Jono/blob/main/doc/PRINCE.md)**
+   - **[Subsets Attack](https://github.com/fixploit03/Jono/blob/main/doc/SUBSETS.md)**
      
 3. **Antarmuka Interaktif**
    - Mudah digunakan melalui menu berbasis terminal.  
