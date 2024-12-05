@@ -67,7 +67,6 @@ echo -e "${p}[${h}+${p}] Anda memiliki koneksi internet.${r}"
 
 # Daftar dependensi yang diperlukan untuk menginstal John the Ripper
 daftar_dependensi=(
-        "systemd"
         "cmake"
         "bison"
         "flex"
