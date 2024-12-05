@@ -57,7 +57,7 @@ $ chmod +x instal_john.sh jono.sh
 $ ./instal_john.sh
 ```
 
-> Untuk user Termux bisa lihat [disini]().
+> Untuk user Termux bisa lihat [disini](https://github.com/fixploit03/Jono/blob/main/doc/TERMUX.md).
 
 ## Menjalankan Jono:
 
