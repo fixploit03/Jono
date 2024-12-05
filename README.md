@@ -57,6 +57,8 @@ $ chmod +x instal_john.sh jono.sh
 $ ./instal_john.sh
 ```
 
+> Untuk user Termux bisa lihat [disini]().
+
 ## Menjalankan Jono:
 
 Setelah proses instalasi selesai, Anda dapat menjalankan Jono dengan perintah:
