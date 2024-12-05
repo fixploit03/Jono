@@ -173,62 +173,6 @@ function keluar(){
 	exit 1
 }
 
-# Fungsi untuk menampilkan banner ekstrak hash file ZIP
-function banner_ekstrak_hash_file_zip(){
-	membersihkan_layar_terminal
-	echo -e "${b}    ________  _____________${r}"
-	echo -e "${b}   / ____/ / / / ____/__  /${r}"
-	echo -e "${b}  / __/ / /_/ / /_     / / ${r}"
-	echo -e "${b} / /___/ __  / __/    / /__${p} Ekstrak hash file ZIP${r}"
-	echo -e "${b}/_____/_/ /_/_/      /____/${h} https://github.com/fixploit03/Jono/${r}"
-	echo ""
-}
-
-# Fungsi untuk menampilkan banner ekstrak hash file RAR
-function banner_ekstrak_hash_file_rar(){
-	membersihkan_layar_terminal
-	echo -e "${b}    ________  ____________  ${r}"
-	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
-	echo -e "${b}  / __/ / /_/ / /_  / /_/ / ${r}"
-	echo -e "${b} / /___/ __  / __/ / _, _/${p} Ekstrak hash file RAR${r} "
-	echo -e "${b}/_____/_/ /_/_/   /_/ |_| ${h} https://github.com/fixploit03/Jono/${r} "
-	echo ""
-}
-
-# Fungsi untuk menampilkan banner ekstrak hash file 7z
-function banner_ekstrak_hash_file_7z(){
-	membersihkan_layar_terminal
-	echo -e "${b}    ________  _____________${r}"
-	echo -e "${b}   / ____/ / / / ____/__  /${r}"
-	echo -e "${b}  / __/ / /_/ / /_     / /${r}"
-	echo -e "${b} / /___/ __  / __/    / / ${p}Ekstrak hash file 7z${r}"
-	echo -e "${b}/_____/_/ /_/_/      /_/  ${h}https://github.com/fixploit03/Jono/${r}"
-	echo ""
-}
-
-# Fungsi untuk menampilkan banner ekstrak hash file PDF
-function banner_ekstrak_hash_file_pdf(){
-	membersihkan_layar_terminal
-	echo -e "${b}    ________  ____________  ${r}"
-	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
-	echo -e "${b}  / __/ / /_/ / /_  / /_/ / ${r}"
-	echo -e "${b} / /___/ __  / __/ / ____/ ${p}Ekstrak hash file PDF${r}"
-	echo -e "${b}/_____/_/ /_/_/   /_/      ${h}https://github.com/fixploit03/Jono/${r}"
-	echo ""
-}
-
-# Fungsi untuk menampilkan banner ekstrak hash file Office
-function banner_ekstrak_hash_file_office(){
-	membersihkan_layar_terminal
-	echo -e "${b}    ________  ____________  ${r}"
-	echo -e "${b}   / ____/ / / / ____/ __ \ ${r}"
-	echo -e "${b}  / __/ / /_/ / /_  / / / / ${r}"
-	echo -e "${b} / /___/ __  / __/ / /_/ / ${p}Ekstrak hash file Ofiice (.docx, .xlsx, .pptx)${r}"
-	echo -e "${b}/_____/_/ /_/_/    \____/  ${h}https://github.com/fixploit03/Jono/${r}"
-        echo ""
-
-}
-
 # Fungsi untuk menampilkan banner pulihkan kata sandi file ZIP
 function banner_pulihkan_kata_sandi_file_zip(){
 	membersihkan_layar_terminal
@@ -301,21 +245,21 @@ function memasukkan_file_zip(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file ZIP: ' file_zip
 		file_zip=$(echo "${file_zip}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file ZIP '${file_zip}'...${r}"
+                echo -e "${p}[${b}*${p}] Mengecek file ZIP...${r}"
                 tunggu
                	if [[ -z "${file_zip}" ]]; then
                 	echo -e "${p}[${m}-${p}] File ZIP tidak boleh kosong.${r}"
                         continue
                	fi
                 if [[ ! -f "${file_zip}" ]]; then
-                	echo -e "${p}[${m}-${p}] File ZIP '${file_zip}' tidak ditemukan.${r}"
+                	echo -e "${p}[${m}-${p}] File ZIP tidak ditemukan.${r}"
                         continue
                 fi
                 if [[ "${file_zip##*.}" != "zip" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_zip}' bukan file ZIP.${r}"
+                	echo -e "${p}[${m}-${p}] File bukan file ZIP.${r}"
                         continue
                 fi
-                echo -e "${p}[${h}+${p}] File ZIP '${file_zip}' ditemukan.${r}"
+                echo -e "${p}[${h}+${p}] File ZIP ditemukan.${r}"
 		break
 	done
 }
@@ -325,21 +269,21 @@ function memasukkan_file_rar(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file RAR: ' file_rar
 		file_rar=$(echo "${file_rar}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file RAR '${file_rar}'...${r}"
+                echo -e "${p}[${b}*${p}] Mengecek file RAR...${r}"
                 tunggu
                 if [[ -z "${file_rar}" ]]; then
                 	echo -e "${p}[${m}-${p}] File RAR tidak boleh kosong.${r}"
                         continue
                 fi
                 if [[ ! -f "${file_rar}" ]]; then
-                	echo -e "${p}[${m}-${p}] File RAR '${file_rar}' tidak ditemukan.${r}"
+                	echo -e "${p}[${m}-${p}] File RAR tidak ditemukan.${r}"
                         continue
                 fi
                 if [[ "${file_rar##*.}" != "rar" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_rar}' bukan file RAR.${r}"
+                	echo -e "${p}[${m}-${p}] File bukan file RAR.${r}"
                         continue
                 fi
-                echo -e "${p}[${h}+${p}] File RAR '${file_rar}' ditemukan.${r}"
+                echo -e "${p}[${h}+${p}] File RAR ditemukan.${r}"
 		break
 	done
 }
@@ -349,21 +293,21 @@ function memasukkan_file_7z(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file 7z: ' file_7z
 		file_7z=$(echo "${file_7z}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file 7z '${file_7z}'...${r}"
+                echo -e "${p}[${b}*${p}] Mengecek file 7z...${r}"
                 tunggu
                 if [[ -z "${file_7z}" ]]; then
                 	echo -e "${p}[${m}-${p}] File 7z tidak boleh kosong.${r}"
                         continue
                 fi
                 if [[ ! -f "${file_7z}" ]]; then
-                	echo -e "${p}[${m}-${p}] File 7z '${file_7z}' tidak ditemukan.${r}"
+                	echo -e "${p}[${m}-${p}] File 7z tidak ditemukan.${r}"
                         continue
                 fi
                 if [[ "${file_7z##*.}" != "7z" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_7z}' bukan file 7z.${r}"
+                	echo -e "${p}[${m}-${p}] File bukan file 7z.${r}"
                         continue
                 fi
-                echo -e "${p}[${h}+${p}] File 7z '${file_7z}' ditemukan.${r}"
+                echo -e "${p}[${h}+${p}] File 7z ditemukan.${r}"
 		break
 	done
 }
@@ -374,21 +318,21 @@ function memasukkan_file_pdf(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file PDF: ' file_pdf
 		file_pdf=$(echo "${file_pdf}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file PDF '${file_pdf}'...${r}"
+                echo -e "${p}[${b}*${p}] Mengecek file PDF...${r}"
                 tunggu
                 if [[ -z "${file_pdf}" ]]; then
                 	echo -e "${p}[${m}-${p}] File PDF tidak boleh kosong.${r}"
                         continue
                 fi
                 if [[ ! -f "${file_pdf}" ]]; then
-                       	echo -e "${p}[${m}-${p}] File PDF '${file_pdf}' tidak ditemukan.${r}"
+                       	echo -e "${p}[${m}-${p}] File PDF tidak ditemukan.${r}"
                 continue
                	fi
                 if [[ "${file_pdf##*.}" != "pdf" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_pdf}' bukan file PDF.${r}"
+                	echo -e "${p}[${m}-${p}] File bukan file PDF.${r}"
                 	continue
                 fi
-                echo -e "${p}[${h}+${p}] File PDF '${file_pdf}' ditemukan.${r}"
+                echo -e "${p}[${h}+${p}] File PDF ditemukan.${r}"
 		break
 	done
 }
@@ -398,29 +342,28 @@ function memasukkan_file_office(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file Office (.docx, .xlsx, .pptx): ' file_office
 		file_office=$(echo "${file_office}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file Office '${file_office}'...${r}"
+                echo -e "${p}[${b}*${p}] Mengecek file Office...${r}"
                 tunggu
                 if [[ -z "${file_office}" ]]; then
                 	echo -e "${p}[${m}-${p}] File Office tidak boleh kosong.${r}"
                         continue
                 fi
                 if [[ ! -f "${file_office}" ]]; then
-                	echo -e "${p}[${m}-${p}] File Office '${file_office}' tidak ditemukan.${r}"
+                	echo -e "${p}[${m}-${p}] File Office tidak ditemukan.${r}"
                         continue
                 fi
 	        if [[ "${file_office##*.}" != "docx" && "${file_office##*.}" != "xlsx" && "${file_office##*.}" != "pptx" ]]; then
-        		echo -e "${m}[-] ${p}File '${file_office}' bukan file Office.${r}"
+        		echo -e "${m}[-] ${p}File bukan file Office.${r}"
                 	continue
                 fi
-               	echo -e "${p}[${h}+${p}] File Office '${file_office}' ditemukan.${r}"
+               	echo -e "${p}[${h}+${p}] File Office ditemukan.${r}"
 		break
 	done
 }
 
-
 # Fungsi untuk mengekstrak hash file ZIP
 function ekstrak_hash_file_zip(){
-	echo -e "${p}[${b}*${p}] Mengekstrak hash file ZIP '${file_zip}'...${r}"
+	echo -e "${p}[${b}*${p}] Mengekstrak hash file ZIP...${r}"
         tunggu
         hash_file_zip=$(/usr/share/john/run/zip2john "${file_zip}" 2>/dev/null)
         nama_file_zip=$(basename "${file_zip}")
@@ -428,22 +371,27 @@ function ekstrak_hash_file_zip(){
         echo "${hash_file_zip}" > "${nama_file_hash_file_zip}"
         if [[ -f "${nama_file_hash_file_zip}" ]]; then
                 if [[ $(cat "${nama_file_hash_file_zip}" | grep -o "zip" || cat "${nama_file_hash_file_zip}" | grep -o "pkzip") ]]; then
-                        echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file ZIP '${file_zip}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file ZIP '${file_zip}' disimpan di: ${h}${nama_file_hash_file_zip}${p}${r}"
+                        echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file ZIP.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file ZIP disimpan di: ${h}${nama_file_hash_file_zip}${p}${r}"
                 else
-                        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP '${file_zip}'.${r}"
+                        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP.${r}"
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        		menampilkan_menu
+			pilih_menu
                 fi
         else
-        	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP '${file_zip}'.${r}"
+        	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP.${r}"
+		echo ""
+		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        	menampilkan_menu
+		pilih_menu
         fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
 }
 
 # Fungsi untuk mengekstrak hash file RAR
 function ekstrak_hash_file_rar(){
-	echo -e "${p}[${b}*${p}] Mengekstrak hash file RAR '${file_rar}'...${r}"
+	echo -e "${p}[${b}*${p}] Mengekstrak hash file RAR...${r}"
         tunggu
         hash_file_rar=$(/usr/share/john/run/rar2john "${file_rar}" 2>/dev/null)
         nama_file_rar=$(basename "${file_rar}")
@@ -451,22 +399,27 @@ function ekstrak_hash_file_rar(){
         echo "${hash_file_rar}" > "${nama_file_hash_file_rar}"
         if [[ -f "${nama_file_hash_file_rar}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_rar}" | grep -o "rar5") ]]; then
-                     	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file RAR '${file_rar}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file RAR '${file_rar}' disimpan di: ${h}${nama_file_hash_file_rar}${p}${r}"
+                     	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file RAR.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file RAR disimpan di: ${h}${nama_file_hash_file_rar}${p}${r}"
                 else
-             	        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR '${file_rar}'.${r}"
+             	        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR.${r}"
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        		menampilkan_menu
+			pilih_menu
                 fi
        	else
-               	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR '${file_rar}'.${r}"
+	               	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR.${r}"
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        		menampilkan_menu
+			pilih_menu
         fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-        menampilkan_menu
  }
 
 # Fungsi untuk mengekstrak hash file 7z
 function ekstrak_hash_file_7z(){
-        echo -e "${p}[${b}*${p}] Mengekstrak hash file 7z '${file_7z}'...${r}"
+        echo -e "${p}[${b}*${p}] Mengekstrak hash file 7z...${r}"
         tunggu
         hash_file_7z=$(/usr/share/john/run/7z2john.pl "${file_7z}" 2>/dev/null)
         nama_file_7z=$(basename "${file_7z}")
@@ -474,22 +427,27 @@ function ekstrak_hash_file_7z(){
         echo "${hash_file_7z}" > "${nama_file_hash_file_7z}"
         if [[ -f "${nama_file_hash_file_7z}" ]]; then
                 if [[ $(cat "${nama_file_hash_file_7z}" | grep -o "7z") ]]; then
-                	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file 7z '${file_7z}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file 7z '${file_7z}' disimpan di: ${h}${nama_file_hash_file_7z}${p}${r}"
+                	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file 7z.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file 7z disimpan di: ${h}${nama_file_hash_file_7z}${p}${r}"
                 else
-                        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z '${file_7z}'.${r}"
+                        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z.${r}"
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        		menampilkan_menu
+			pilih_menu
                 fi
         else
-                echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z '${file_7z}'.${r}"
+                echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z.${r}"
+		echo ""
+		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        	menampilkan_menu
+		pilih_menu
         fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
 }
 
 # Fungsi untuk mengekstrak hash file PDF
 function ekstrak_hash_file_pdf(){
-	echo -e "${p}[${b}*${p}] Mengekstrak hash file PDF '${file_pdf}'...${r}"
+	echo -e "${p}[${b}*${p}] Mengekstrak hash file PDF...${r}"
         tunggu
         hash_file_pdf=$(/usr/share/john/run/pdf2john.pl "${file_pdf}")
         nama_file_pdf=$(basename "${file_pdf}")
@@ -497,22 +455,27 @@ function ekstrak_hash_file_pdf(){
         echo "${hash_file_pdf}" > "${nama_file_hash_file_pdf}"
         if [[ -f "${nama_file_hash_file_pdf}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_pdf}" | grep -o "pdf") ]]; then
-                	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file PDF '${file_pdf}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file PDF '${file_pdf}' disimpan di: ${h}${nama_file_hash_file_pdf}${p}${r}"
+                	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file PDF.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file PDF disimpan di: ${h}${nama_file_hash_file_pdf}${p}${r}"
                 else
-                       	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF '${file_pdf}'.${r}"
+                       	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF.${r}"
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        		menampilkan_menu
+			pilih_menu
                 fi
       	else
-       		echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF '${file_pdf}'.${r}"
+       		echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF.${r}"
+		echo ""
+		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        	menampilkan_menu
+		pilih_menu
         fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
 }
 
 # Fungsi uentuk mengekstrak hash file Office
 function ekstrak_hash_file_office(){
-	echo -e "${p}[${b}*${p}] Mengekstrak hash file Office '${file_office}'...${r}"
+	echo -e "${p}[${b}*${p}] Mengekstrak hash file Office...${r}"
         tunggu
         hash_file_office=$(/usr/share/john/run/office2john.py "${file_office}")
         nama_file_office=$(basename "${file_office}")
@@ -520,181 +483,40 @@ function ekstrak_hash_file_office(){
         echo "${hash_file_office}" > "${nama_file_hash_file_office}"
         if [[ -f "${nama_file_hash_file_office}" ]]; then
         	if [[ $(cat "${nama_file_hash_file_office}" | grep -o "office") ]]; then
-                	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file Office '${file_office}'.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file Office '${file_office}' disimpan di: ${h}${nama_file_hash_file_office}${p}${r}"
+                	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file Office.${r}"
+                        echo -e "${p}[${h}+${p}] File hash file Office disimpan di: ${h}${nama_file_hash_file_office}${p}${r}"
                 else
-                        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office '${file_office}'.${r}"
+                        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office.${r}"
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        		menampilkan_menu
+			pilih_menu
                 fi
 	else
-                echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office '${file_office}'.${r}"
+                echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office.${r}"
+		echo ""
+		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+        	menampilkan_menu
+		pilih_menu
         fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
 }
-
-# Fungsi untuk memasukkan file hash file ZIP
-function memasukkan_file_hash_file_zip(){
-	while true; do
-        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file ZIP: ' file_hash_file_zip
-		file_hash_file_zip=$(echo "${file_hash_file_zip}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file hash file ZIP '${file_hash_file_zip}'...${r}"
-                tunggu
-               	if [[ -z "${file_hash_file_zip}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file ZIP tidak boleh kosong.${r}"
-                        continue
-               	fi
-                if [[ ! -f "${file_hash_file_zip}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file ZIP '${file_hash_file_zip}' tidak ditemukan.${r}"
-                        continue
-                fi
-                if [[ "${file_hash_file_zip##*.}" != "john" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_hash_file_zip}' bukan file hash.${r}"
-                        continue
-                fi
-		if [[ $(cat "${file_hash_file_zip}" | grep -o "zip" || cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
-	                echo -e "${p}[${h}+${p}] File hash file ZIP '${file_hash_file_zip}' ditemukan.${r}"
-		else
-			echo -e "${p}[${m}-${p}] Format file hash file ZIP '${file_hash_file_zip}' tidak valid.${r}"
-			continue
-		fi
-		break
-	done
-}
-
-# Fungsi untuk memasukkan file hash file RAR
-function memasukkan_file_hash_file_rar(){
-	while true; do
-        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file RAR: ' file_hash_file_rar
-		file_hash_file_rar=$(echo "${file_hash_file_rar}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file hash file RAR '${file_hash_file_rar}'...${r}"
-                tunggu
-               	if [[ -z "${file_hash_file_rar}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file RAR tidak boleh kosong.${r}"
-                        continue
-               	fi
-                if [[ ! -f "${file_hash_file_rar}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file RAR '${file_hash_file_rar}' tidak ditemukan.${r}"
-                        continue
-                fi
-                if [[ "${file_hash_file_rar##*.}" != "john" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_hash_file_rar}' bukan file hash.${r}"
-                        continue
-                fi
-		if [[ $(cat "${file_hash_file_rar}" | grep -o "rar5") ]]; then
-	                echo -e "${p}[${h}+${p}] File hash file RAR '${file_hash_file_rar}' ditemukan.${r}"
-		else
-			echo -e "${p}[${m}-${p}] Format file hash file RAR '${file_hash_file_rar}' tidak valid.${r}"
-			continue
-		fi
-		break
-	done
-}
-
-# Fungsi untuk memasukkan file hash file 7z
-function memasukkan_file_hash_file_7z(){
-	while true; do
-        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file 7z: ' file_hash_file_7z
-		file_hash_file_7z=$(echo "${file_hash_file_7z}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file hash file 7z '${file_hash_file_7z}'...${r}"
-                tunggu
-               	if [[ -z "${file_hash_file_7z}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file 7z tidak boleh kosong.${r}"
-                        continue
-               	fi
-                if [[ ! -f "${file_hash_file_7z}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file 7z '${file_hash_file_7z}' tidak ditemukan.${r}"
-                        continue
-                fi
-                if [[ "${file_hash_file_7z##*.}" != "john" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_hash_file_7z}' bukan file hash.${r}"
-                        continue
-                fi
-		if [[ $(cat "${file_hash_file_7z}" | grep -o "7z") ]]; then
-	                echo -e "${p}[${h}+${p}] File hash file 7z '${file_hash_file_7z}' ditemukan.${r}"
-		else
-			echo -e "${p}[${m}-${p}] Format file hash file 7z '${file_hash_file_7z}' tidak valid.${r}"
-			continue
-		fi
-		break
-	done
-}
-
-# Fungsi untuk memasukkan file hash file PDF
-function memasukkan_file_hash_file_pdf(){
-	while true; do
-        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file PDF: ' file_hash_file_pdf
-		file_hash_file_pdf=$(echo "${file_hash_file_pdf}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file hash file PDF '${file_hash_file_pdf}'...${r}"
-                tunggu
-               	if [[ -z "${file_hash_file_pdf}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file PDF tidak boleh kosong.${r}"
-                        continue
-               	fi
-                if [[ ! -f "${file_hash_file_pdf}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file PDF '${file_hash_file_pdf}' tidak ditemukan.${r}"
-                        continue
-                fi
-                if [[ "${file_hash_file_pdf##*.}" != "john" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_hash_file_pdf}' bukan file hash.${r}"
-                        continue
-                fi
-		if [[ $(cat "${file_hash_file_pdf}" | grep -o "pdf") ]]; then
-	                echo -e "${p}[${h}+${p}] File hash file PDF '${file_hash_file_pdf}' ditemukan.${r}"
-		else
-			echo -e "${p}[${m}-${p}] Format file hash file PDF '${file_hash_file_pdf}' tidak valid.${r}"
-			continue
-		fi
-		break
-	done
-}
-
-# Fungsi untuk memasukkan file hash file Office
-function memasukkan_file_hash_file_office(){
-	while true; do
-        	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file hash file Office: ' file_hash_file_office
-		file_hash_file_office=$(echo "${file_hash_file_office}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file hash file Office '${file_hash_file_office}'...${r}"
-                tunggu
-               	if [[ -z "${file_hash_file_office}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file Office tidak boleh kosong.${r}"
-                        continue
-               	fi
-                if [[ ! -f "${file_hash_file_office}" ]]; then
-                	echo -e "${p}[${m}-${p}] File hash file Office '${file_hash_file_office}' tidak ditemukan.${r}"
-                        continue
-                fi
-                if [[ "${file_hash_file_office##*.}" != "john" ]]; then
-                	echo -e "${p}[${m}-${p}] File '${file_hash_file_office}' bukan file hash.${r}"
-                        continue
-                fi
-		if [[ $(cat "${file_hash_file_office}" | grep -o "office") ]]; then
-	                echo -e "${p}[${h}+${p}] File hash file Office '${file_hash_file_office}' ditemukan.${r}"
-		else
-			echo -e "${p}[${m}-${p}] Format file hash file Office '${file_hash_file_office}' tidak valid.${r}"
-			continue
-		fi
-		break
-	done
-}
-
 
 # Fungsi untuk memasukkan file Wordlist
 function memasukkan_file_wordlist(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file Wordlist: ' file_wordlist
 		file_wordlist=$(echo "${file_wordlist}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file Wordlist '${file_wordlist}'...${r}"
+                echo -e "${p}[${b}*${p}] Mengecek file Wordlist...${r}"
                 tunggu
                	if [[ -z "${file_wordlist}" ]]; then
                 	echo -e "${p}[${m}-${p}] File Wordlist tidak boleh kosong.${r}"
                         continue
                	fi
                 if [[ ! -f "${file_wordlist}" ]]; then
-                	echo -e "${p}[${m}-${p}] File Wordlist '${file_wordlist}' tidak ditemukan.${r}"
+                	echo -e "${p}[${m}-${p}] File Wordlist tidak ditemukan.${r}"
                         continue
                 fi
-                echo -e "${p}[${h}+${p}] File Wordlist '${file_wordlist}' ditemukan.${r}"
+                echo -e "${p}[${h}+${p}] File Wordlist ditemukan.${r}"
 		break
 	done
 }
@@ -770,813 +592,16 @@ function menentukan_kombinasi_karakter(){
 	done
 }
 
-# Fungsi untuk memulihkan kata sandi file ZIP menggunakan teknik Dictionary Attack
-function memulihkan_kata_sandi_file_zip_dict(){
-	memasukkan_file_wordlist
-	pot_file_zip="pot_zip.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
-	echo ""
-	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
+# Fungsi untuk memulihkan kata sandi file ZIP
+function memulihkan_kata_sandi_file_zip(){
+
+	if [[ $(cat "${nama_file_hash_file_zip}" | grep -o "pkzip") ]]; then
 		format_file_zip="PKZIP"
-	elif [[ $(cat "${file_hash_file_zip}" | grep -o "zip") ]]; then
+	elif [[ $(cat "${nama_file_hash_file_zip}" | grep -o "zip") ]]; then
 		format_file_zip="ZIP"
 	fi
-	/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${file_hash_file_zip}"
-	if [[ -f "${pot_file_zip}" ]]; then
-		if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
-			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
-			rm "${pot_file_zip}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
 
-# Fungsi untuk memulihkan kata sandi file RAR menggunakan teknik Dictionary Attack
-function memulihkan_kata_sandi_file_rar_dict(){
-	memasukkan_file_wordlist
-	pot_file_rar="pot_rar.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
-	echo ""
-	format_file_rar="RAR5"
-	/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
-	if [[ -f "${pot_file_rar}" ]]; then
-		if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
-			kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
-			rm "${pot_file_rar}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file 7z menggunakan teknik Dictionary Attack
-function memulihkan_kata_sandi_file_7z_dict(){
-	memasukkan_file_wordlist
-	pot_file_7z="pot_7z.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
-	echo ""
-	format_file_7z="7z"
-	/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
-	if [[ -f "${pot_file_7z}" ]]; then
-		if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
-			kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
-			rm "${pot_file_7z}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file PDF menggunakan teknik Dictionary Attack
-function memulihkan_kata_sandi_file_pdf_dict(){
-	memasukkan_file_wordlist
-	pot_file_pdf="pot_pdf.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
-	echo ""
-	format_file_pdf="PDF"
-	/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
-	if [[ -f "${pot_file_pdf}" ]]; then
-		if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
-			kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
-			rm "${pot_file_pdf}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file Office menggunakan teknik Dictionary Attack
-function memulihkan_kata_sandi_file_office_dict(){
-	memasukkan_file_wordlist
-	pot_file_office="pot_office.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
-	echo ""
-	format_file_office="Office"
-	/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
-	if [[ -f "${pot_file_office}" ]]; then
-		if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
-			kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
-			rm "${pot_file_office}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file ZIP menggunakan teknik Brute Force Attack
-function memulihkan_kata_sandi_file_zip_brute(){
-	menentukan_panjang_kata_sandi
 	pot_file_zip="pot_zip.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
-	echo ""
-	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
-		format_file_zip="PKZIP"
-	elif [[ $(cat "${file_hash_file_zip}" | grep -o "zip") ]]; then
-		format_file_zip="ZIP"
-	fi
-	/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${file_hash_file_zip}"
-	if [[ -f "${pot_file_zip}" ]]; then
-		if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
-			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
-			rm "${pot_file_zip}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file RAR menggunakan teknik Brute Force Attack
-function memulihkan_kata_sandi_file_rar_brute(){
-	menentukan_panjang_kata_sandi
-	pot_file_rar="pot_rar.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
-	echo ""
-	format_file_rar="RAR5"
-	/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
-	if [[ -f "${pot_file_rar}" ]]; then
-		if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
-			kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
-			rm "${pot_file_rar}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file 7z menggunakan teknik Brute Force Attack
-function memulihkan_kata_sandi_file_7z_brute(){
-	menentukan_panjang_kata_sandi
-	pot_file_7z="pot_7z.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
-	echo ""
-	format_file_7z="7z"
-	/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
-	if [[ -f "${pot_file_7z}" ]]; then
-		if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
-			kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
-			rm "${pot_file_7z}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file PDF menggunakan teknik Brute Force Attack
-function memulihkan_kata_sandi_file_pdf_brute(){
-	menentukan_panjang_kata_sandi
-	pot_file_pdf="pot_pdf.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
-	echo ""
-	format_file_pdf="PDF"
-	/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
-	if [[ -f "${pot_file_pdf}" ]]; then
-		if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
-			kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
-			rm "${pot_file_pdf}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file Office menggunakan teknik Brute Force Attack
-function memulihkan_kata_sandi_file_office_brute(){
-	menentukan_panjang_kata_sandi
-	pot_file_office="pot_office.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
-	echo ""
-	format_file_office="Office"
-	/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
-	if [[ -f "${pot_file_office}" ]]; then
-		if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
-			kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
-			rm "${pot_file_office}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file ZIP menggunakan teknik Mask Attack
-function memulihkan_kata_sandi_file_zip_mask(){
-	menentukan_panjang_kata_sandi
-	menentukan_pola_mask
-	pot_file_zip="pot_zip.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
-	echo ""
-	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
-		format_file_zip="PKZIP"
-	elif [[ $(cat "${file_hash_file_zip}" | grep -o "zip") ]]; then
-		format_file_zip="ZIP"
-	fi
-	/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${file_hash_file_zip}"
-	if [[ -f "${pot_file_zip}" ]]; then
-		if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
-			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
-			rm "${pot_file_zip}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file RAR menggunakan teknik Mask Attack
-function memulihkan_kata_sandi_file_rar_mask(){
-	menentukan_panjang_kata_sandi
-	menentukan_pola_mask
-	pot_file_rar="pot_rar.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
-	echo ""
-	format_file_rar="RAR5"
-	/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
-	if [[ -f "${pot_file_rar}" ]]; then
-		if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
-			kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
-			rm "${pot_file_rar}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file 7z menggunakan teknik Mask Attack
-function memulihkan_kata_sandi_file_7z_mask(){
-	menentukan_panjang_kata_sandi
-	menentukan_pola_mask
-	pot_file_7z="pot_7z.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
-	echo ""
-	format_file_7z="7z"
-	/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
-	if [[ -f "${pot_file_7z}" ]]; then
-		if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
-			kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
-			rm "${pot_file_7z}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file PDF menggunakan teknik Mask Attack
-function memulihkan_kata_sandi_file_pdf_mask(){
-	menentukan_panjang_kata_sandi
-	menentukan_pola_mask
-	pot_file_pdf="pot_pdf.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
-	echo ""
-	format_file_pdf="PDF"
-	/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
-	if [[ -f "${pot_file_pdf}" ]]; then
-		if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
-			kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
-			rm "${pot_file_pdf}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file Office menggunakan teknik Mask Attack
-function memulihkan_kata_sandi_file_office_mask(){
-	menentukan_panjang_kata_sandi
-	menentukan_pola_mask
-	pot_file_office="pot_office.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
-	echo ""
-	format_file_office="Office"
-	/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
-	if [[ -f "${pot_file_office}" ]]; then
-		if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
-			kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
-			rm "${pot_file_office}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file ZIP menggunakan teknik Prince Attack
-function memulihkan_kata_sandi_file_zip_prince(){
-	memasukkan_file_wordlist
-	pot_file_zip="pot_zip.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
-	echo ""
-	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
-		format_file_zip="PKZIP"
-	elif [[ $(cat "${file_hash_file_zip}" | grep -o "zip") ]]; then
-		format_file_zip="ZIP"
-	fi
-	/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${file_hash_file_zip}"
-	if [[ -f "${pot_file_zip}" ]]; then
-		if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
-			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
-			rm "${pot_file_zip}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file RAR menggunakan teknik Prince Attack
-function memulihkan_kata_sandi_file_rar_prince(){
-	memasukkan_file_wordlist
-	pot_file_rar="pot_rar.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
-	echo ""
-	format_file_rar="RAR5"
-	/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
-	if [[ -f "${pot_file_rar}" ]]; then
-		if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
-			kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
-			rm "${pot_file_rar}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file 7z menggunakan teknik Prince Attack
-function memulihkan_kata_sandi_file_7z_prince(){
-	memasukkan_file_wordlist
-	pot_file_7z="pot_7z.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
-	echo ""
-	format_file_7z="7z"
-	/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
-	if [[ -f "${pot_file_7z}" ]]; then
-		if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
-			kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
-			rm "${pot_file_7z}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file PDF menggunakan teknik Prince Attack
-function memulihkan_kata_sandi_file_pdf_prince(){
-	memasukkan_file_wordlist
-	pot_file_pdf="pot_pdf.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
-	echo ""
-	format_file_pdf="PDF"
-	/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
-	if [[ -f "${pot_file_pdf}" ]]; then
-		if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
-			kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
-			rm "${pot_file_pdf}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file Office menggunakan teknik Prince Attack
-function memulihkan_kata_sandi_file_office_prince(){
-	memasukkan_file_wordlist
-	pot_file_office="pot_office.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
-	echo ""
-	format_file_office="Office"
-	/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
-	if [[ -f "${pot_file_office}" ]]; then
-		if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
-			kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
-			rm "${pot_file_office}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file ZIP menggunakan Subsets Attack
-function memulihkan_kata_sandi_file_zip_subsets(){
-	menentukan_panjang_kata_sandi
-	menentukan_kombinasi_karakter
-	pot_file_zip="pot_zip.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
-	echo ""
-	if [[ $(cat "${file_hash_file_zip}" | grep -o "pkzip") ]]; then
-		format_file_zip="PKZIP"
-	elif [[ $(cat "${file_hash_file_zip}" | grep -o "zip") ]]; then
-		format_file_zip="ZIP"
-	fi
-	/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${file_hash_file_zip}"
-	if [[ -f "${pot_file_zip}" ]]; then
-		if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
-			kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
-			rm "${pot_file_zip}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file RAR menggunakan teknik Subsets Attack
-function memulihkan_kata_sandi_file_rar_subsets(){
-	menentukan_panjang_kata_sandi
-	menentukan_kombinasi_karakter
-	pot_file_rar="pot_rar.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
-	echo ""
-	format_file_rar="RAR5"
-	/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${file_hash_file_rar}"
-	if [[ -f "${pot_file_rar}" ]]; then
-		if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
-			kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
-			rm "${pot_file_rar}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file 7z menggunakan teknik Subsets Attack
-function memulihkan_kata_sandi_file_7z_subsets(){
-	menentukan_panjang_kata_sandi
-	menentukan_kombinasi_karakter
-	pot_file_7z="pot_7z.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
-	echo ""
-	format_file_7z="7z"
-	/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${file_hash_file_7z}"
-	if [[ -f "${pot_file_7z}" ]]; then
-		if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
-			kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
-			rm "${pot_file_7z}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file PDF menggunakan teknik Subsets Attack
-function memulihkan_kata_sandi_file_pdf_subsets(){
-	menentukan_panjang_kata_sandi
-	menentukan_kombinasi_karakter
-	pot_file_pdf="pot_pdf.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
-	echo ""
-	format_file_pdf="PDF"
-	/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${file_hash_file_pdf}"
-	if [[ -f "${pot_file_pdf}" ]]; then
-		if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
-			kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
-			rm "${pot_file_pdf}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memulihkan kata sandi file Office menggunakan teknik Subsets Attack
-function memulihkan_kata_sandi_file_office_subsets(){
-	menentukan_panjang_kata_sandi
-	menentukan_kombinasi_karakter
-	pot_file_office="pot_office.txt"
-	echo ""
-	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
-	echo ""
-	format_file_office="Office"
-	/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${file_hash_file_office}"
-	if [[ -f "${pot_file_office}" ]]; then
-		if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
-			kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
-                        echo ""
-			echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
-			echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
-			rm "${pot_file_office}"
-		else
-                        echo ""
-			echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-			echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
-		fi
-	else
-                echo ""
-		echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
-		echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
-	fi
-	echo ""
-        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
-	menampilkan_menu
-}
-
-# Fungsi untuk memilih teknik pemulihan kata sandi file ZIP
-function memilih_teknik_pemulihan_kata_sandi_file_zip(){
 
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file ZIP yang tersedia:${r}"
@@ -1592,19 +617,141 @@ function memilih_teknik_pemulihan_kata_sandi_file_zip(){
 		read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Pilih teknik pemulihan kata sandi file ZIP: ' pilih_teknik_zip
 
 		if [[ "${pilih_teknik_zip}" == "01" ]]; then
-			memulihkan_kata_sandi_file_zip_brute
+			menentukan_panjang_kata_sandi
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
+			echo ""
+			/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_zip}"
+			if [[ -f "${pot_file_zip}" ]]; then
+				if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
+					kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
+					rm "${pot_file_zip}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_zip}" == "02" ]]; then
-			memulihkan_kata_sandi_file_zip_dict
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
+			echo ""
+			/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_zip}"
+			if [[ -f "${pot_file_zip}" ]]; then
+				if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
+					kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
+                      		  	echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
+					rm "${pot_file_zip}"
+				else
+                        		echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+                		echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+        		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_zip}" == "03" ]]; then
-			memulihkan_kata_sandi_file_zip_mask
+			menentukan_panjang_kata_sandi
+			menentukan_pola_mask
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
+			echo ""
+			/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_zip}"
+			if [[ -f "${pot_file_zip}" ]]; then
+				if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
+					kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
+					rm "${pot_file_zip}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_zip}" == "04" ]]; then
-			memulihkan_kata_sandi_file_zip_prince
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
+			echo ""
+			/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_zip}"
+			if [[ -f "${pot_file_zip}" ]]; then
+				if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
+					kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
+					rm "${pot_file_zip}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_zip}" == "05" ]]; then
-			memulihkan_kata_sandi_file_zip_subsets
+			menentukan_panjang_kata_sandi
+			menentukan_kombinasi_karakter
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file ZIP...\e[0m'
+			echo ""
+			/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_zip}" --pot="${pot_file_zip}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_zip}"
+			if [[ -f "${pot_file_zip}" ]]; then
+				if [[ $(cat "${pot_file_zip}" | grep -o ":") ]]; then
+					kata_sandi_file_zip=$(cat "${pot_file_zip}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file ZIP berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_zip}${p}${r}"
+					rm "${pot_file_zip}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file ZIP gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		else
 			echo -e "${p}[${m}-${p}] Teknik '${pilih_teknik_zip}' tidak tersedia.${r}"
@@ -1613,8 +760,12 @@ function memilih_teknik_pemulihan_kata_sandi_file_zip(){
 	done
 }
 
-# Fungsi untuk memilih teknik pemulihan kata sandi file RAR
-function memilih_teknik_pemulihan_kata_sandi_file_rar(){
+# Fungsi untuk memulihkan kata sandi file RAR
+function memulihkan_kata_sandi_file_rar(){
+
+	format_file_rar="RAR5"
+
+	pot_file_rar="pot_rar.txt"
 
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file RAR yang tersedia:${r}"
@@ -1630,19 +781,141 @@ function memilih_teknik_pemulihan_kata_sandi_file_rar(){
 		read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Pilih teknik pemulihan kata sandi file RAR: ' pilih_teknik_rar
 
 		if [[ "${pilih_teknik_rar}" == "01" ]]; then
-			memulihkan_kata_sandi_file_rar_brute
+			menentukan_panjang_kata_sandi
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_rar}" == "02" ]]; then
-			memulihkan_kata_sandi_file_rar_dict
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+                      		  	echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+                        		echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+                		echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+        		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_rar}" == "03" ]]; then
-			memulihkan_kata_sandi_file_rar_mask
+			menentukan_panjang_kata_sandi
+			menentukan_pola_mask
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_rar}" == "04" ]]; then
-			memulihkan_kata_sandi_file_rar_prince
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_rar}" == "05" ]]; then
-			memulihkan_kata_sandi_file_rar_subsets
+			menentukan_panjang_kata_sandi
+			menentukan_kombinasi_karakter
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file RAR...\e[0m'
+			echo ""
+			/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_rar}" --pot="${pot_file_rar}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_rar}"
+			if [[ -f "${pot_file_rar}" ]]; then
+				if [[ $(cat "${pot_file_rar}" | grep -o ":") ]]; then
+					kata_sandi_file_rar=$(cat "${pot_file_rar}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file RAR berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_rar}${p}${r}"
+					rm "${pot_file_rar}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file RAR gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		else
 			echo -e "${p}[${m}-${p}] Teknik '${pilih_teknik_rar}' tidak tersedia.${r}"
@@ -1651,8 +924,12 @@ function memilih_teknik_pemulihan_kata_sandi_file_rar(){
 	done
 }
 
-# Fungsi untuk memilih teknik pemulihan kata sandi file 7z
-function memilih_teknik_pemulihan_kata_sandi_file_7z(){
+# Fungsi untuk memulihkan kata sandi file 7z
+function memulihkan_kata_sandi_file_7z(){
+
+	format_file_7z="7z"
+
+	pot_file_7z="pot_7z.txt"
 
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file 7z yang tersedia:${r}"
@@ -1668,19 +945,141 @@ function memilih_teknik_pemulihan_kata_sandi_file_7z(){
 		read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Pilih teknik pemulihan kata sandi file 7z: ' pilih_teknik_7z
 
 		if [[ "${pilih_teknik_7z}" == "01" ]]; then
-			memulihkan_kata_sandi_file_7z_brute
+			menentukan_panjang_kata_sandi
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
+			echo ""
+			/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_7z}"
+			if [[ -f "${pot_file_7z}" ]]; then
+				if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
+					kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
+					rm "${pot_file_7z}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_7z}" == "02" ]]; then
-			memulihkan_kata_sandi_file_7z_dict
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
+			echo ""
+			/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_7z}"
+			if [[ -f "${pot_file_7z}" ]]; then
+				if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
+					kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
+                      		  	echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
+					rm "${pot_file_7z}"
+				else
+                        		echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+                		echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+        		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_7z}" == "03" ]]; then
-			memulihkan_kata_sandi_file_7z_mask
+			menentukan_panjang_kata_sandi
+			menentukan_pola_mask
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
+			echo ""
+			/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_7z}"
+			if [[ -f "${pot_file_7z}" ]]; then
+				if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
+					kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
+					rm "${pot_file_7z}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_7z}" == "04" ]]; then
-			memulihkan_kata_sandi_file_7z_prince
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
+			echo ""
+			/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_7z}"
+			if [[ -f "${pot_file_7z}" ]]; then
+				if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
+					kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
+					rm "${pot_file_7z}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_7z}" == "05" ]]; then
-			memulihkan_kata_sandi_file_7z_subsets
+			menentukan_panjang_kata_sandi
+			menentukan_kombinasi_karakter
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file 7z...\e[0m'
+			echo ""
+			/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_7z}" --pot="${pot_file_7z}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_7z}"
+			if [[ -f "${pot_file_7z}" ]]; then
+				if [[ $(cat "${pot_file_7z}" | grep -o ":") ]]; then
+					kata_sandi_file_7z=$(cat "${pot_file_7z}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file 7z berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_7z}${p}${r}"
+					rm "${pot_file_7z}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file 7z gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		else
 			echo -e "${p}[${m}-${p}] Teknik '${pilih_teknik_7z}' tidak tersedia.${r}"
@@ -1689,8 +1088,12 @@ function memilih_teknik_pemulihan_kata_sandi_file_7z(){
 	done
 }
 
-# Fungsi untuk memilih teknik pemulihan kata sandi file PDF
-function memilih_teknik_pemulihan_kata_sandi_file_pdf(){
+# Fungsi untuk memulihkan kata sandi file PDF
+function memulihkan_kata_sandi_file_pdf(){
+
+	format_file_pdf="PDF"
+
+	pot_file_pdf="pot_pdf.txt"
 
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file PDF yang tersedia:${r}"
@@ -1706,19 +1109,141 @@ function memilih_teknik_pemulihan_kata_sandi_file_pdf(){
 		read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Pilih teknik pemulihan kata sandi file PDF: ' pilih_teknik_pdf
 
 		if [[ "${pilih_teknik_pdf}" == "01" ]]; then
-			memulihkan_kata_sandi_file_pdf_brute
+			menentukan_panjang_kata_sandi
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
+			echo ""
+			/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_pdf}"
+			if [[ -f "${pot_file_pdf}" ]]; then
+				if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
+					kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
+					rm "${pot_file_pdf}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_pdf}" == "02" ]]; then
-			memulihkan_kata_sandi_file_pdf_dict
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
+			echo ""
+			/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_pdf}"
+			if [[ -f "${pot_file_pdf}" ]]; then
+				if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
+					kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
+                      		  	echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
+					rm "${pot_file_pdf}"
+				else
+                        		echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+                		echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+        		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_pdf}" == "03" ]]; then
-			memulihkan_kata_sandi_file_pdf_mask
+			menentukan_panjang_kata_sandi
+			menentukan_pola_mask
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
+			echo ""
+			/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_pdf}"
+			if [[ -f "${pot_file_pdf}" ]]; then
+				if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
+					kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
+					rm "${pot_file_pdf}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_pdf}" == "04" ]]; then
-			memulihkan_kata_sandi_file_pdf_prince
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
+			echo ""
+			/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_pdf}"
+			if [[ -f "${pot_file_pdf}" ]]; then
+				if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
+					kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
+					rm "${pot_file_pdf}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_pdf}" == "05" ]]; then
-			memulihkan_kata_sandi_file_pdf_subsets
+			menentukan_panjang_kata_sandi
+			menentukan_kombinasi_karakter
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file PDF...\e[0m'
+			echo ""
+			/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_pdf}" --pot="${pot_file_pdf}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_pdf}"
+			if [[ -f "${pot_file_pdf}" ]]; then
+				if [[ $(cat "${pot_file_pdf}" | grep -o ":") ]]; then
+					kata_sandi_file_pdf=$(cat "${pot_file_pdf}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file PDF berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_pdf}${p}${r}"
+					rm "${pot_file_pdf}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file PDF gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		else
 			echo -e "${p}[${m}-${p}] Teknik '${pilih_teknik_pdf}' tidak tersedia.${r}"
@@ -1727,8 +1252,12 @@ function memilih_teknik_pemulihan_kata_sandi_file_pdf(){
 	done
 }
 
-# Fungsi untuk memilih teknik pemulihan kata sandi file Office
-function memilih_teknik_pemulihan_kata_sandi_file_office(){
+# Fungsi untuk memulihkan kata sandi file Office
+function memulihkan_kata_sandi_file_office(){
+
+	format_file_office="Office"
+
+	pot_file_office="pot_office.txt"
 
 	echo ""
 	echo -e "${p}Teknik pemulihan kata sandi file Office yang tersedia:${r}"
@@ -1744,19 +1273,141 @@ function memilih_teknik_pemulihan_kata_sandi_file_office(){
 		read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Pilih teknik pemulihan kata sandi file Office: ' pilih_teknik_office
 
 		if [[ "${pilih_teknik_office}" == "01" ]]; then
-			memulihkan_kata_sandi_file_office_brute
+			menentukan_panjang_kata_sandi
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
+			echo ""
+			/usr/share/john/run/john --incremental --min-length="${min}" --max-length="${maks}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_office}"
+			if [[ -f "${pot_file_office}" ]]; then
+				if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
+					kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
+					rm "${pot_file_office}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan kombinasi panjang minimal dan maksimal kata sandi yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_office}" == "02" ]]; then
-			memulihkan_kata_sandi_file_office_dict
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
+			echo ""
+			/usr/share/john/run/john --wordlist="${file_wordlist}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_office}"
+			if [[ -f "${pot_file_office}" ]]; then
+				if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
+					kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
+                      		  	echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
+					rm "${pot_file_office}"
+				else
+                        		echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+                		echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+        		read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_office}" == "03" ]]; then
-			memulihkan_kata_sandi_file_office_mask
+			menentukan_panjang_kata_sandi
+			menentukan_pola_mask
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
+			echo ""
+			/usr/share/john/run/john --mask="${pola_mask}" --min-length="${min}" --max-length="${maks}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_office}"
+			if [[ -f "${pot_file_office}" ]]; then
+				if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
+					kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
+					rm "${pot_file_office}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan pola mask yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_office}" == "04" ]]; then
-			memulihkan_kata_sandi_file_office_prince
+			memasukkan_file_wordlist
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
+			echo ""
+			/usr/share/john/run/john --prince="${file_wordlist}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_office}"
+			if [[ -f "${pot_file_office}" ]]; then
+				if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
+					kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
+					rm "${pot_file_office}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan file Wordlist yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		elif [[ "${pilih_teknik_office}" == "05" ]]; then
-			memulihkan_kata_sandi_file_office_subsets
+			menentukan_panjang_kata_sandi
+			menentukan_kombinasi_karakter
+			echo ""
+			read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk memulai proses pemulihan kata sandi file Office...\e[0m'
+			echo ""
+			/usr/share/john/run/john --subsets="${kombinasi}" --min-length="${min}" --max-length="${maks}" --format="${format_file_office}" --pot="${pot_file_office}" --verbosity=6 --progress-every=1 "${nama_file_hash_file_office}"
+			if [[ -f "${pot_file_office}" ]]; then
+				if [[ $(cat "${pot_file_office}" | grep -o ":") ]]; then
+					kata_sandi_file_office=$(cat "${pot_file_office}" | cut -d ":" -f 2)
+		                        echo ""
+					echo -e "${p}[${h}+${p}] Kata sandi file Office berhasil dipulihkan.${r}"
+					echo -e "${p}[${h}+${p}] Kata sandi: ${h}${kata_sandi_file_office}${p}${r}"
+					rm "${pot_file_office}"
+				else
+		                        echo ""
+					echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+					echo -e "${p}[${m}-${p}] Cobalah menggunakan panjang minimal, maksimal kata sandi dan kombinasi karakter yang lain.${r}"
+				fi
+			else
+		                echo ""
+				echo -e "${p}[${m}-${p}] Kata sandi file Office gagal dipulihkan.${r}"
+				echo -e "${p}[${m}-${p}] File pot John tidak ditemukan.${r}"
+			fi
+			echo ""
+		        read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk kembali ke menu utama...\e[0m'
+			menampilkan_menu
 			break
 		else
 			echo -e "${p}[${m}-${p}] Teknik '${pilih_teknik_office}' tidak tersedia.${r}"
@@ -1780,31 +1431,22 @@ function tentang_program(){
 # Fungsi untuk menampilkan menu yang tersedia
 function menampilkan_menu(){
 	membersihkan_layar_terminal
-        echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀    ${r}                               ⠀    ${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⡰⠉⠀⠀⠉⠻⢦⡀⠀⡀⠀⠀⠀  ${r}                                   ⠀${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⣰⠁⠀⠀⠀⠀⠈⣶⣝⣺⢷⡀⠀⠀⠀ ${c}       ______  _   ______           ${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠀⢠⡗⠂⠀⠀⠀⠁⠐⠺⡌⠁⠈⠛⠂⠀⠀ ${c}      / / __ \/ | / / __ \          ${r}"
-	echo -e "${b}⠀⠀⠀⢀⣠⠴⠚⠊⠉⠉⠁⠈⠉⠉⠑⠓⠦⣄⡀⠀⠀⠀ ${c} __  / / / / /  |/ / / / /          ${r}"
-	echo -e "${b}⢀⣴⣾⣭⡤⢤⣤⣄⣀⣀⣀⣀⣀⣀⣠⣤⡤⢤⣭⣷⣦⡀ ${c}/ /_/ / /_/ / /|  / /_/ /           ${r}"
-	echo -e "${b}⠈⢯⣿⡿⣁⡜⣨⠀⠷⣲⡞⢻⣖⠾⠀⡅⢳⣈⢿⣟⡽⠁ ${c}\____/\____/_/ |_/\____/            ${r}"
-	echo -e "${b}⠀⠀⠈⠙⡟⡜⣸⡀⠀⡅⠇⠘⠢⠀⢀⣇⢣⢻⠋⠁⠀⠀ ${p} Pemulih kata sandi file            ${r}"
-	echo -e "${b}⠀⠀⠀⠰⡾⡰⡏⠛⠚⠋⣉⣍⠙⠓⠛⢹⢆⢷⠆    ${p} ZIP, RAR, 7Z, PDF dan Office       ${r}"
-	echo -e "${b}⠀⠀⠀⠀⢷⠡⢹⠒⢖⡬⠄⠀⢭⡲⠒⡏⠈⡾⠀⠀⠀⠀ ${p} (.docx, .xlsx, .pptx)              ${r}"
-	echo -e "${b}⠀⠀⠀⠀⠸⢇⣏⣦⠀⠀⠀⠀⠀⠀⣴⣽⡼⠇⠀⠀⠀  ${h} https://github.com/fixploit03/Jono/${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠈⠈⠉⠻⣴⠀⠀⣤⠟⠁⠁⠁⠀⠀⠀⠀⠀ ${r}"
-	echo -e "${b}⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⠞⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀ ${r}"
+	echo -e "     ${b}       ______  _   ______           ${r}"
+	echo -e "     ${b}      / / __ \/ | / / __ \          ${r}"
+	echo -e "     ${b} __  / / / / /  |/ / / / /          ${r}"
+	echo -e "     ${b}/ /_/ / /_/ / /|  / /_/ /           ${r}"
+	echo -e "     ${b}\____/\____/_/ |_/\____/            ${r}"
+	echo -e "     ${p} Pemulih kata sandi file            ${r}"
+	echo -e "     ${p} ZIP, RAR, 7Z, PDF dan Office       ${r}"
+	echo -e "     ${p} (.docx, .xlsx, .pptx)              ${r}"
+	echo -e "     ${h} https://github.com/fixploit03/Jono/${r}"
 	echo ""
 	echo -e "${p}     [${k}00${p}] Keluar program Jono                                   ${r}"
-	echo -e "${p}     [${k}01${p}] Ekstrak hash file ZIP                                 ${r}"
-	echo -e "${p}     [${k}02${p}] Ekstrak hash file RAR                                 ${r}"
-	echo -e "${p}     [${k}03${p}] Ekstrak hash file 7z                                  ${r}"
-	echo -e "${p}     [${k}04${p}] Ekstrak hash file PDF                                 ${r}"
-	echo -e "${p}     [${k}05${p}] Ekstrak hash file Office (.docx, .xlsx, .pptx)        ${r}"
-	echo -e "${p}     [${k}06${p}] Pulihkan kata sandi file ZIP                          ${r}"
-	echo -e "${p}     [${k}07${p}] Pulihkan kata sandi file RAR                          ${r}"
-	echo -e "${p}     [${k}08${p}] Pulihkan kata sandi file 7Z                           ${r}"
-	echo -e "${p}     [${k}09${p}] Pulihkan kata sandi file PDF                          ${r}"
-	echo -e "${p}     [${k}10${p}] Pulihkan kata sandi file Ofiice (.docx, .xlsx, .pptx) ${r}"
+	echo -e "${p}     [${k}01${p}] Pulihkan kata sandi file ZIP                          ${r}"
+	echo -e "${p}     [${k}02${p}] Pulihkan kata sandi file RAR                          ${r}"
+	echo -e "${p}     [${k}03${p}] Pulihkan kata sandi file 7Z                           ${r}"
+	echo -e "${p}     [${k}04${p}] Pulihkan kata sandi file PDF                          ${r}"
+	echo -e "${p}     [${k}05${p}] Pulihkan kata sandi file Ofiice (.docx, .xlsx, .pptx) ${r}"
 	echo -e "${p}     [${k}99${p}] Tentang program Jono                                  ${r}"
 	echo ""
 }
@@ -1815,56 +1457,36 @@ function pilih_menu(){
 		# Menu keluar
                 if [[  "${pilih_menu}" == "00" ]]; then
 			keluar
-		# Menu ekstrak hash file zip
+		# Menu memulihkan kata sandi file ZIP
 		elif [[ "${pilih_menu}" == "01" ]]; then
-			banner_ekstrak_hash_file_zip
+			banner_pulihkan_kata_sandi_file_zip
 			memasukkan_file_zip
 			ekstrak_hash_file_zip
-		# Menu ekstrak hash file RAR
+			memulihkan_kata_sandi_file_zip
+		# Menu memulihkan kata sandi file RAR
 		elif [[ "${pilih_menu}" == "02" ]]; then
-			banner_ekstrak_hash_file_rar
+			banner_pulihkan_kata_sandi_file_rar
 			memasukkan_file_rar
 			ekstrak_hash_file_rar
-		# Menu ekstrak hash file 7z
+			memulihkan_kata_sandi_file_rar
+		# Menu memulihkan kata sandi file 7z
 		elif [[ "${pilih_menu}" == "03" ]]; then
-			banner_ekstrak_hash_file_7z
+			banner_pulihkan_kata_sandi_file_7z
 			memasukkan_file_7z
 			ekstrak_hash_file_7z
-		# Menu ekstrak hash file PDF
-		elif [[ "${pilih_menu}" == "04" ]]; then
-			banner_ekstrak_hash_file_pdf
+			memulihkan_kata_sandi_file_7z
+		# Menu memulihkan kata sandi file PDF
+                elif [[ "${pilih_menu}" == "04" ]]; then
+			banner_pulihkan_kata_sandi_file_pdf
 			memasukkan_file_pdf
 			ekstrak_hash_file_pdf
-		# Menu ekstrak hash file Office
-		elif [[ "${pilih_menu}" == "05" ]]; then
-			banner_ekstrak_hash_file_office
+			memulihkan_kata_sandi_file_pdf
+		# Menu memulihkan kata sandi file Office
+                elif [[ "${pilih_menu}" == "05" ]]; then
+			banner_pulihkan_kata_sandi_file_office
 			memasukkan_file_office
 			ekstrak_hash_file_office
-		# Menu memulihkan kata sandi file ZIP
-		elif [[ "${pilih_menu}" == "06" ]]; then
-			banner_pulihkan_kata_sandi_file_zip
-			memasukkan_file_hash_file_zip
-			memilih_teknik_pemulihan_kata_sandi_file_zip
-		# Menu memulihkan kata sandi file RAR
-		elif [[ "${pilih_menu}" == "07" ]]; then
-			banner_pulihkan_kata_sandi_file_rar
-			memasukkan_file_hash_file_rar
-			memilih_teknik_pemulihan_kata_sandi_file_rar
-		# Menu memulihkan kata sandi file 7z
-		elif [[ "${pilih_menu}" == "08" ]]; then
-			banner_pulihkan_kata_sandi_file_7z
-			memasukkan_file_hash_file_7z
-			memilih_teknik_pemulihan_kata_sandi_file_7z
-		# Menu memulihkan kata sandi file PDF
-                elif [[ "${pilih_menu}" == "09" ]]; then
-			banner_pulihkan_kata_sandi_file_pdf
-			memasukkan_file_hash_file_pdf
-			memilih_teknik_pemulihan_kata_sandi_file_pdf
-		# Menu memulihkan kata sandi file Office
-                elif [[ "${pilih_menu}" == "10" ]]; then
-			banner_pulihkan_kata_sandi_file_office
-			memasukkan_file_hash_file_office
-			memilih_teknik_pemulihan_kata_sandi_file_office
+			memulihkan_kata_sandi_file_office
 		# Menu tentang program Jono
                 elif [[ "${pilih_menu}" == "99" ]]; then
 			banner_tentang_program_jono
@@ -1875,7 +1497,6 @@ function pilih_menu(){
 		fi
 	done
 }
-
 
 # Fungsi utama
 function utama(){
@@ -1897,5 +1518,4 @@ function utama(){
 	pilih_menu
 }
 
-# Memanggil fungsi utama
 utama
