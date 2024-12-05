@@ -73,7 +73,7 @@ function konfirmasi(){
 	done
 }
 
-# Fugsi untuk tunggu selama 3 detik
+# Fungsi untuk tunggu selama 3 detik
 function tunggu(){
 	sleep 3
 }
@@ -458,7 +458,7 @@ function ekstrak_hash_file_pdf(){
         fi
 }
 
-# Fungsi uentuk mengekstrak hash file Office
+# Fungsi untuk mengekstrak hash file Office
 function ekstrak_hash_file_office(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file Office...${r}"
         tunggu
