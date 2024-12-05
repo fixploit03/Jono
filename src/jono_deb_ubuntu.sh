@@ -585,7 +585,7 @@ function menentukan_kombinasi_karakter(){
 	while true; do
 		read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan kombinasi karakter (aA1$): ' kombinasi
 		if [[ -z "${kombinasi}" ]]; then
-			echo -e "${p}L[${m}-${p}] Kombinasi karakter tidak boleh kosong.${r}"
+			echo -e "${p}[${m}-${p}] Kombinasi karakter tidak boleh kosong.${r}"
 			continue
 		fi
 		break
