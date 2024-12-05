@@ -1,10 +1,10 @@
 # Jono 
 
-![Platform](https://img.shields.io/badge/Platform-Kali_Linux-blue?logo=kali-linux)
-![Bahasa](https://img.shields.io/badge/Bahasa-Bash-green?logo=gnu-bash)
-![Ditenagai oleh](https://img.shields.io/badge/Ditenagai_oleh-John_the_Ripper-red?logo=lock)
-![Tujuan](https://img.shields.io/badge/Tujuan-Pemulihan_Kata_Sandi-lightgreen?logo=unlock)
-![Lisensi](https://img.shields.io/badge/Lisensi-MIT-green?logo=open-source-initiative)
+[![Platform](https://img.shields.io/badge/Platform-Kali_Linux-blue?logo=kali-linux)](https://www.kali.org/)
+[![Bahasa](https://img.shields.io/badge/Bahasa-Bash-green?logo=gnu-bash)](https://www.gnu.org/software/bash/)
+[![Ditenagai oleh](https://img.shields.io/badge/Ditenagai_oleh-John_the_Ripper-red?logo=lock)](https://github.com/openwall/john)
+[![Tujuan](https://img.shields.io/badge/Tujuan-Pemulihan_Kata_Sandi-lightgreen?logo=unlock)](https://www.sciencedirect.com/topics/computer-science/recovery-password)
+[![Lisensi](https://img.shields.io/badge/Lisensi-MIT-green?logo=open-source-initiative)](https://github.com/fixploit03/Jono/blob/main/LICENSE)
 
 `Jono` adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi file ZIP, RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan John The Ripper.
 
