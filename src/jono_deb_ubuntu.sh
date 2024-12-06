@@ -24,7 +24,7 @@ function mengecek_root(){
 
 # Fungsi untuk mengecek nilai Hash
 function mengecek_nilai_hash(){
-        file_cek_hash="../cek_hash.sh"
+        file_cek_hash="cek_hash.sh"
 	bash "${file_cek_hash}"
 }
 
