@@ -25,8 +25,8 @@ function mengecek_root(){
 # Fungsi untuk mengecek nilai Hash
 function mengecek_nilai_hash(){
         # File dan Hash
-        deb="src/jono_deb_ubuntu.sh"
-        kali="src/jono_kali.sh"
+        deb="jono_deb_ubuntu.sh"
+        kali="jono_kali.sh"
         hash_deb="9168fc7f4a3efe9e1ab7b1a3d1f5f4fc"
         hash_kali="9688bd0f4288bda758c3610f7839590c"
 
