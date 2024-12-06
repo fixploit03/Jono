@@ -24,7 +24,7 @@ function cek_hash(){
 # File dan Hash
         deb="src/jono_deb_ubuntu.sh"
         kali="src/jono_kali.sh"
-        hash_deb="48c462b3b17ba1bf3dcd1ccd948e96b7"
+        hash_deb="791e1b02f2411156e11d5c637433ffd1"
         hash_kali="9688bd0f4288bda758c3610f7839590c"
 
         if [[ $(md5sum "${deb}" | awk '{print $1}') != "${hash_deb}" || $(md5sum "${kali}" | awk '{print $1}') != "${hash_kali}" ]]; then
