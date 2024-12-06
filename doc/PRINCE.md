@@ -1,6 +1,6 @@
 ## Prince Attack
 
-Menghasilkan kombinasi baru secara dinamis dari daftar kata (wordlist) yang ada, menggunakan algoritme tertentu untuk menggabungkan kata.
+Menghasilkan kombinasi baru secara dinamis dari daftar kata (wordlist) yang ada.
 
 **Contoh**: Wordlist awal:
 
