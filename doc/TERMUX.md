@@ -1,5 +1,7 @@
 ## Intalasi Jono Termux
 
+> Jika belum memiliki Termux, Anda dapat mengunduhnya [disini](https://github.com/termux/termux-app/releases/download/v0.118.1/termux-app_v0.118.1+github-debug_universal.apk).
+
 ```
 $ termux-setup-storage
 $ pkg update
