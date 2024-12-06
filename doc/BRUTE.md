@@ -1,6 +1,6 @@
 ## Brute Force Attack
 
-Mencoba semua kemungkinan kombinasi karakter, dari yang sederhana hingga kompleks, tanpa panduan khusus.
+Mencoba semua kemungkinan kombinasi karakter, dari yang sederhana hingga kompleks.
 
 **Contoh**: Target kata sandi: abc Serangan brute force akan mencoba kombinasi seperti:
 
