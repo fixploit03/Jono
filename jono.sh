@@ -19,20 +19,6 @@ function mengecek_root(){
 	fi
 }
 
-# Fungsi untuk mengecek nilai Hash
-function cek_hash(){
-# File dan Hash
-        deb="src/jono_deb_ubuntu.sh"
-        kali="src/jono_kali.sh"
-        hash_deb="791e1b02f2411156e11d5c637433ffd1"
-        hash_kali="9688bd0f4288bda758c3610f7839590c"
-
-        if [[ $(md5sum "${deb}" | awk '{print $1}') != "${hash_deb}" || $(md5sum "${kali}" | awk '{print $1}') != "${hash_kali}" ]]; then
-          	echo -e "${p}[${m}-${p}] Jangan di recode Broh! kalo mau berkontribusi aja :).${r}"
-        	exit 1
-        fi
-}
-
 # Fungsi untuk mengecek sistem operasi
 function mengecek_sistem_operasi(){
 	sistem_operasi=$(uname -s)
