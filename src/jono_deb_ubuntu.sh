@@ -22,20 +22,6 @@ function mengecek_root(){
 	fi
 }
 
-# Fungsi untuk mengecek nilai Hash
-function mengecek_nilai_hash(){
-        # File dan Hash
-        deb="jono_deb_ubuntu.sh"
-        kali="jono_kali.sh"
-        hash_deb="48c462b3b17ba1bf3dcd1ccd948e96b7"
-        hash_kali="9688bd0f4288bda758c3610f7839590c"
-
-        if [[ $(md5sum "${deb}" | awk '{print $1}') != "${hash_deb}" || $(md5sum "${kali}" | awk '{print $1}') != "${hash_kali}" ]]; then
-          	echo -e "${p}[${m}-${p}] Jangan di recode Broh! kalo mau berkontribusi aja :).${r}"
-        	exit 1
-        fi
-}
-
 # Fungsi untuk membuat folder 'file_hash'
 function membuat_folder_file_hash(){
 	# Lokasi folder untuk menyimpan file hash
@@ -1516,8 +1502,6 @@ function pilih_menu(){
 function utama(){
 	# Memanggil fungsi mengecek_root
 	mengecek_root
-        # Memanggil fungsi mengecek_nilai_hash
-        mengecek_nilai_hash
 	# Memanggil fungdi membuat_folder_file_hash
 	membuat_folder_file_hash
 	# Memanggil fungsi menampilkan_kata_kata_peringatan
