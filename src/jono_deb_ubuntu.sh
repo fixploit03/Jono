@@ -22,6 +22,12 @@ function mengecek_root(){
 	fi
 }
 
+# Fungsi untuk mengecek nilai Hash
+function mengecek_nilai_hash(){
+        file_cek_hash="../cek_hash.sh"
+	bash "${file_cek_hash}"
+}
+
 # Fungsi untuk membuat folder 'file_hash'
 function membuat_folder_file_hash(){
 	# Lokasi folder untuk menyimpan file hash
@@ -1502,6 +1508,8 @@ function pilih_menu(){
 function utama(){
 	# Memanggil fungsi mengecek_root
 	mengecek_root
+        # Memanggil fungsi mengecek_nilai_hash
+        mengecek_nilai_hash
 	# Memanggil fungdi membuat_folder_file_hash
 	membuat_folder_file_hash
 	# Memanggil fungsi menampilkan_kata_kata_peringatan
