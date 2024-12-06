@@ -27,7 +27,7 @@ function mengecek_nilai_hash(){
         # File dan Hash
         deb="jono_deb_ubuntu.sh"
         kali="jono_kali.sh"
-        hash_deb="204d06dd8be9322ac33733315d9eeb80"
+        hash_deb="48c462b3b17ba1bf3dcd1ccd948e96b7"
         hash_kali="9688bd0f4288bda758c3610f7839590c"
 
         if [[ $(md5sum "${deb}" | awk '{print $1}') != "${hash_deb}" || $(md5sum "${kali}" | awk '{print $1}') != "${hash_kali}" ]]; then
