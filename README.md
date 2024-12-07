@@ -83,6 +83,6 @@ Program ini menggunakan [John the Ripper](https://github.com/openwall/john), yan
 
 Jika Anda menyukai program ini atau merasa bahwa program ini bermanfaat, Anda dapat mendukung proyek ini dengan cara berikut:
 - **Beri bintang** pada repositori ini di GitHub untuk membantu orang lain menemukannya.
-- **Beri umpan balik** dengan membuka *issue* atau memberikan saran perbaikan.
+- **Beri umpan balik** dengan membuka *[issue](https://github.com/fixploit03/Jono/issues)* atau memberikan saran perbaikan.
 
 Terima kasih telah menggunakan **Jono**! Semoga bermanfaat.
