@@ -4,7 +4,11 @@
 # File ini merupakan bagian dari proyek Jono
 # Dibuat oleh: fixploit03
 #-------------------------------------------
-# Mau ngapain sih Broh ^_^
+# Saran agar file Anda tidak mudah dibobol:
+#-------------------------------------------
+# 1. Gunakan kombinasi kata sandi yang panjang dan kompleks.
+# 2. Gunakan algoritma enkripsi yang kuat.
+#-------------------------------------------
 
 # Variabel warna
 m="\e[1;31m" # Merah
