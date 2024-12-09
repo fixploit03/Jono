@@ -40,7 +40,7 @@ function mengecek_sistem_operasi(){
 	id_linux=$ID
 	if [[ "${id_linux}" == "kali" ]]; then
 		bash "installer/installer_jono_kali.sh"
-	elif [[ "${id_linux}" == "debian" || "${id_linux}" == "ubuntu" ]]; then
+	elif [[ "${id_linux}" == "debian" || "${id_linux}" == "ubuntu" || "${id_linux}" == "linuxmint" ]]; then
 		bash "installer/installer_jono_deb_ubuntu.sh"
 	else
 	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
