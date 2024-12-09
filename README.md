@@ -25,7 +25,7 @@
    - **[Mask Attack](https://github.com/fixploit03/Jono/blob/main/doc/MASK.md)**
    - **[Prince Attack](https://github.com/fixploit03/Jono/blob/main/doc/PRINCE.md)**
    - **[Subsets Attack](https://github.com/fixploit03/Jono/blob/main/doc/SUBSETS.md)**
-     
+
 3. **Antarmuka Interaktif**
    - Mudah digunakan melalui menu berbasis terminal.  
 
@@ -39,6 +39,17 @@
   - 7z2john
   - pdf2john
   - office2john
+
+## Sistem operasi yang mendukung
+
+| No | Sistem Operasi | Distribusi | Status | Screenshot |
+|:--:|:--:|:--:|:--:|:--:|
+| 1 | Android | Debian (proot-distro Termux) | Mendukung | ![Screenshot]() |
+| | | Ubuntu (proot-distro Termux) | Mendukung | ![Screenshot]() |
+| 2 | Linux | Debian | Mendukung | ![Screenshot]() |
+| | | Ubuntu | Mendukung | ![Screenshot]() |
+| | | Mint | Mendukung | ![Screenshot]() |
+| | | Kali | Mendukung | ![Screenshot]() |
   
 ## Instalasi 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
