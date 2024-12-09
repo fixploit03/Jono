@@ -49,7 +49,7 @@
 | 2 | Linux | Debian | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_debian.png) |
 | | | Ubuntu | Mendukung | ![Screenshot]() |
 | | | Mint | Mendukung | ![Screenshot]() |
-| | | Kali | Mendukung | ![Screenshot]() |
+| | | Kali | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_kali.png) |
   
 ## Instalasi 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
