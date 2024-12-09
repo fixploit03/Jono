@@ -109,7 +109,7 @@ function mengecek_sistem_operasi(){
 	fi
 	. "${file_id_linux}"
 	id_linux=$ID
-	if [[ "${id_linux}" != "debian" && "${id_linux}" != "ubuntu" ]]; then
+	if [[ "${id_linux}" != "debian" && "${id_linux}" != "ubuntu" && "${id_linux}" != "linuxmint" ]]; then
 	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
 	        exit 1
 	fi
