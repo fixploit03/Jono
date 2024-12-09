@@ -40,7 +40,7 @@
   - pdf2john
   - office2john
 
-## Sistem operasi yang mendukung
+## Sistem Operasi yang Mendukung
 
 | No | Sistem Operasi | Distribusi | Status | Screenshot |
 |:--:|:--:|:--:|:--:|:--:|
