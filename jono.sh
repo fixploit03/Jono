@@ -51,14 +51,33 @@ function mengecek_sistem_operasi(){
 		"Linux Mint"
 	)
 
-	if [[ "${distro_hacking[@]}" =~ "${distro}" ]]; then
-		bash "src/jono_kali.sh"
-	elif [[ "${distro_non_hacking[@]}" =~ "${distro}"  ]]; then
-		bash "src/jono_deb_ubuntu.sh"
-	else
-	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
+        distro_ditemukan=false
+	
+        # Cek di distro_hacking
+        for dh in "${distro_hacking[@]}"; do
+                if [[ "${distro}" == "${dh}" ]]; then
+                        bash "src/jono_kali.sh"
+                        distro_ditemukan=true
+                        break
+                fi
+        done
+
+        # Jika belum ditemukan, cek di distro_non_hacking
+        if [[ "${distro_ditemukan}" == false ]]; then
+                for dnh in "${distro_non_hacking[@]}"; do
+                        if [[ "${distro}" == "${dnh}" ]]; then
+                                bash "src/jono_deb_ubuntu.sh"
+                                distro_ditemukan=true
+                                break
+                        fi
+                done
+        fi
+
+        # Jika tidak ditemukan
+        if [[ "${distro_ditemukan}" == false ]]; then
+                echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
 	        exit 1
-	fi
+        fi
 }
 
 # Fungsi utama
