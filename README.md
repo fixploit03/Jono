@@ -48,7 +48,7 @@
 | | | Ubuntu (proot-distro Termux) | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/20241210_021945.jpg) |
 | 2 | Linux | Debian | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_debian.png) |
 | | | Ubuntu | Mendukung | ![Screenshot]() |
-| | | Mint | Mendukung | ![Screenshot]() |
+| | | Mint | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_mint.png) |
 | | | Kali | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_kali.png) |
   
 ## Instalasi 
