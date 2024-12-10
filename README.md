@@ -47,7 +47,7 @@
 | 1 | Android | Debian (proot-distro Termux) | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/20241210_021945.jpg) |
 | | | Ubuntu (proot-distro Termux) | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/20241210_021945.jpg) |
 | 2 | Linux | Debian | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_debian.png) |
-| | | Ubuntu | Mendukung | ![Screenshot]() |
+| | | Ubuntu | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_ubuntu.png) |
 | | | Mint | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_mint.png) |
 | | | Kali | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_kali.png) |
   
