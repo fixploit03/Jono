@@ -1393,7 +1393,7 @@ function main(){
 	echo -e "${p}[${k}0${p}] Keluar program Jono                                   ${r}"
 	echo -e "${p}[${k}1${p}] Pulihkan kata sandi file ZIP                          ${r}"
 	echo -e "${p}[${k}2${p}] Pulihkan kata sandi file RAR                          ${r}"
-	echo -e "${p}[${k}3${p}] Pulihkan kata sandi file 7Z                           ${r}"
+	echo -e "${p}[${k}3${p}] Pulihkan kata sandi file 7z                           ${r}"
 	echo -e "${p}[${k}4${p}] Pulihkan kata sandi file PDF                          ${r}"
 	echo -e "${p}[${k}5${p}] Pulihkan kata sandi file Ofiice (.docx, .xlsx, .pptx) ${r}"
 	echo -e "${p}[${k}6${p}] Tentang program Jono                                  ${r}"
