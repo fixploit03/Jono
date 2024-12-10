@@ -48,11 +48,11 @@
 |     |                 | proot-distro Ubuntu (Termux)              | Ubuntu 24.04 LTS (Noble Numbat)    | :white_check_mark:   |
 |     |                 | Kali Linux nethunter rootless (Termux)    | Kali Linux 2024.3 | :white_check_mark:   |
 |     |                 | Kali Linux (UserLand)                    | Kali Linux 2023.1 | :white_check_mark:   |
-| 2   | Linux           | Debian                                    | Debian 11       | :white_check_mark:   |
+| 2   | Linux           | Debian                                    | Debian 12 (bookworm)       | :white_check_mark:   |
 |     |                 | Ubuntu                                    | Ubuntu 20.04.6 LTS (Focal Fossa)    | :white_check_mark:   |
 |     |                 | Linux Mint                                | Linux Mint 21.3 (Virginia)  | :white_check_mark:   |
 |     |                 | Kali Linux                                | Kali Linux 2024.3 | :white_check_mark:   |
-
+|     |                 | Parrot OS                               | Kali Linux 2024.3 | :white_check_mark:   |
   
 ## Instalasi 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
