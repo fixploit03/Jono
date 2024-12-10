@@ -38,7 +38,7 @@ function mengecek_sistem_operasi(){
 	fi
 	. "${file_id_linux}"
 
-        # Nama disto
+        # Nama distro 
 	distro=$NAME
 
 	# Distro Hacking
