@@ -108,13 +108,23 @@ function mengecek_sistem_operasi(){
 	        exit 1
 	fi
 	. "${file_id_linux}"
-	id_linux=$ID
-	if [[ "${id_linux}" != "kali" ]]; then
+
+	# Nama Distro
+	distro=$NAME
+	# Versi Distro
+	versi=$VERSION
+
+	list_distro=(
+		"Kali GNU/Linux"
+		"Parrot Security"
+	)
+
+	if [[ ! "${list_distro[@]}" =~ "${distro}" ]]; then
 	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
 	        exit 1
 	fi
 
-	echo -e "${p}[${h}+${p}] Sistem operasi Anda: ${sistem_operasi} (${id_linux}).${r}"
+	echo -e "${p}[${h}+${p}] Sistem operasi Anda: ${sistem_operasi} (${distro} ${versi}).${r}"
 }
 
 # Fungsi untuk mengecek alat
