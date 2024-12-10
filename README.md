@@ -42,17 +42,17 @@
 
 ## Telah Diuji Pada 
 
-| No  | Sistem Operasi | Distribusi                                | Versi           | Status               |
-|-----|-----------------|-------------------------------------------|-----------------|----------------------|
-| 1   | Android         | proot-distro Debian (Termux)              | 12 (bookworm)       | :white_check_mark:   |
-|     |                 | proot-distro Ubuntu (Termux)              | 24.04 LTS (Noble Numbat)    | :white_check_mark:   |
-|     |                 | Kali Linux nethunter rootless (Termux)    | 2024.3 | :white_check_mark:   |
-|     |                 | Kali Linux (UserLand)                    | 2023.1 | :white_check_mark:   |
-| 2   | Linux           | Debian                                    | 12 (bookworm)       | :white_check_mark:   |
-|     |                 | Ubuntu                                    | 20.04.6 LTS (Focal Fossa)    | :white_check_mark:   |
-|     |                 | Linux Mint                                | 21.3 (Virginia)  | :white_check_mark:   |
-|     |                 | Kali Linux                                | 2024.3 | :white_check_mark:   |
-|     |                 | Parrot OS                               | 6.2 (lorikeet) | :white_check_mark:   |
+| No | Sistem Operasi | Distribusi | Versi | Status |
+|:--:|:--:|:--:|:--:|:--:|
+| 1 | Android | proot-distro Debian (Termux) | 12 (bookworm) | :white_check_mark: |
+|  |  | proot-distro Ubuntu (Termux) | 24.04 LTS (Noble Numbat) | :white_check_mark: |
+|  |  | Kali Linux nethunter rootless (Termux) | 2024.3 | :white_check_mark: |
+|  |  | Kali Linux (UserLand) | 2023.1 | :white_check_mark: |
+| 2 | Linux | Debian | 12 (bookworm) | :white_check_mark: |
+|  |  | Ubuntu | 20.04.6 LTS (Focal Fossa) | :white_check_mark: |
+|  |  | Linux Mint | 21.3 (Virginia) | :white_check_mark: |
+|  |  | Kali Linux | 2024.3 | :white_check_mark: |
+|  |  | Parrot OS | 6.2 (lorikeet) | :white_check_mark: |
   
 ## Instalasi 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
