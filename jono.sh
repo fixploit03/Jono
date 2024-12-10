@@ -34,10 +34,26 @@ function mengecek_sistem_operasi(){
 	        exit 1
 	fi
 	. "${file_id_linux}"
-	id_linux=$ID
-	if [[ "${id_linux}" == "kali" ]]; then
+
+	# Nama disto
+	distro=$NAME
+
+	# Distro Hacking
+	distro_hacking=(
+		"Kali GNU/Linux"
+		"Parrot Security"
+	)
+
+	# Distro non Hacking
+	distro_non_hacking=(
+		"Debian GNU/Linux"
+		"Ubuntu"
+		"Linux Mint"
+	)
+
+	if [[ "${distro_hacking[@]}" =~ "${distro}" ]]; then
 		bash "src/jono_kali.sh"
-	elif [[ "${id_linux}" == "debian" || "${id_linux}" == "ubuntu" || "${id_linux}" == "linuxmint" ]]; then
+	elif [[ "${distro_non_hacking[@]}" =~ "${distro}"  ]]; then
 		bash "src/jono_deb_ubuntu.sh"
 	else
 	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
