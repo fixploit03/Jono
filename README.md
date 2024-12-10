@@ -40,7 +40,7 @@
   - pdf2john
   - office2john
 
-## Telah di uji coba
+## Telah Diuji Pada 
 
 | No  | Sistem Operasi | Distribusi                                | Versi           | Status               |
 |-----|-----------------|-------------------------------------------|-----------------|----------------------|
