@@ -119,10 +119,21 @@ function mengecek_sistem_operasi(){
 		"Parrot Security"
 	)
 
-	if [[ ! "${list_distro[@]}" =~ "${distro}" ]]; then
-	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
+	# Flag untuk memeriksa apakah distro ditemukan
+        distro_ditemukan=false
+
+        # Cek jika distro ada di dalam daftar
+        for dist in "${list_distro[@]}"; do
+                if [[ "${distro}" == "${dist}" ]]; then
+                        distro_ditemukan=true
+                        break
+                fi
+        done
+
+        if [[ "${distro_ditemukan}" == false ]]; then
+                echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
 	        exit 1
-	fi
+        fi
 
 	echo -e "${p}[${h}+${p}] Sistem operasi Anda: ${sistem_operasi} (${distro} ${versi}).${r}"
 }
