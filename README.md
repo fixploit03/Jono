@@ -40,16 +40,18 @@
   - pdf2john
   - office2john
 
-## Sistem Operasi yang Mendukung
+## Telah di uji coba 
 
-| No | Sistem Operasi | Distribusi | Status | Screenshot |
-|:--:|:--:|:--:|:--:|:--:|
-| 1 | Android | Debian (proot-distro Termux) | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/20241210_021945.jpg) |
-| | | Ubuntu (proot-distro Termux) | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/20241210_021945.jpg) |
-| 2 | Linux | Debian | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_debian.png) |
-| | | Ubuntu | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_ubuntu.png) |
-| | | Mint | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_mint.png) |
-| | | Kali | Mendukung | ![Screenshot](https://github.com/fixploit03/Jono/blob/main/screenshot/screenshot_kali.png) |
+| No | Sistem Operasi | Distribusi | Status | 
+| :--: | :--: | :--: | :--: |
+| 1 | Android | proot-distro Debian (Termux) | :white_check_mark: |
+|  |  | proot-distro Ubuntu (Termux) | :white_check_mark: |
+|  |  | Kali Linux nethunter rootless (Termux) | :white_check_mark: |
+|  |  | Kali Linux (UserLand) | :white_check_mark: |
+| 2 | Linux | Debian | :white_check_mark: |
+|  |  | Ubuntu | :white_check_mark: |
+|  |  | Linux Mint | :white_check_mark: |
+|  |  | Kali Linux | :white_check_mark: |
   
 ## Instalasi 
 > Pastikan Anda sudah berada dalam mode superuser (root) sebelum memulai proses instalasi.
