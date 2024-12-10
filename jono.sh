@@ -51,9 +51,9 @@ function mengecek_sistem_operasi(){
 		"Linux Mint"
 	)
 
-	if [[ "${distro_hacking[*]}" =~ "${distro}" ]]; then
+	if [[ "${distro_hacking[@]}" =~ "${distro}" ]]; then
 		bash "src/jono_kali.sh"
-	elif [[ "${distro_non_hacking[*]}" =~ "${distro}"  ]]; then
+	elif [[ "${distro_non_hacking[@]}" =~ "${distro}"  ]]; then
 		bash "src/jono_deb_ubuntu.sh"
 	else
 	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
