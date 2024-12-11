@@ -1537,9 +1537,9 @@ function utama(){
 	# Memanggil fungsi konfirmasi
 	konfirmasi
 	# Memanggil fungsi mengecek_sistem_operasi
-#	mengecek_sistem_operasi
+	mengecek_sistem_operasi
 	# Memanggil fungsi mengecek_alat
-#	mengecek_alat
+	mengecek_alat
 	# Memanggil fungsi main
 	main
 }
