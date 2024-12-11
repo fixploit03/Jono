@@ -399,14 +399,25 @@ function memasukkan_file_office(){
 function ekstrak_hash_file_zip(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file ZIP...${r}"
         tunggu
-        hash_file_zip=$(/usr/share/john/run/zip2john "${file_zip}" 2>/dev/null)
+        hash_file_zip=$(/usr/share/john/run/zip2john "${file_zip}" 2>&1)
         nama_file_zip=$(basename "${file_zip}")
         nama_file_hash_file_zip="${lokasi_file_hash}/${nama_file_zip}.john"
         echo "${hash_file_zip}" > "${nama_file_hash_file_zip}"
         if [[ -f "${nama_file_hash_file_zip}" ]]; then
-                if [[ $(cat "${nama_file_hash_file_zip}" | grep -o "zip" || cat "${nama_file_hash_file_zip}" | grep -o "pkzip") ]]; then
+		# Kondisi jika zip2john berhasil mengekstrak hash file ZIP
+                if [[ $(cat "${nama_file_hash_file_zip}" | grep -o '$zip2' || cat "${nama_file_hash_file_zip}" | grep -o '$pkzip') ]]; then
                         echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file ZIP.${r}"
                         echo -e "${p}[${h}+${p}] File hash file ZIP disimpan di: ${h}${nama_file_hash_file_zip}${r}"
+		# Kondisi jika zip2john gagal mengekstrak hash file ZIP karena file ZIP rusak atau tidak valid
+		elif [[ $(cat "${nama_file_hash_file_zip}" | grep -o 'Did not find End Of Central Directory' ) ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP. File ZIP tidak valid atau rusak.${r}"
+			tekan_enter
+			main
+		# Kondisi jika zip2john gagal mengekstrak hash file ZIP karena file ZIP tidak dienkripsi.
+		elif [[ $(cat "${nama_file_hash_file_zip}" | grep -o 'is not encrypted') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP. File ZIP tidak dienkripsi.${r}"
+			tekan_enter
+			main
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP.${r}"
 			tekan_enter
@@ -423,14 +434,22 @@ function ekstrak_hash_file_zip(){
 function ekstrak_hash_file_rar(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file RAR...${r}"
         tunggu
-        hash_file_rar=$(/usr/share/john/run/rar2john "${file_rar}" 2>/dev/null)
+        hash_file_rar=$(/usr/share/john/run/rar2john "${file_rar}" 2>&1)
         nama_file_rar=$(basename "${file_rar}")
         nama_file_hash_file_rar="${lokasi_file_hash}/${nama_file_rar}.john"
         echo "${hash_file_rar}" > "${nama_file_hash_file_rar}"
         if [[ -f "${nama_file_hash_file_rar}" ]]; then
-        	if [[ $(cat "${nama_file_hash_file_rar}" | grep -o "rar5") ]]; then
+        	if [[ $(cat "${nama_file_hash_file_rar}" | grep -o '$rar5') ]]; then
                      	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file RAR.${r}"
                         echo -e "${p}[${h}+${p}] File hash file RAR disimpan di: ${h}${nama_file_hash_file_rar}${r}"
+        	elif [[ $(cat "${nama_file_hash_file_rar}" | grep -o 'Did not find a valid encrypted') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR. File RAR tidak dienkripsi.${r}"
+			tekan_enter
+			main
+        	elif [[ $(cat "${nama_file_hash_file_rar}" | grep -o 'Not a RAR file') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR. File RAR tidak valid atau rusak.${r}"
+			tekan_enter
+			main
                 else
              	        echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR.${r}"
 			tekan_enter
@@ -447,14 +466,22 @@ function ekstrak_hash_file_rar(){
 function ekstrak_hash_file_7z(){
         echo -e "${p}[${b}*${p}] Mengekstrak hash file 7z...${r}"
         tunggu
-        hash_file_7z=$(/usr/share/john/run/7z2john.pl "${file_7z}" 2>/dev/null)
+        hash_file_7z=$(/usr/share/john/run/7z2john.pl "${file_7z}" 2>&1)
         nama_file_7z=$(basename "${file_7z}")
         nama_file_hash_file_7z="${lokasi_file_hash}/${nama_file_7z}.john"
         echo "${hash_file_7z}" > "${nama_file_hash_file_7z}"
         if [[ -f "${nama_file_hash_file_7z}" ]]; then
-                if [[ $(cat "${nama_file_hash_file_7z}" | grep -o "7z") ]]; then
+                if [[ $(cat "${nama_file_hash_file_7z}" | grep -o '$7z') ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file 7z.${r}"
                         echo -e "${p}[${h}+${p}] File hash file 7z disimpan di: ${h}${nama_file_hash_file_7z}${r}"
+        	elif [[ $(cat "${nama_file_hash_file_7z}" | grep -o 'lzma2 compression found within') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z. File 7z tidak dienkripsi.${r}"
+			tekan_enter
+			main
+        	elif [[ $(cat "${nama_file_hash_file_7z}" | grep -o '7-Zip file nor a supported SFX file') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z. File 7z tidak valid atau rusak.${r}"
+			tekan_enter
+			main
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z.${r}"
 			tekan_enter
@@ -471,14 +498,22 @@ function ekstrak_hash_file_7z(){
 function ekstrak_hash_file_pdf(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file PDF...${r}"
         tunggu
-        hash_file_pdf=$(/usr/share/john/run/pdf2john.pl "${file_pdf}")
+        hash_file_pdf=$(/usr/share/john/run/pdf2john.pl "${file_pdf}" 2>&1)
         nama_file_pdf=$(basename "${file_pdf}")
         nama_file_hash_file_pdf="${lokasi_file_hash}/${nama_file_pdf}.john"
         echo "${hash_file_pdf}" > "${nama_file_hash_file_pdf}"
         if [[ -f "${nama_file_hash_file_pdf}" ]]; then
-        	if [[ $(cat "${nama_file_hash_file_pdf}" | grep -o "pdf") ]]; then
+        	if [[ $(cat "${nama_file_hash_file_pdf}" | grep -o '$pdf') ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file PDF.${r}"
                         echo -e "${p}[${h}+${p}] File hash file PDF disimpan di: ${h}${nama_file_hash_file_pdf}${r}"
+        	elif [[ $(cat "${nama_file_hash_file_pdf}" | grep -o 'not encrypted') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF. File PDF tidak dienkripsi.${r}"
+			tekan_enter
+			main
+        	elif [[ $(cat "${nama_file_hash_file_pdf}" | grep -o 'not a PDF file!') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF. File PDF tidak valid atau rusak.${r}"
+			tekan_enter
+			main
                 else
                        	echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF.${r}"
 			tekan_enter
@@ -495,14 +530,22 @@ function ekstrak_hash_file_pdf(){
 function ekstrak_hash_file_office(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file Office...${r}"
         tunggu
-        hash_file_office=$(/usr/share/john/run/office2john.py "${file_office}")
+        hash_file_office=$(/usr/share/john/run/office2john.py "${file_office}" 2>&1)
         nama_file_office=$(basename "${file_office}")
         nama_file_hash_file_office="${lokasi_file_hash}/${nama_file_office}.john"
         echo "${hash_file_office}" > "${nama_file_hash_file_office}"
         if [[ -f "${nama_file_hash_file_office}" ]]; then
-        	if [[ $(cat "${nama_file_hash_file_office}" | grep -o "office") ]]; then
+        	if [[ $(cat "${nama_file_hash_file_office}" | grep -o '$office') ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file Office.${r}"
                         echo -e "${p}[${h}+${p}] File hash file Office disimpan di: ${h}${nama_file_hash_file_office}${r}"
+        	elif [[ $(cat "${nama_file_hash_file_office}" | grep -o 'file is unencrypted') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office. File Office tidak dienkripsi.${r}"
+			tekan_enter
+			main
+        	elif [[ $(cat "${nama_file_hash_file_office}" | grep -o 'Invalid OLE file') ]]; then
+			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office. File Office tidak valid atau rusak.${r}"
+			tekan_enter
+			main
                 else
                         echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office.${r}"
 			tekan_enter
@@ -1494,9 +1537,9 @@ function utama(){
 	# Memanggil fungsi konfirmasi
 	konfirmasi
 	# Memanggil fungsi mengecek_sistem_operasi
-	mengecek_sistem_operasi
+#	mengecek_sistem_operasi
 	# Memanggil fungsi mengecek_alat
-	mengecek_alat
+#	mengecek_alat
 	# Memanggil fungsi main
 	main
 }
