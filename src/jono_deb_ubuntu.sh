@@ -1452,7 +1452,7 @@ function memulihkan_kata_sandi_file_office(){
 function tentang_program(){
 	echo ""
 	echo -e "${p}Jono adalah program Bash sederhana yang dirancang untuk memulihkan kata sandi file ZIP,${r}"
-	echo -e "${p}RAR, 7Z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan John The Ripper.${r}"
+	echo -e "${p}RAR, 7z, PDF, dan file Office (.docx, .xlsx, .pptx). Menggunakan John The Ripper.${r}"
 	echo ""
 	echo -e "${p}Dibuat oleh: ${h}fixploit03${r}"
 	tekan_enter
