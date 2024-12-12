@@ -1448,7 +1448,7 @@ function main(){
 	membersihkan_layar_terminal
 	echo -e "${b}       ______  _   ______  ${r}"
 	echo -e "${b}      / / __ \/ | / / __ \ ${p}Pemulih kata sandi file${r}"
-	echo -e "${b} __  / / / / /  |/ / / / / ${p}ZIP, RAR, 7Z, PDF dan Office${r}"
+	echo -e "${b} __  / / / / /  |/ / / / / ${p}ZIP, RAR, 7z, PDF dan Office${r}"
 	echo -e "${b}/ /_/ / /_/ / /|  / /_/ /  ${p}(.docx, .xlsx, .pptx)${r}"
 	echo -e "${b}\____/\____/_/ |_/\____/   ${h}https://github.com/fixploit03/Jono/${r}"
 	echo ""
