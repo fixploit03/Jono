@@ -399,22 +399,22 @@ function memasukkan_file_office(){
 function ekstrak_hash_file_zip(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file ZIP...${r}"
         tunggu
-        hash_file_zip=$(/usr/share/john/run/zip2john "${file_zip}" 2>&1)
         nama_file_zip=$(basename "${file_zip}")
         nama_file_hash_file_zip="${lokasi_file_hash}/${nama_file_zip}.john"
-        echo "${hash_file_zip}" > "${nama_file_hash_file_zip}"
+        hash_file_zip=$(/usr/share/john/run/zip2john "${file_zip}" 2>&1 | tee "${nama_file_hash_file_zip}")
         if [[ -f "${nama_file_hash_file_zip}" ]]; then
 		# Kondisi jika zip2john berhasil mengekstrak hash file ZIP
-                if [[ $(cat "${nama_file_hash_file_zip}" | grep -o '$zip2' || cat "${nama_file_hash_file_zip}" | grep -o '$pkzip') ]]; then
+                if [[ $(grep -o '$zip2' "${nama_file_hash_file_zip}" || grep -o '$pkzip' "${nama_file_hash_file_zip}") ]]; then
                         echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file ZIP.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file ZIP disimpan di: ${h}${nama_file_hash_file_zip}${r}"
+			real_path_hash_zip=$(realpath "${nama_file_hash_file_zip}")
+                        echo -e "${p}[${h}+${p}] File hash file ZIP disimpan di: ${h}${real_path_hash_zip}${r}"
 		# Kondisi jika zip2john gagal mengekstrak hash file ZIP karena file ZIP rusak atau tidak valid
-		elif [[ $(cat "${nama_file_hash_file_zip}" | grep -o 'Did not find End Of Central Directory' ) ]]; then
+		elif [[ $(grep -o 'Did not find End Of Central Directory' "${nama_file_hash_file_zip}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP. File ZIP tidak valid atau rusak.${r}"
 			tekan_enter
 			main
 		# Kondisi jika zip2john gagal mengekstrak hash file ZIP karena file ZIP tidak dienkripsi.
-		elif [[ $(cat "${nama_file_hash_file_zip}" | grep -o 'is not encrypted') ]]; then
+		elif [[ $(grep -o 'is not encrypted' "${nama_file_hash_file_zip}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file ZIP. File ZIP tidak dienkripsi.${r}"
 			tekan_enter
 			main
@@ -434,19 +434,19 @@ function ekstrak_hash_file_zip(){
 function ekstrak_hash_file_rar(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file RAR...${r}"
         tunggu
-        hash_file_rar=$(/usr/share/john/run/rar2john "${file_rar}" 2>&1)
         nama_file_rar=$(basename "${file_rar}")
         nama_file_hash_file_rar="${lokasi_file_hash}/${nama_file_rar}.john"
-        echo "${hash_file_rar}" > "${nama_file_hash_file_rar}"
+        hash_file_rar=$(/usr/share/john/run/rar2john "${file_rar}" 2>&1 | tee "${nama_file_hash_file_rar}")
         if [[ -f "${nama_file_hash_file_rar}" ]]; then
-        	if [[ $(cat "${nama_file_hash_file_rar}" | grep -o '$rar5') ]]; then
+        	if [[ $(grep -o '$rar5' "${nama_file_hash_file_rar}") ]]; then
                      	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file RAR.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file RAR disimpan di: ${h}${nama_file_hash_file_rar}${r}"
-        	elif [[ $(cat "${nama_file_hash_file_rar}" | grep -o 'Did not find a valid encrypted') ]]; then
+			real_path_hash_rar=$(realpath "${nama_file_hash_file_rar}")
+                        echo -e "${p}[${h}+${p}] File hash file RAR disimpan di: ${h}${real_path_hash_rar}${r}"
+        	elif [[ $(grep -o 'Did not find a valid encrypted' "${nama_file_hash_file_rar}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR. File RAR tidak dienkripsi.${r}"
 			tekan_enter
 			main
-        	elif [[ $(cat "${nama_file_hash_file_rar}" | grep -o 'Not a RAR file') ]]; then
+        	elif [[ $(grep -o 'Not a RAR file' "${nama_file_hash_file_rar}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file RAR. File RAR tidak valid atau rusak.${r}"
 			tekan_enter
 			main
@@ -466,19 +466,19 @@ function ekstrak_hash_file_rar(){
 function ekstrak_hash_file_7z(){
         echo -e "${p}[${b}*${p}] Mengekstrak hash file 7z...${r}"
         tunggu
-        hash_file_7z=$(/usr/share/john/run/7z2john.pl "${file_7z}" 2>&1)
         nama_file_7z=$(basename "${file_7z}")
         nama_file_hash_file_7z="${lokasi_file_hash}/${nama_file_7z}.john"
-        echo "${hash_file_7z}" > "${nama_file_hash_file_7z}"
+        hash_file_7z=$(/usr/share/john/run/7z2john.pl "${file_7z}" 2>&1 | tee "${nama_file_hash_file_7z}")
         if [[ -f "${nama_file_hash_file_7z}" ]]; then
-                if [[ $(cat "${nama_file_hash_file_7z}" | grep -o '$7z') ]]; then
+                if [[ $(grep -o '$7z' "${nama_file_hash_file_7z}") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file 7z.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file 7z disimpan di: ${h}${nama_file_hash_file_7z}${r}"
-        	elif [[ $(cat "${nama_file_hash_file_7z}" | grep -o 'lzma2 compression found within') ]]; then
+			real_path_hash_7z=$(realpath "${nama_file_hash_file_7z}")
+                        echo -e "${p}[${h}+${p}] File hash file 7z disimpan di: ${h}${real_path_hash_7z}${r}"
+        	elif [[ $(grep -o 'lzma2 compression found within' "${nama_file_hash_file_7z}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z. File 7z tidak dienkripsi.${r}"
 			tekan_enter
 			main
-        	elif [[ $(cat "${nama_file_hash_file_7z}" | grep -o '7-Zip file nor a supported SFX file') ]]; then
+        	elif [[ $(grep -o '7-Zip file nor a supported SFX file' "${nama_file_hash_file_7z}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file 7z. File 7z tidak valid atau rusak.${r}"
 			tekan_enter
 			main
@@ -498,19 +498,19 @@ function ekstrak_hash_file_7z(){
 function ekstrak_hash_file_pdf(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file PDF...${r}"
         tunggu
-        hash_file_pdf=$(/usr/share/john/run/pdf2john.pl "${file_pdf}" 2>&1)
         nama_file_pdf=$(basename "${file_pdf}")
         nama_file_hash_file_pdf="${lokasi_file_hash}/${nama_file_pdf}.john"
-        echo "${hash_file_pdf}" > "${nama_file_hash_file_pdf}"
+        hash_file_pdf=$(/usr/share/john/run/pdf2john.pl "${file_pdf}" 2>&1 | tee "${nama_file_hash_file_pdf}")
         if [[ -f "${nama_file_hash_file_pdf}" ]]; then
-        	if [[ $(cat "${nama_file_hash_file_pdf}" | grep -o '$pdf') ]]; then
+        	if [[ $(grep -o '$pdf' "${nama_file_hash_file_pdf}") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file PDF.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file PDF disimpan di: ${h}${nama_file_hash_file_pdf}${r}"
-        	elif [[ $(cat "${nama_file_hash_file_pdf}" | grep -o 'not encrypted') ]]; then
+			real_path_hash_pdf=$(nama_file_hash_file_pdf)
+                        echo -e "${p}[${h}+${p}] File hash file PDF disimpan di: ${h}${real_path_hash_pdf}${r}"
+        	elif [[ $(grep -o 'not encrypted' "${nama_file_hash_file_pdf}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF. File PDF tidak dienkripsi.${r}"
 			tekan_enter
 			main
-        	elif [[ $(cat "${nama_file_hash_file_pdf}" | grep -o 'not a PDF file!') ]]; then
+        	elif [[ $(grep -o 'not a PDF file!' "${nama_file_hash_file_pdf}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file PDF. File PDF tidak valid atau rusak.${r}"
 			tekan_enter
 			main
@@ -530,19 +530,19 @@ function ekstrak_hash_file_pdf(){
 function ekstrak_hash_file_office(){
 	echo -e "${p}[${b}*${p}] Mengekstrak hash file Office...${r}"
         tunggu
-        hash_file_office=$(/usr/share/john/run/office2john.py "${file_office}" 2>&1)
         nama_file_office=$(basename "${file_office}")
         nama_file_hash_file_office="${lokasi_file_hash}/${nama_file_office}.john"
-        echo "${hash_file_office}" > "${nama_file_hash_file_office}"
+        hash_file_office=$(/usr/share/john/run/office2john.py "${file_office}" 2>&1 | tee "${nama_file_hash_file_office}")
         if [[ -f "${nama_file_hash_file_office}" ]]; then
-        	if [[ $(cat "${nama_file_hash_file_office}" | grep -o '$office') ]]; then
+        	if [[ $(grep -o '$office' "${nama_file_hash_file_office}") ]]; then
                 	echo -e "${p}[${h}+${p}] Berhasil mengekstrak hash file Office.${r}"
-                        echo -e "${p}[${h}+${p}] File hash file Office disimpan di: ${h}${nama_file_hash_file_office}${r}"
-        	elif [[ $(cat "${nama_file_hash_file_office}" | grep -o 'file is unencrypted') ]]; then
+			real_path_hash_office=$(realpath "${nama_file_hash_file_office}")
+                        echo -e "${p}[${h}+${p}] File hash file Office disimpan di: ${h}${real_path_hash_office}${r}"
+        	elif [[ $(grep -o 'file is unencrypted' "${nama_file_hash_file_office}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office. File Office tidak dienkripsi.${r}"
 			tekan_enter
 			main
-        	elif [[ $(cat "${nama_file_hash_file_office}" | grep -o 'Invalid OLE file') ]]; then
+        	elif [[ $(grep -o 'Invalid OLE file' "${nama_file_hash_file_office}") ]]; then
 			echo -e "${p}[${m}-${p}] Gagal mengekstrak hash file Office. File Office tidak valid atau rusak.${r}"
 			tekan_enter
 			main
@@ -652,17 +652,17 @@ function menentukan_kombinasi_karakter(){
 # Fungsi untuk memulihkan kata sandi file ZIP
 function memulihkan_kata_sandi_file_zip(){
 
-	if [[ $(cat "${nama_file_hash_file_zip}" | grep -o "pkzip") ]]; then
+	if [[ $(grep -o "pkzip" "${nama_file_hash_file_zip}") ]]; then
 		format_file_zip="PKZIP"
-	elif [[ $(cat "${nama_file_hash_file_zip}" | grep -o "zip") ]]; then
+	elif [[ $(grep -o "zip" "${nama_file_hash_file_zip}") ]]; then
 		format_file_zip="ZIP"
 	fi
 
 	pot_file_zip="pot_zip.txt"
 
 	echo ""
-	echo -e "${p}Teknik pemulihan kata sandi:${r}"
-	echo -e "${p}----------------------------${r}"
+	echo -e "${p}Teknik pemulihan kata sandi file ZIP:${r}"
+	echo -e "${p}-------------------------------------${r}"
 	echo -e "${p}[${k}0${p}] Brute Force Attack${r}"
 	echo -e "${p}[${k}1${p}] Dictionary Attack${r}"
 	echo -e "${p}[${k}2${p}] Mask Attack${r}"
@@ -820,8 +820,8 @@ function memulihkan_kata_sandi_file_rar(){
 	pot_file_rar="pot_rar.txt"
 
 	echo ""
-	echo -e "${p}Teknik pemulihan kata sandi:${r}"
-	echo -e "${p}----------------------------${r}"
+	echo -e "${p}Teknik pemulihan kata sandi file RAR:${r}"
+	echo -e "${p}-------------------------------------${r}"
 	echo -e "${p}[${k}0${p}] Brute Force Attack${r}"
 	echo -e "${p}[${k}1${p}] Dictionary Attack${r}"
 	echo -e "${p}[${k}2${p}] Mask Attack${r}"
@@ -979,8 +979,8 @@ function memulihkan_kata_sandi_file_7z(){
 	pot_file_7z="pot_7z.txt"
 
 	echo ""
-	echo -e "${p}Teknik pemulihan kata sandi:${r}"
-	echo -e "${p}----------------------------${r}"
+	echo -e "${p}Teknik pemulihan kata sandi file 7z:${r}"
+	echo -e "${p}------------------------------------${r}"
 	echo -e "${p}[${k}0${p}] Brute Force Attack${r}"
 	echo -e "${p}[${k}1${p}] Dictionary Attack${r}"
 	echo -e "${p}[${k}2${p}] Mask Attack${r}"
@@ -1138,8 +1138,8 @@ function memulihkan_kata_sandi_file_pdf(){
 	pot_file_pdf="pot_pdf.txt"
 
 	echo ""
-	echo -e "${p}Teknik pemulihan kata sandi:${r}"
-	echo -e "${p}----------------------------${r}"
+	echo -e "${p}Teknik pemulihan kata sandi file PDF:${r}"
+	echo -e "${p}-------------------------------------${r}"
 	echo -e "${p}[${k}0${p}] Brute Force Attack${r}"
 	echo -e "${p}[${k}1${p}] Dictionary Attack${r}"
 	echo -e "${p}[${k}2${p}] Mask Attack${r}"
@@ -1297,8 +1297,8 @@ function memulihkan_kata_sandi_file_office(){
 	pot_file_office="pot_office.txt"
 
 	echo ""
-	echo -e "${p}Teknik pemulihan kata sandi:${r}"
-	echo -e "${p}----------------------------${r}"
+	echo -e "${p}Teknik pemulihan kata sandi file Office:${r}"
+	echo -e "${p}----------------------------------------${r}"
 	echo -e "${p}[${k}0${p}] Brute Force Attack${r}"
 	echo -e "${p}[${k}1${p}] Dictionary Attack${r}"
 	echo -e "${p}[${k}2${p}] Mask Attack${r}"
