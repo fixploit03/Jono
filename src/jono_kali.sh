@@ -97,14 +97,14 @@ function mengecek_sistem_operasi(){
 	tunggu
 	sistem_operasi=$(uname -s)
 	if [[ "${sistem_operasi}" != "Linux" ]]; then
-	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
+	        echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
 	        exit 1
 	fi
 
 	# Mengecek ID Linux
 	file_id_linux="/etc/os-release"
 	if [[ ! -f "${file_id_linux}" ]]; then
-	        echo -e "${p}[${m}-${p}] File '${file_id_linux}' tidak ditemukan. Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
+	        echo -e "${p}[${m}-${p}] File '${file_id_linux}' tidak ditemukan. Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
 	        exit 1
 	fi
 	. "${file_id_linux}"
@@ -131,7 +131,7 @@ function mengecek_sistem_operasi(){
         done
 
         if [[ "${distro_ditemukan}" == false ]]; then
-                echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan program Jono.${r}"
+                echo -e "${p}[${m}-${p}] Sistem operasi Anda tidak mendukung untuk menjalankan Jono.${r}"
 	        exit 1
         fi
 
@@ -152,7 +152,7 @@ function mengecek_alat(){
 	# Alat yang belum terinstal
 	daftar_alat_belum_terinstal=()
 
-	echo -e "${p}[${b}*${p}] Mengecek alat-alat yang dibutuhkan oleh program Jono...${r}"
+	echo -e "${p}[${b}*${p}] Mengecek alat-alat yang dibutuhkan oleh Jono...${r}"
 	tunggu
 
 	for alat in "${daftar_alat[@]}"; do
@@ -168,7 +168,7 @@ function mengecek_alat(){
 	done
 
 	if [[ "${#daftar_alat_belum_terinstal[@]}" -ne 0 ]]; then
-        	echo -e "${p}[${m}-${p}] Program Jono tidak dapat dijalankan karena ada beberapa alat yang belum terinstal..${r}"
+        	echo -e "${p}[${m}-${p}] Jono tidak dapat dijalankan karena ada beberapa alat yang belum terinstal..${r}"
 	        echo ""
 	        echo -e "${p}Alat yang belum terinstal:${r}"
         	for alat_belum_terinstal in "${daftar_alat_belum_terinstal[@]}"; do
@@ -180,7 +180,7 @@ function mengecek_alat(){
 
 	fi
 
-	echo -e "${p}[${h}+${p}] Semua alat yang dibutuhkan oleh program Jono sudah terinstal.${r}"
+	echo -e "${p}[${h}+${p}] Semua alat yang dibutuhkan oleh Jono sudah terinstal.${r}"
 	echo ""
 	read -p $'\e[1;37mTekan [\e[1;32mEnter\e[1;37m] untuk melanjutkan...\e[0m'
 }
@@ -263,8 +263,6 @@ function memasukkan_file_zip(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file ZIP: ' file_zip
 		file_zip=$(echo "${file_zip}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file ZIP...${r}"
-                tunggu
                	if [[ -z "${file_zip}" ]]; then
                 	echo -e "${p}[${m}-${p}] File ZIP tidak boleh kosong.${r}"
                         continue
@@ -273,6 +271,8 @@ function memasukkan_file_zip(){
                 	echo -e "${p}[${m}-${p}] File ZIP tidak ditemukan.${r}"
                         continue
                 fi
+                echo -e "${p}[${b}*${p}] Mengecek file ZIP...${r}"
+                tunggu
                 if [[ "${file_zip##*.}" != "zip" ]]; then
                 	echo -e "${p}[${m}-${p}] File bukan file ZIP.${r}"
                         continue
@@ -287,8 +287,6 @@ function memasukkan_file_rar(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file RAR: ' file_rar
 		file_rar=$(echo "${file_rar}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file RAR...${r}"
-                tunggu
                 if [[ -z "${file_rar}" ]]; then
                 	echo -e "${p}[${m}-${p}] File RAR tidak boleh kosong.${r}"
                         continue
@@ -297,6 +295,8 @@ function memasukkan_file_rar(){
                 	echo -e "${p}[${m}-${p}] File RAR tidak ditemukan.${r}"
                         continue
                 fi
+                echo -e "${p}[${b}*${p}] Mengecek file RAR...${r}"
+                tunggu
                 if [[ "${file_rar##*.}" != "rar" ]]; then
                 	echo -e "${p}[${m}-${p}] File bukan file RAR.${r}"
                         continue
@@ -311,8 +311,6 @@ function memasukkan_file_7z(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file 7z: ' file_7z
 		file_7z=$(echo "${file_7z}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file 7z...${r}"
-                tunggu
                 if [[ -z "${file_7z}" ]]; then
                 	echo -e "${p}[${m}-${p}] File 7z tidak boleh kosong.${r}"
                         continue
@@ -321,6 +319,8 @@ function memasukkan_file_7z(){
                 	echo -e "${p}[${m}-${p}] File 7z tidak ditemukan.${r}"
                         continue
                 fi
+                echo -e "${p}[${b}*${p}] Mengecek file 7z...${r}"
+                tunggu
                 if [[ "${file_7z##*.}" != "7z" ]]; then
                 	echo -e "${p}[${m}-${p}] File bukan file 7z.${r}"
                         continue
@@ -336,16 +336,16 @@ function memasukkan_file_pdf(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file PDF: ' file_pdf
 		file_pdf=$(echo "${file_pdf}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file PDF...${r}"
-                tunggu
                 if [[ -z "${file_pdf}" ]]; then
                 	echo -e "${p}[${m}-${p}] File PDF tidak boleh kosong.${r}"
                         continue
                 fi
                 if [[ ! -f "${file_pdf}" ]]; then
                        	echo -e "${p}[${m}-${p}] File PDF tidak ditemukan.${r}"
-                continue
+	                continue
                	fi
+                echo -e "${p}[${b}*${p}] Mengecek file PDF...${r}"
+                tunggu
                 if [[ "${file_pdf##*.}" != "pdf" ]]; then
                 	echo -e "${p}[${m}-${p}] File bukan file PDF.${r}"
                 	continue
@@ -360,8 +360,6 @@ function memasukkan_file_office(){
 	while true; do
         	read -p $'\e[1;37m[\e[1;34m#\e[1;37m] Masukkan nama file Office (.docx, .xlsx, .pptx): ' file_office
 		file_office=$(echo "${file_office}" | sed -e "s/^[ \t]*//" -e "s/[ \t]*$//" -e "s/^['\"]//" -e "s/['\"]$//")
-                echo -e "${p}[${b}*${p}] Mengecek file Office...${r}"
-                tunggu
                 if [[ -z "${file_office}" ]]; then
                 	echo -e "${p}[${m}-${p}] File Office tidak boleh kosong.${r}"
                         continue
@@ -370,6 +368,8 @@ function memasukkan_file_office(){
                 	echo -e "${p}[${m}-${p}] File Office tidak ditemukan.${r}"
                         continue
                 fi
+                echo -e "${p}[${b}*${p}] Mengecek file Office...${r}"
+                tunggu
 	        if [[ "${file_office##*.}" != "docx" && "${file_office##*.}" != "xlsx" && "${file_office##*.}" != "pptx" ]]; then
         		echo -e "${m}[-] ${p}File bukan file Office.${r}"
                 	continue
@@ -1528,7 +1528,7 @@ function main(){
 			banner_tentang_program_jono
 			tentang_program
 		else
-			echo -e "${p}[${m}-${p}] Menu '${pilih_menu}' tidak tersedia. Silahkan pilih kembali.${r}"
+			echo -e "${p}[${m}-${p}] Menu tidak tersedia..${r}"
 			continue
 		fi
 	done
